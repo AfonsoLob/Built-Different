@@ -78,13 +78,23 @@
 
     <!-- Custom Content -->
     <div class="container d-flex justify-content-center gap-5" >
-        <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Treinos</button>
-        <button type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Treinadores</button>
+        <button type="button" class="btn btn-outline-primary mt-auto" data-mdb-ripple-color="dark">Treinos</button>
+        <button type="button" class="btn btn-outline-secondary mt-auto" data-mdb-ripple-color="dark">Treinadores</button>
     </div>
+    <!-- Middle Containers -->
     <div class="container d-flex flex-column justify-content-center gap-5">
-        <div class="container text-start container-plano">Plano de Peito</div>
-        <div class="container text-start container-plano">Plano de Costas</div>
-        <div class="container text-start container-plano">Plano de Pernas</div>
+        <div class="container text-start bg-info d-flex justify-content-between align-content-center">
+            <span>Plano de Peito</span>
+            <button class="btn btn-dark m-3" id="plano-peito">Show Plan</button>
+        </div>
+        <div class="container text-start bg-info d-flex justify-content-between align-content-center">
+            <span>Plano de Costas</span>
+            <button class="btn btn-dark m-3" id="plano-costas">Show Plan</button>
+        </div>
+        <div class="container text-start bg-info d-flex justify-content-between align-content-center">
+            <span>Plano de Pernas</span>
+            <button class="btn btn-dark m-3" id="plano-pernas">Show Plan</button>
+        </div>
     </div>
 
      <!-- MDB -->
