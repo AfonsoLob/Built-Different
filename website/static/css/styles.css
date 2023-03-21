@@ -22,3 +22,8 @@
     .form-outline.form-white .form-control{
         border: 1px solid white;
     }
+
+/* Planos de Treino */
+.container-plano{
+    background: darkblue !important;
+}
