@@ -23,7 +23,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!-- Container wrapper -->
         <div class="container-fluid">
         <!-- Navbar brand -->
@@ -31,7 +31,7 @@
             <img
             src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
             height="16"
-            alt="BltDif Logo"
+            alt="MDB Logo"
             loading="lazy"
             style="margin-top: -1px;"
             />
@@ -61,22 +61,38 @@
             <!-- Left links -->
     
             <div class="d-flex align-items-center">
-            <button type="button" class="btn btn-link px-3 me-2" id="login">
+            <a class="btn btn-link px me-2" href="/login">
                 Login
-            </button>
-            <button type="button" class="btn btn-primary me-3">
+            </a>
+            <a class="btn btn-primary me-3" href="/sign-up">
                 Sign up
-            </button>
+            </a>
             </div>
         </div>
         <!-- Collapsible wrapper -->
         </div>
         <!-- Container wrapper -->
     </nav>
-    <!-- Navbar -->
+  <!-- Navbar -->
 
 
+    <!-- Custom Content -->
+    <div class="container d-flex justify-content-center gap-5" >
+        <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Treinos</button>
+        <button type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Treinadores</button>
+    </div>
+    <div class="container d-flex flex-column justify-content-center gap-5">
+        <div class="container text-center">Peito</div>
+        <div class="container text-center">Costas</div>
+        <div class="container text-center">Pernas</div>
+    </div>
+
+     <!-- MDB -->
+     <script
+     type="text/javascript"
+     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
+     ></script>
     <!-- Custom JS -->
-    <script src="../static/javascript/main.js"></script>
+    <script src="{{ url_for('static', filename='javascript/main.js')}}"></script>
 </body>
 </html>

@@ -9,7 +9,16 @@
     background: linear-gradient(to right, rgba(106, 17, 203, 1) 40%, rgba(37, 117, 252, 1) 90%)
 }
 
-/* Manter Email/Password por cima */
-.form-outline .form-control.form-control-lg.active~.form-label,.form-outline .form-control.form-control-lg:not(:placeholder-shown)~.form-label {
-    transform: translateY(-1.25rem) translateY(.1rem) scale(.8)
-}
+
+/* Login / Register */
+    /* Translação de 'Email' e 'Password' */
+    .form-outline .form-control.form-control-lg.active~.form-label,.form-outline .form-control.form-control-lg:focus~.form-label {
+        transform: translateY(-2.0rem) translateY(.1rem) scale(.8);
+    }
+    .form-outline .form-control.form-control-lg.active~.form-label,.form-outline .form-control.form-control-lg:not(:placeholder-shown)~.form-label {
+        transform: translateY(-2.0rem) translateY(.1rem) scale(.8)
+    }
+
+    .form-outline.form-white .form-control{
+        border: 1px solid white;
+    }
