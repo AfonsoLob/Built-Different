@@ -25,11 +25,11 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-gradient">
+    <nav class="navbar navbar-expand-lg navbar-color">
         <!-- Container wrapper -->
         <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand me-2" href="https://mdbgo.com/">
+        <a class="navbar-brand me-2" href="#">
             <img
             src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
             height="16"
@@ -49,7 +49,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
         >
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars" style="color: white;"></i>
         </button>
     
         <!-- Collapsible wrapper -->
@@ -57,16 +57,16 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="#">Dashboard</a>
+                <a class="nav-link nav-text" href="#">Dashboard</a>
             </li>
             </ul>
             <!-- Left links -->
     
             <div class="d-flex align-items-center">
-            <a class="btn btn-link px me-2" href="/login">
+            <a class="btn btn-link px me-2 nav-text" href="/login">
                 Login
             </a>
-            <a class="btn btn-primary me-3" href="/sign-up">
+            <a class="btn btn-sign-up me-3" href="/sign-up">
                 Sign up
             </a>
             </div>
@@ -81,22 +81,22 @@
     <!-- Custom Content -->
     <div class="container d-flex flex-column flex-grow-0 flex-shrink-0 main-container">
     <div class="container d-flex justify-content-center gap-5" >
-        <button type="button" class="btn btn-outline-primary mt-auto" data-mdb-ripple-color="dark">Treinos</button>
-        <button type="button" class="btn btn-outline-secondary mt-auto" data-mdb-ripple-color="dark">Treinadores</button>
+        <button type="button" class="btn btn-outline-primary mt-auto buttons" data-mdb-ripple-color="dark">Treinos</button>
+        <button type="button" class="btn btn-outline-secondary mt-auto buttons" data-mdb-ripple-color="dark">Treinadores</button>
     </div>
     <!-- Middle Containers -->
     <div class="container d-flex flex-column justify-content-center gap-5 container-planos">
         <div class="container text-start bg-info d-flex justify-content-between align-content-center container-plano">
             <span>Plano de Peito</span>
-            <button class="btn btn-dark m-3" id="plano-peito">Show Plan</button>
+            <button class="btn btn-dark m-3 buttons button-plan" id="plano-peito">Show Plan</button>
         </div>
         <div class="container text-start bg-info d-flex justify-content-between align-content-center container-plano">
             <span>Plano de Costas</span>
-            <button class="btn btn-dark m-3" id="plano-costas">Show Plan</button>
+            <button class="btn btn-dark m-3 buttons button-plan" id="plano-costas">Show Plan</button>
         </div>
         <div class="container text-start bg-info d-flex justify-content-between align-content-center container-plano">
             <span>Plano de Pernas</span>
-            <button class="btn btn-dark m-3" id="plano-pernas">Show Plan</button>
+            <button class="btn btn-dark m-3 buttons button-plan" id="plano-pernas">Show Plan</button>
         </div>
     </div>
 </div>

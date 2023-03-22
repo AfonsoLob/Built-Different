@@ -4,15 +4,24 @@
 /* #0e4468 */
 /* #0a3246 */
 /* #4ca4d5 */
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: #353531;
+}
 .gradient-custom {
     /* fallback for old browsers */
     background: #6a11cb;
 
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1) 40%, rgba(37, 117, 252, 1)) 90%;
+    background: -webkit-linear-gradient(to right, #f2545b , hsl(377, 84%, 64%) 70%);
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1) 40%, rgba(37, 117, 252, 1) 90%)
+    background: linear-gradient(to right, #f2545b, hsl(377, 84%, 64%) 70%);
 }
 
 
@@ -30,8 +39,11 @@
     }
 
 /* Navbar */
-.navbar-gradient{
-    background: linear-gradient(to right, #3fb7ce, #003b39);
+.navbar-color{
+    background: hsl(60, 4%, 15%);
+}
+.nav-text{
+    color: #f2545b;
 }
 /* main container */
 .main-container{
@@ -43,6 +55,29 @@
     border: 1px solid black;
 }
 .container-plano{
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 8px;
+    background-color: hsl(60, 4%, 28%) !important;
+    color: white;
+}
+
+/* Buttons */
+.buttons{
+    background-color: #E0CBA8;
+    color: #353531;
+    border: 3px solid #353531;
+}
+.button-plan{
+    border-radius: 20px;
+}
+.btn-sign-up{
+    background: #779fa1;
+    color: hsl(60, 4%, 15%);
+}
+.btn-sign-up:hover{
+    background: hsl(183, 18%, 35%);
+    color: hsl(60, 4%, 75%);
+}
+.btn-sign-up:first-child:hover, .btn-sign-up:focus-visible, .btn-sign-up:hover, :not(.btn-check)+.btn-sign-up:hover {
+    box-shadow: 0 8px 9px -4px hsla(167, 57%, 51%, 0.068),0 4px 18px 0 hsla(167, 57%, 51%, 0.068);
 }
