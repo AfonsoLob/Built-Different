@@ -1,3 +1,9 @@
+/* Colors: */
+/* #003b39 */
+/* #3fb7ce */
+/* #0e4468 */
+/* #0a3246 */
+/* #4ca4d5 */
 .gradient-custom {
     /* fallback for old browsers */
     background: #6a11cb;
@@ -23,7 +29,20 @@
         border: 1px solid white;
     }
 
-/* Planos de Treino */
+/* Navbar */
+.navbar-gradient{
+    background: linear-gradient(to right, #3fb7ce, #003b39);
+}
+/* main container */
+.main-container{
+    gap: 50px;
+    margin-top: 30px;
+}
+/* Containers de Planos de Treino */
+.container-planos{
+    border: 1px solid black;
+}
 .container-plano{
-    background: darkblue !important;
+    border: 1px solid black;
+    border-radius: 8px;
 }
