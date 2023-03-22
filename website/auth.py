@@ -13,4 +13,4 @@ def logout():
 
 @auth.route('/sign-up')
 def sign_up():
-    return "<p>Sign Up</p>"
+    return render_template('sign_up.html')
