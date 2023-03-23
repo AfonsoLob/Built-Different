@@ -94,14 +94,16 @@ body{
     border: 2px solid transparent;
 }
 .btn-custom-primary:hover{
-    background-color: #E0CBA8;
-    color: #f2545b;
-    border: 2px solid black;
+    background-color: #850a10;
+    color: #FEF8EC;
+    border: 2px solid #f2545b;
 }
 .btn-custom-secondary{
     transform: scale(0.9);
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1px solid black;
+    background-color: #fbc6c9;
+    color: #151514;
 }
 .btn-custom-secondary:hover{
     background-color: transparent;
