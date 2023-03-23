@@ -108,3 +108,22 @@ body{
     color: white;
     border: 1px solid white;
 }
+
+/*  */
+
+.go-back, .go-back:hover {
+    font-size: 2rem;
+    width: min-content;
+    border-radius: 20px;
+    padding: 0px 3px 0px 3px;
+    border: 5px solid transparent;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    color: white;
+}
+.go-back:hover{
+    background-color: white;
+    color: black;
+}
