@@ -15,7 +15,7 @@ body{
 }
 .gradient-custom {
     /* fallback for old browsers */
-    background: #6a11cb;
+    background: #353531;
 
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #f2545b , hsl(377, 84%, 64%) 70%);
@@ -39,8 +39,11 @@ body{
     }
 
 /* Navbar */
+.nav-link:hover {
+    color: #f2545b;
+}
 .navbar-color{
-    background: hsl(60, 4%, 15%);
+    background: #151514;
 }
 .nav-text{
     color: #f2545b;
@@ -58,26 +61,50 @@ body{
     border: 2px solid black;
     border-radius: 8px;
     background-color: hsl(60, 4%, 28%) !important;
-    color: white;
+    color: #FEF8EC;
 }
 
 /* Buttons */
 .buttons{
-    background-color: #E0CBA8;
-    color: #353531;
+    background-color: #f2545b;
+    color: #151514;
     border: 3px solid #353531;
+}
+.btn-link:hover{
+    color: white;
+    border: 1px solid #f2545b;
+    background-color: transparent;
 }
 .button-plan{
     border-radius: 20px;
 }
 .btn-sign-up{
-    background: #779fa1;
-    color: hsl(60, 4%, 15%);
+    background: linear-gradient(to right, #f2545b, hsl(377, 84%, 64%) 70%);
+    color: #151514;
 }
 .btn-sign-up:hover{
-    background: hsl(183, 18%, 35%);
-    color: hsl(60, 4%, 75%);
+    color: #FEF8EC;
 }
 .btn-sign-up:first-child:hover, .btn-sign-up:focus-visible, .btn-sign-up:hover, :not(.btn-check)+.btn-sign-up:hover {
     box-shadow: 0 8px 9px -4px hsla(167, 57%, 51%, 0.068),0 4px 18px 0 hsla(167, 57%, 51%, 0.068);
+}
+.btn-custom-primary{
+    transform: scale(0.9);
+    border-radius: 8px;
+    border: 2px solid transparent;
+}
+.btn-custom-primary:hover{
+    background-color: #E0CBA8;
+    color: #f2545b;
+    border: 2px solid black;
+}
+.btn-custom-secondary{
+    transform: scale(0.9);
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+.btn-custom-secondary:hover{
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
 }
