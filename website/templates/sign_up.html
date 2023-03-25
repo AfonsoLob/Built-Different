@@ -43,16 +43,19 @@
                     <div class="form-outline form-white mb-4">
                       <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="example@hotmail.com"/>
                       <label class="form-label" for="email">Email</label>
+                      <span id="email-error"></span>
                     </div>
       
                     <div class="form-outline form-white mb-4">
                       <input type="password" id="password1" name="password1" class="form-control form-control-lg" placeholder=" "/>
                       <label class="form-label" for="password1">Password</label>
+                      <span id="password1-error"></span>
                     </div>
 
                     <div class="form-outline form-white mb-4">
                         <input type="password" id="password2" name="password2" class="form-control form-control-lg" placeholder=" "/>
                         <label class="form-label" for="password2">Repeat your password</label>
+                        <span id="password2-error"></span>
                       </div>
                     <button class="btn btn-outline-light btn-lg px-5" type="submit" id="sign-up">Sign Up</button>
                   </div>
@@ -65,5 +68,6 @@
           </div>
         </div>
       </section>
+      <script src="{{url_for('static', filename='javascript/main.js')}}"></script>
 </body>
 </html>

@@ -129,3 +129,13 @@ body{
     background-color: white;
     color: black;
 }
+
+/* Error Spans */
+#email{
+
+}
+#email-error, #password1-error, #password2-error{
+    display: block;
+    text-align: left;
+    color: hsl(12, 75%, 65%);
+}
