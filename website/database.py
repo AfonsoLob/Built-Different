@@ -1,5 +1,6 @@
 import sqlite3
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 DB_STRING = "database.db"
 
@@ -44,12 +45,22 @@ def verify_user(user_email):
         for email in list_of_emails:
             email = email[0]
             if (email == user_email): 
-                return False
-        return True
+                return True
+        return False
+    
+def get_user_password(email):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT password from users
+        WHERE email = '{email}'
+        """)
+        user_password = cur.fetchall()[0]        
+        return user_password[0]
     
 def add_user(email, password, username):
     with sqlite3.connect(db_path) as con:
         con.execute(f"""
         INSERT INTO users (email, password, username)
-        VALUES ('{email}','{password}','{username}');
+        VALUES ('{email}','{generate_password_hash(password)}','{username}');
         """)

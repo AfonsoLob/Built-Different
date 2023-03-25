@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from .database import verify_user, add_user
+from .database import verify_user, add_user, get_user_password
 from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
@@ -16,7 +16,16 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        return redirect(url_for('views.home'))
+        value = verify_user(email)
+        if (value == True):
+            # Verify if password is correct
+            if check_password_hash(get_user_password(email), password):
+                return redirect(url_for('views.home'))
+            else:
+                return '<h1>Incorrect Password</h1>'
+            
+        else:
+            return '<h1>Email does not exist</h1>'
         
     else:
         return render_template('login.html')
@@ -32,16 +41,17 @@ def sign_up():
         username = request.form['username']
 
         if(len(email) < 4):
-            pass
+            return '<h1>Email not valid. Need more than 3 characters</h1>'
         elif(password != password_confirm):
-            pass
+            return '<h1>Password does not match</h1>'
         elif(len(password) < 8):
-            pass
+            return '<h1>Password needs to have more than 7 characters</h1>'
         else:
             # add user to database (if email not in use)
             new_user = User(username, email, generate_password_hash(password, method="sha256"))
+            # utilizar generate hash na database ao inves de aqui
             value = verify_user(email)
-            if(value == True): # User is available
+            if(value == False): # User can be created
                 add_user(email, password, username)
                 return redirect(url_for('views.home'))
             else:
