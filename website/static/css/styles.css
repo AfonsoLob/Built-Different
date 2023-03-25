@@ -91,7 +91,7 @@ body{
 .btn-custom-primary{
     transform: scale(0.9);
     border-radius: 8px;
-    border: 2px solid transparent;
+    border: 2px solid #FEF8EC;
 }
 .btn-custom-primary:hover{
     background-color: #850a10;

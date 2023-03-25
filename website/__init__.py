@@ -6,7 +6,9 @@ def create_app():
     # Import blueprints
     from .views import views
     from .auth  import auth
+    from .database import setup_database
     # Register blueprints
+    setup_database() # Create tables such as user table
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth,  url_prefix='/')
 
