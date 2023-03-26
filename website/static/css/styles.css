@@ -131,9 +131,9 @@ body{
 }
 
 /* Error Spans */
-#email{
+/* #email{
 
-}
+} */
 #email-error, #password1-error, #password2-error{
     display: block;
     text-align: left;

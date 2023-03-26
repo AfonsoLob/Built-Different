@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from .database import verify_user, add_user, get_user_password
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import re # used to validate email
+regex = '^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$'  
 auth = Blueprint('auth', __name__)
 
 class User():
@@ -39,22 +40,25 @@ def sign_up():
         password = request.form['password1']
         password_confirm = request.form['password2']
         username = request.form['username']
-
-        if(len(email) < 4):
-            return '<h1>Email not valid. Need more than 3 characters</h1>'
-        elif(password != password_confirm):
-            return '<h1>Password does not match</h1>'
+        errors = {}
+        error_regist = 0
+        if(re.search(regex, email) == None):
+            errors["email"] = 1
+            error_regist = 1
         elif(len(password) < 8):
-            return '<h1>Password needs to have more than 7 characters</h1>'
-        else:
-            # add user to database (if email not in use)
-            new_user = User(username, email, generate_password_hash(password, method="sha256"))
-            # utilizar generate hash na database ao inves de aqui
+            errors["plength"] = 1
+            error_regist = 1
+        elif(password != password_confirm):
+            errors["pconfirm"] = 1
+            error_regist = 1
+        if(error_regist == 0):
             value = verify_user(email)
             if(value == False): # User can be created
                 add_user(email, password, username)
                 return redirect(url_for('views.home'))
             else:
                 return "<h1>Email already in use<h1>"
+        return render_template('sign_up.html', errors=errors, email=email, username=username)
         
-    return render_template('sign_up.html')
+    else:
+        return render_template('sign_up.html')
