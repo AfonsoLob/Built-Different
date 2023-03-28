@@ -25,81 +25,56 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-color">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand me-2" href="#">
-            <img
-            src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-            height="16"
-            alt="Logo"
-            loading="lazy"
-            style="margin-top: -1px;"
-            />
-        </a>
-    
-        <!-- Toggle button -->
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-mdb-toggle="collapse"
-            data-mdb-target="#navbarButtonsExample"
-            aria-controls="navbarButtonsExample"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <i class="fas fa-bars" style="color: white;"></i>
-        </button>
-    
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarButtonsExample">
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link nav-text" href="#">Dashboard</a>
-            </li>
-            </ul>
-            <!-- Left links -->
-    
-            <div class="d-flex align-items-center">
-            <a class="btn btn-link px me-2 nav-text" href="/login">
-                Login
-            </a>
-            <a class="btn btn-sign-up me-3" href="/sign-up">
-                Sign up
-            </a>
-            </div>
+    <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <img src="logo.png" alt="Logo">
+          </a>
         </div>
-        <!-- Collapsible wrapper -->
+        <div class="navbar-end">
+        <a class="navbar-item" href="#">Services</a>
+        <a class="navbar-item" href="#">Pricing</a>
+        <a class="navbar-item" href="#">Logout</a>
+        <div class="navbar-item">
+            <a id="sign-up" href="#">
+                <strong>Subscribe</strong>
+            </a>
         </div>
-        <!-- Container wrapper -->
+        </div>
     </nav>
   <!-- Navbar -->
 
 
     <!-- Custom Content -->
-    <div class="container d-flex flex-column flex-grow-0 flex-shrink-0 main-container">
-    <div class="container d-flex justify-content-center gap-5" >
-        <button type="button" class="btn btn-custom-primary mt-auto buttons" data-mdb-ripple-color="dark">Treinos</button>
-        <button type="button" class="btn btn-custom-secondary mt-auto buttons" data-mdb-ripple-color="dark">Treinadores</button>
-    </div>
-    <!-- Middle Containers -->
-    <div class="container d-flex flex-column justify-content-center gap-5 container-planos">
-        <div class="container text-start bg-info d-flex justify-content-between align-content-center container-plano">
-            <span>Plano de Peito</span>
-            <button class="btn btn-dark m-3 buttons button-plan" id="plano-peito">Show Plan</button>
+    <div class="body-container">
+        <div class="button-group">
+          <button class="button is-selected" id="btn-trainings" data-target="training-plans">Training Plans</button>
+          <button class="button" id="btn-personal-trainers" data-target="personal-trainers">Personal Trainers</button>
         </div>
-        <div class="container text-start bg-info d-flex justify-content-between align-content-center container-plano">
-            <span>Plano de Costas</span>
-            <button class="btn btn-dark m-3 buttons button-plan" id="plano-costas">Show Plan</button>
+        
+        <div class="content-container">
+          <div id="training-plans" class="content is-selected">
+            <h2>Training Plans</h2>
+            <ul>
+              <li>Beginner Plan</li>
+              <li>Intermediate Plan</li>
+              <li>Advanced Plan</li>
+            </ul>
+          </div>
+          
+          <div id="personal-trainers" class="content">
+            <h2>Personal Trainers</h2>
+            <ul>
+              <li>Quim Barreiros</li>
+              <li>Nuno Comilão</li>
+              <li>Vasco Nadador</li>
+              <li>Laura Pilates</li>
+              <li>Helena Nugetos</li>
+            </ul>
+          </div>
         </div>
-        <div class="container text-start bg-info d-flex justify-content-between align-content-center container-plano">
-            <span>Plano de Pernas</span>
-            <button class="btn btn-dark m-3 buttons button-plan" id="plano-pernas">Show Plan</button>
-        </div>
-    </div>
-</div>
+      </div>
+      
 
      <!-- MDB -->
      <script

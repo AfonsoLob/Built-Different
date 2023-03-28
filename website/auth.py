@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, session
 from .database import verify_user, add_user, get_user_password
 from werkzeug.security import generate_password_hash, check_password_hash
 import re # used to validate email
@@ -21,6 +21,8 @@ def login():
         if (value == True):
             # Verify if password is correct
             if check_password_hash(get_user_password(email), password):
+                session.permanent = True
+                session['username'] = email # make a function to get username
                 return redirect(url_for('views.home'))
             else:
                 return '<h1>Incorrect Password</h1>'
@@ -55,7 +57,7 @@ def sign_up():
             value = verify_user(email)
             if(value == False): # User can be created
                 add_user(email, password, username)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('auth.login'))
             else:
                 return "<h1>Email already in use<h1>"
         return render_template('sign_up.html', errors=errors, email=email, username=username)

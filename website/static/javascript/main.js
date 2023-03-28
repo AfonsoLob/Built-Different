@@ -1,52 +1,26 @@
-let signUp = document.getElementById('sign-up')
+// select the buttons and lists
+const trainingPlanButton = document.getElementById('btn-trainings');
+const personalTrainerButton = document.getElementById('btn-personal-trainers');
+const trainingPlanList = document.getElementById('training-plans');
+const personalTrainerList = document.getElementById('personal-trainers');
 
-$('#email').on("focusout", function(){
-    let emailError = document.getElementById('email-error')
-    let email = document.getElementById('email')
-    if(!email.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
-        emailError.innerHTML = "Please enter a valid email.";
-        email.style.borderColor = "red"
+// add event listeners to the buttons
+trainingPlanButton.addEventListener('click', () => {
+    // Toggle is selected
+    if(!trainingPlanButton.classList.contains('is-selected')){
+        trainingPlanButton.classList.toggle('is-selected');
+        trainingPlanList.classList.toggle('is-selected');
+        personalTrainerButton.classList.toggle('is-selected');
+        personalTrainerList.classList.toggle('is-selected');
     }
+});
 
-    else{
-        email.style.borderColor = "green"
-        emailError.innerHTML = ""
+personalTrainerButton.addEventListener('click', () => {
+    // Toggle is selected
+    if(!personalTrainerButton.classList.contains('is-selected')){
+        trainingPlanButton.classList.toggle('is-selected');
+        trainingPlanList.classList.toggle('is-selected');
+        personalTrainerButton.classList.toggle('is-selected');
+        personalTrainerList.classList.toggle('is-selected');
     }
-})
-
-$('#password1').on('keyup', function(){
-    let passwordError = document.getElementById('password1-error')
-    let password = document.getElementById('password1') 
-    let confPass = document.getElementById('password2')
-    if((password.value.length < 8 && password.value.length > 0)){
-        passwordError.innerHTML = "Password must be over 7 characters.";
-        password.style.borderColor = "red";
-        confPass.style.borderColor = "red";
-    }
-    else{
-        passwordError.innerHTML = "";
-    }
-    if(password.value != confPass.value){
-        password.style.borderColor = "red";
-        confPass.style.borderColor = "red";
-    }
-
-    if(password.value.length == 0){
-
-    }
-})
-$('#password2').on('keyup', function(){
-    let password = document.getElementById('password1') 
-    let confPass = document.getElementById('password2')
-    let confPassErr = document.getElementById('password2-error')
-    if(password.value == confPass.value && password.value.length > 7){
-        password.style.borderColor = "green";
-        confPass.style.borderColor = "green";
-        confPassErr.innerHTML = "";
-    }
-    else{
-        password.style.borderColor = "red";
-        confPass.style.borderColor = "red";
-        confPassErr.innerHTML = "";
-    }
-})
+});

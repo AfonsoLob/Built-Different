@@ -1,0 +1,39 @@
+Built-Different
+
+
+Calculadora:
+    - BMI
+    - Macros (Proteina/Gorduras/Hidratos) 
+        - Ganhar Peso 
+        - Manter Peso 
+        - Perder Peso 
+
+Personal Trainers:
+    - Chat
+    - Rating
+
+Planos de Treino:
+    - Cubo de visualização 
+
+Base de dados:
+    - users table
+        - id
+        - username
+        - password 
+        - email
+    - trainers table
+        - name
+        - votes_quantity
+        - current_rating
+        (Fórmula de novo rating:)
+            ( (votes_quantity * current_rating) + voted_rating ) / (votes_quantity+1)
+
+Perfil:
+    - Guardados
+        - Criar pastas
+            - Planos de Treino 
+
+
+footer:
+    about
+    contact
