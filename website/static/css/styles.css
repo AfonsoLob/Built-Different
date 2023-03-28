@@ -177,13 +177,16 @@ body{
     border: 1px solid #FFA500;
     border-radius: 10px;
     padding: 5px;
-    color: #F2F2F2;
+    color: #0A192F;
   }
   
   #sign-up:hover,
   #sign-up:focus {
     background-color: #B22222;
     border-color: #B22222;
+  }
+  #sign-up:hover:only-child{
+    color: #F2F2F2;
   }
   
   .navbar-end {
