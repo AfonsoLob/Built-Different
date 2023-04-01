@@ -126,14 +126,88 @@ body{
   }
 }
 
-/* main container */
+/*
+Main and Containers
+*/
 
 .body-container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.content {
+  display: none;
+  text-align: center;
+}
+
+.content.is-selected {
+  display: block;
+}
+.content.is-selected ul{
+  animation: selected-pop 1s forwards;
+}
+
+ul {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #2D3B55;
+  text-align: center;
+}
+
+/*
+Training Plan
+*/
+
+.is-selected#training-plans, .is-selected#personal-trainers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.plan-container, .personalTrainer-container{
+  display: grid;
+  padding: 0;
+  margin-top: 50px;
+  background-image: linear-gradient(transparent,#FFA500 5%, #FFA500 95%, transparent);
+  text-align: left;
+  color: #0A192F;
+  border-radius: 5px;
+
+
+  width: 100%;
+  height: 200px;
+}
+.plan-container h2{
+  width: fit-content;
+}
+.plan-container p{
+  justify-self: center;
+  align-self: center;
+  width: 500px;
+  height: 100%;
+}
+
+/*
+Buttons
+*/
 .button-group {
   display: flex;
   justify-content: center;
@@ -151,40 +225,6 @@ body{
   background-color: #00A86B;
   border-color: #0A192F;
 }
-
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.content {
-  display: none;
-  text-align: center;
-}
-
-.content.is-selected {
-  display: block;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  color: #2D3B55;
-}
-
-
-/* Buttons */
-
-
-/*  */
-
 .go-back, .go-back:hover {
     font-size: 2rem;
     width: min-content;
@@ -202,15 +242,20 @@ ul li {
     color: black;
 }
 
-/* Error Spans */
-/* #email{
+/*
+Error Spans
+*/
 
-} */
 #email-error, #password1-error, #password2-error{
     display: block;
     text-align: left;
     color: hsl(12, 75%, 65%);
 }
+
+/*
+Login and Register
+*/
+
 .login-main-container {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -258,17 +303,19 @@ ul li {
   border: 3px solid transparent;
 }
 
+/* 
+@media -> Adjust Sizes to fit screen
+*/
+
 @media screen and (min-height: 700px) {
   section div.login-main-container {
     height: 100vh !important;
   }  
 } 
-
 @media (min-width: 576px) {  
   .login-main-container {
     max-width: 540px;
   }
-  
 }
 @media (min-width: 768px) {  
   .login-main-container {
@@ -290,3 +337,24 @@ ul li {
     max-width: 1320px;
   }
 }
+@media (max-width: 700px){
+  .body-container p{
+    max-width: 400px;
+  }
+}
+
+/*
+@keyframes animations
+*/
+
+@keyframes selected-pop {
+  0%{
+    height: 0%;
+    width: 0%;
+  }
+  100%{
+    height: 100%;
+    width: 100%;
+  }
+}
+
