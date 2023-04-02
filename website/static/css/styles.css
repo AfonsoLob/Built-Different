@@ -59,17 +59,19 @@ body{
   background-color: #0A192F;
   display: flex;
   align-items: center;
-  /* padding: 1rem; */
 }
 
-.navbar-brand {
+.navbar-start {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
-
+.navbar-start #logo{
+  font-size: 22px;
+}
 .navbar-item {
   color: #F2F2F2;
-  /* padding: 1rem; */
+  padding: 5px;
   transition: color 0.2s ease-in-out;
 }
 

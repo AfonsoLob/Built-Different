@@ -19,10 +19,33 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
     rel="stylesheet"
     />
+    {% block head %}{% endblock %}
     <title>{% block title %}Built Different{% endblock %}</title>
 </head>
 <body>
-    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-start">
+          <a class="navbar-item" id="logo" href="#">
+            <img src="logo.png" alt="Logo">
+          </a>
+          <a class="navbar-item" id="profile" href="#">My Profile</a>
+        </div>
+        <div class="navbar-end">
+        <a class="navbar-item" href="#">Services</a>
+        <a class="navbar-item" href="#">Pricing</a>
+        <a class="navbar-item" href="#">Logout</a>
+        <div class="navbar-item">
+            <a id="subscribe" href="#">
+                <strong>Subscribe</strong>
+            </a>
+        </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+    {% block body %}{% endblock %}
+
     <!-- MDB -->
     <script
     type="text/javascript"
