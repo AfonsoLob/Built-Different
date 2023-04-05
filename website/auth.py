@@ -44,6 +44,9 @@ def sign_up():
         username = request.form['username']
         errors = {}
         error_regist = 0
+        if(len(username) < 3):
+            errors["username"] = username
+            error_regist = 1
         if(re.search(regex, email) == None):
             errors["email"] = 1
             error_regist = 1
@@ -58,8 +61,8 @@ def sign_up():
             if(value == False): # User can be created
                 add_user(email, password, username)
                 return redirect(url_for('auth.login'))
-            else:
-                return "<h1>Email already in use<h1>"
+            else:               # email is already in use
+                return render_template('sign_up.html', email_in_use = True)
         return render_template('sign_up.html', errors=errors, email=email, username=username)
         
     else:

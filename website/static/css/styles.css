@@ -81,8 +81,8 @@ body{
   color: #00A86B;
 }
 #subscribe{
-  background-color: #FFA500;
-  border: 1px solid #FFA500;
+  background-color: #00A86B;
+  border: 1px solid #00A86B;
   border-radius: 10px;
   padding: 5px;
   color: #0A192F;
@@ -90,11 +90,9 @@ body{
 
 #subscribe:hover,
 #subscribe:focus {
-  background-color: #B22222;
-  border-color: #B22222;
-}
-#subscribe:hover:only-child{
-  color: #F2F2F2;
+  background-color: hsl(158, 100%, 38%);
+  border-color: hsl(158, 100%, 38%);
+  color: #0A192F;
 }
 
 .navbar-end {
@@ -248,7 +246,7 @@ Buttons
 Error Spans
 */
 
-#email-error, #password1-error, #password2-error{
+#username-error, #email-error, #password1-error, #password2-error{
     display: block;
     text-align: left;
     color: hsl(12, 75%, 65%);
