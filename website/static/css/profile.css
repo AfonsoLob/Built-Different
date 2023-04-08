@@ -1,6 +1,57 @@
 .profile-box{
-    display: grid;
-    border: 1px solid aqua;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #FFA500;
     width: 100%;
-    height: 100vh
+    height: 96.7vh;
+}
+.top-division{
+    display: flex;
+}
+.profile-btns{
+    display: flex;
+    gap: 0px;
+    margin-left: 30px;
+    align-self: flex-start;
+    justify-self: flex-end;
+}
+.profile-btns .button{
+    background-color: #F2F2F2;
+    border: 2px solid #FFA500;
+    border-bottom: 0px solid transparent;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 15px;
+    margin: 0px -1px 0px 0px; 
+}
+.button.is-active{
+    background-color: #333333;
+    color: #F2F2F2;
+    transform:scale(1.2) translateY(-1px) translateX(-3px)
+}
+
+
+/* Box */
+.profile-stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.stats-box{
+    width: 70%;
+    align-self: center;
+}
+.inner-stats{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.statistic{
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+}
+.statistic a{
+    text-decoration: underline;
 }

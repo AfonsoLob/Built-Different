@@ -6,7 +6,28 @@
 {% endblock %}
 {% block body %}
     <h1>{{username}} profile</h1>
+    <div class="top-division">
+        <div class="profile-btns">
+            <button class="button is-active">Stats</button>
+            <button class="button">Saved Plans</button>
+        </div>
+    </div>
     <div class="profile-box">
-
+        <div class="profile-stats is-active">
+            <h1>Statistics</h1>
+            <div class="stats-box">
+                <div class="inner-stats">
+                    <div class="statistic"><span><strong>Objective</strong>: Gain mass</span></div>
+                    <div class="statistic">
+                        <span><strong>Macros</strong>: 34/28/26 (P/F/H)</span>
+                        <a href="#">Calc Macros</a>
+                    </div>
+                    <div class="statistic">
+                        <span><strong>BMI</strong>: 27.5 (Healthy)</span>
+                        <a href="#">Calc BMI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
