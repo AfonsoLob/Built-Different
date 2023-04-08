@@ -11,4 +11,9 @@ def home():
     else:
         return redirect( url_for('auth.login') )
 
- 
+@views.route('/profile', methods=['GET', 'POST'])
+def user_profile():
+    if('username' in session):
+        return render_template('profile.html', username=session['username'])
+    else:
+        return redirect( url_for('auth.login') )

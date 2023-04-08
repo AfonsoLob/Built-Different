@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
-from .database import verify_user, add_user, get_user_password
+from .database import verify_user, add_user, get_user_password, get_username
 from werkzeug.security import generate_password_hash, check_password_hash
 import re # used to validate email
 regex = '^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$'  
@@ -21,14 +21,15 @@ def login():
         if (value == True):
             # Verify if password is correct
             if check_password_hash(get_user_password(email), password):
+                username = get_username(email)
                 session.permanent = True
-                session['username'] = email # make a function to get username
+                session['username'] = username # make a function to get username
                 return redirect(url_for('views.home'))
             else:
-                return '<h1>Incorrect Password</h1>'
+                return render_template('login.html', incorrect_password = True, email=email)
             
         else:
-            return '<h1>Email does not exist</h1>'
+            return render_template('login.html', incorrect_email = True)
         
     else:
         return render_template('login.html')
@@ -45,7 +46,7 @@ def sign_up():
         errors = {}
         error_regist = 0
         if(len(username) < 3):
-            errors["username"] = username
+            errors["username"] = 1
             error_regist = 1
         if(re.search(regex, email) == None):
             errors["email"] = 1

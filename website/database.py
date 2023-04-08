@@ -39,7 +39,7 @@ def verify_user(user_email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
         cur.execute("""
-            SELECT email from users;
+            SELECT email FROM users;
         """)
         list_of_emails = cur.fetchall()
         for email in list_of_emails:
@@ -52,11 +52,21 @@ def get_user_password(email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
         cur.execute(f"""
-        SELECT password from users
+        SELECT password FROM users
         WHERE email = '{email}'
         """)
         user_password = cur.fetchall()[0]        
         return user_password[0]
+    
+def get_username(email):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT username FROM users
+        WHERE email = '{email}'
+        """)
+        username = cur.fetchall()[0]
+        return username[0]
     
 def add_user(email, password, username):
     with sqlite3.connect(db_path) as con:

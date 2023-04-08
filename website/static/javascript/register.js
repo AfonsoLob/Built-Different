@@ -1,11 +1,6 @@
 let signUp = document.getElementById('sign-up')
 
-$.get("url", data,
-    function (data, textStatus, jqXHR) {
-        
-    },
-    "dataType"
-);
+
 
 $('#username').on("focusout", function () {
     let usernameError = document.getElementById('username-error');
