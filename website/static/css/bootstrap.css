@@ -1,0 +1,19 @@
+
+.display {
+    color: #0A192F;
+    color: #1E3E6C;
+    color: #00A86B;
+    color: #333333;
+    color: #F2F2F2;
+    color: #B22222;
+    color: #FFA500
+  }
+
+
+.nav-link.active{
+    background-color: #0A192F !important;
+    color: #F2F2F2 !important;
+}
+.nav-link{
+    color: #0A192F !important;
+}

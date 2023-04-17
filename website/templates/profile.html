@@ -5,13 +5,26 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
 {% endblock %}
 {% block body %}
-    <h1>{{username}} profile</h1>
-    <div class="top-division">
-        <div class="profile-btns">
-            <button class="button is-active">Stats</button>
-            <button class="button">Saved Plans</button>
-        </div>
-    </div>
+    <h1>{{username}}'s profile</h1>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Stats</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Saved Plans</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Settings</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </li>
+      </ul>
+      
     <div class="profile-box">
         <div class="profile-stats is-active">
             <h1>Statistics</h1>
@@ -27,7 +40,11 @@
                         <a href="#">Calc BMI</a>
                     </div>
                 </div>
+                <input type="weight" id="weight" name="weight" class="form-weight" placeholder="Current Weight"><button id="get-weight" class="btn btn-weight">Save</button>
+                <div id="graph"></div>
             </div>
         </div>
     </div>
+
+    <script src="{{url_for('static', filename='javascript/profile.js')}}"></script>
 {% endblock %}
