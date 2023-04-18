@@ -1,34 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Profile{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
 {% endblock %}
 {% block body %}
     <h1>{{username}}'s profile</h1>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Stats</a>
+          <a class="nav-link active" data-target="profile-stats" aria-current="page" href="#">Stats</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Saved Plans</a>
+          <a class="nav-link" data-target="profile-plans" href="#">Saved Plans</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Settings</a>
+            <a class="nav-link dropdown-toggle" id="settings" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Settings</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" data-target="profile-password" href="#">Password</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
+              <li><a class="dropdown-item" data-target="profile-account" href="#">Account</a></li>
             </ul>
           </li>
       </ul>
       
     <div class="profile-box">
-        <div class="profile-stats is-active">
+        <!-- Statistics -->
+        <div class="content is-selected" id="profile-stats">
             <h1>Statistics</h1>
-            <div class="stats-box">
+            <div class="inner-box">
                 <div class="inner-stats">
                     <div class="statistic"><span><strong>Objective</strong>: Gain mass</span></div>
                     <div class="statistic">
@@ -42,6 +40,28 @@
                 </div>
                 <input type="weight" id="weight" name="weight" class="form-weight" placeholder="Current Weight"><button id="get-weight" class="btn btn-weight">Save</button>
                 <div id="graph"></div>
+            </div>
+        </div>
+        <!-- Plans -->
+        <div class="content" id="profile-plans">
+            <h1>Saved Plans</h1>
+            <div class="inner-box">
+                <button class="btn-plan">Abs</button>
+                <button class="btn-plan">Chest</button>
+            </div>
+        </div>
+        <!-- Settings -->
+        <div class="content" id="profile-password">
+            <div>Change Password</div>
+            <div>Current Password</div>
+            <div>New Password</div>
+            <div>Repeat Password</div>
+        </div>
+        <div class="content" id="profile-account">
+            <h1>Account Settings</h1>
+            <div class="inner-box">
+                <div>Settings 1</div>
+                <div>Settings 2</div>
             </div>
         </div>
     </div>
