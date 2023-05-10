@@ -17,3 +17,10 @@ def user_profile():
         return render_template('profile.html', username=session['username'])
     else:
         return redirect( url_for('auth.login') )
+
+@views.route('/plans', methods=['GET', 'POST'])
+def view_plans():
+    if('username' in session):
+        return render_template('plans.html')
+    else:
+        return redirect( url_for('auth.login') )
