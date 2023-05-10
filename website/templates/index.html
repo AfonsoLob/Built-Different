@@ -1,50 +1,50 @@
 {% extends "base.html" %}
 {% block title %}Built Different{% endblock %}
 {% block head %}
-  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 {% endblock %}
 {% block body %}
-    <!-- Custom Content -->
-    <div class="body-container">
-        <div class="button-group">
-          <button class="button is-selected" id="btn-trainings" data-target="training-plans">Training Plans</button>
-          <button class="button" id="btn-personal-trainers" data-target="personal-trainers">Personal Trainers</button>
-        </div>
-        
-        <div class="content-container">
-          <div id="training-plans" class="content is-selected">
-            <h2>Training Plans</h2>
-            <ul>
-              <li><div class="plan-container">
-                    <h2>Beginner Plan</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo rem ipsa fuga expedita ducimus debitis minima, reiciendis, fugit vero at repellat magnam natus fugiat, dolores ab eveniet? Adipisci, magnam rem.</p>
-                  </div>
-              </li>
-              <li><div class="plan-container">
-                    <h2>Intermediate Plan</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo rem ipsa fuga expedita ducimus debitis minima, reiciendis, fugit vero at repellat magnam natus fugiat, dolores ab eveniet? Adipisci, magnam rem.</p>
-                  </div>
-              </li>
-              <li><div class="plan-container">
-                    <h2>Advanced Plan</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo rem ipsa fuga expedita ducimus debitis minima, reiciendis, fugit vero at repellat magnam natus fugiat, dolores ab eveniet? Adipisci, magnam rem.</p>
-                  </div>
-              </li>
-            </ul>
-          </div>
-          
-          <div id="personal-trainers" class="content">
-            <h2>Personal Trainers</h2>
-            <ul>
-              <li><div class="personalTrainer-container">Quim Barreiros</div></li>
-              <li><div class="personalTrainer-container">Nuno Comilão</div></li>
-              <li><div class="personalTrainer-container">Vasco Nadador</div></li>
-              <li><div class="personalTrainer-container">Laura Pilates</div></li>
-              <li><div class="personalTrainer-container">Helena Nuggetos</div></li>
-            </ul>
-          </div>
-        </div>
-      </div>      
-    <!-- Custom JS -->
-    <script src="{{ url_for('static', filename='javascript/main.js')}}"></script>
+<!-- Custom Content -->
+<div class="container description-container">
+  <div class="left-dc">
+    <p>Esta plataforma visa ajudar aqueles que não têm possibilidade de se deslocar físicamente a um ginásio.
+      Assim toda a gente tem a possibilidade de treinar com qualidade e de contactar um personal trainer e/ou
+      nutricionista para seu auxílio.
+    </p>
+    <button>Sobre Nós</button>
+  </div>
+  <div class="right-dc">
+    <img class="img-fluid" src="{{url_for('static', filename='images/built_different.png')}}" alt="Deadlift Character">
+  </div>
+</div>
+<div class="container services-container">
+  <div class="service">
+    <h1 class="service-header">Pacote Iniciante</h1>
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-between p-4">
+        <div>Aulas Online Ilimitadas</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </div>
+      <div class="d-flex justify-content-between p-4">
+        <div>Acesso a todos os planos</div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="service">
+    <h1 class="service-header">Personal Trainer</h1>
+  </div>
+  <div class="service">
+    <h1 class="service-header">Nutricionista</h1>
+  </div>
+  <div class="service">
+    <h1 class="service-header">Personal T. & Nutricionista</h1>
+  </div>
+</div>
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='javascript/main.js')}}"></script>
 {% endblock %}
