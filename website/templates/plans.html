@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Built Different{% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/plans.css')}}">
+{% endblock %}
+{% block body %}
+    <!-- Custom Content -->
+    <div class="body-container">
+        <div class="button-group">
+          <button class="button is-selected" id="btn-trainings" data-target="training-plans">Training Plans</button>
+          <button class="button" id="btn-personal-trainers" data-target="personal-trainers">Personal Trainers</button>
+        </div>
+        
+        <div class="content-container">
+          <div id="training-plans" class="content is-selected">
+            <h2>Training Plans</h2>
+            <ul>
+              <li><div class="plan-container">
+                    <h2>Beginner Plan</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo rem ipsa fuga expedita ducimus debitis minima, reiciendis, fugit vero at repellat magnam natus fugiat, dolores ab eveniet? Adipisci, magnam rem.</p>
+                  </div>
+              </li>
+              <li><div class="plan-container">
+                    <h2>Intermediate Plan</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo rem ipsa fuga expedita ducimus debitis minima, reiciendis, fugit vero at repellat magnam natus fugiat, dolores ab eveniet? Adipisci, magnam rem.</p>
+                  </div>
+              </li>
+              <li><div class="plan-container">
+                    <h2>Advanced Plan</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo rem ipsa fuga expedita ducimus debitis minima, reiciendis, fugit vero at repellat magnam natus fugiat, dolores ab eveniet? Adipisci, magnam rem.</p>
+                  </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div id="personal-trainers" class="content">
+            <h2>Personal Trainers</h2>
+            <ul>
+              <li><div class="personalTrainer-container">Quim Barreiros</div></li>
+              <li><div class="personalTrainer-container">Nuno Comilão</div></li>
+              <li><div class="personalTrainer-container">Vasco Nadador</div></li>
+              <li><div class="personalTrainer-container">Laura Pilates</div></li>
+              <li><div class="personalTrainer-container">Helena Nuggetos</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>      
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='javascript/main.js')}}"></script>
+{% endblock %}
