@@ -54,7 +54,46 @@
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
-<footer>
+<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 pt-5 mt-5 footer">
+    <div class="col mb-3">
+      <a href="/" class="d-flex align-items-center justify-content-center mb-3 link-dark text-decoration-none">
+        <img class="img-fluid" src="{{url_for('static', filename='images/logo.png')}}">
+      </a>
+      <p class="text-center">Train at Home<br>Stay Fit</p>
+      <p class="text-muted text-center">© 2023</p>
+    </div>
+    <div  class="footer-extra" style="width: 10%;">
+    </div>
+    <div class="col mb-3">
+      <h5>Treinadores</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="col mb-3">
+      <h5>Nutricionistas</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+      </ul>
+    </div>
+
+    <div class="col mb-3">
+      <h5>Contactos</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+      </ul>
+    </div>
+  </footer>
+<!-- <footer>
     <div class="footer">
         <div class="footer-left">
             <img src="{{url_for('static', filename='images/logo.png')}}">
@@ -70,5 +109,5 @@
             <h3>Contactos</h3>
         </div>
     </div>
-</footer>
+</footer> -->
 </html>
