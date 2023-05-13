@@ -1,11 +1,6 @@
-let submit_btn = document.getElementById('get-weight');
 let navLinks = document.getElementsByClassName('nav-link');
 let linksArray = Array.from(navLinks);
 
-submit_btn.addEventListener('click', function(){
-    let weight = document.getElementById('weight').value;
-    document.getElementById('graph').innerHTML = weight;
-})
 linksArray.forEach(link => {
     if(link.id != 'settings'){ // link is not settings
         link.addEventListener('click', function(){
