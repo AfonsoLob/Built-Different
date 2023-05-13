@@ -8,13 +8,16 @@
     color: #B22222;
     color: #FFA500;
   }
-
+/* Footer Top Margin 0 (So we're able to connect the lines) */
+.footer {
+    margin-top: 0px !important; 
+}
+/*  */
 .profile-box{
     display: flex;
     flex-direction: column;
     border: 2px solid #0A192F;
     width: 100%;
-    /* height: 94vh; */
 }
 
 .content:not(.is-selected){
@@ -24,64 +27,69 @@
 /* Stats Box */
 #profile-stats{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+    /* Left Side */
+.personal-stats{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
-.inner-box{
-    width: 70%;
-    align-self: center;
+.stats-col{
+    background-color: #f2f2f2;
+    border-radius: 30px;
+    width: 400px;
+    height: 800px;
 }
-.inner-stats{
+    /* Right Side */
+.personal-results{
+    flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-evenly;
 }
-.statistic{
-    display: flex;
-    justify-content: space-between;
-    font-size: 22px;
+.personal-bmi{
+    background-color: #f2f2f2;
+    border-radius: 30px;
+    height: 300px;
+    width: 500px;
 }
-.statistic a{
-    text-decoration: underline;
+.personal-macros{
+    background-color: #f2f2f2;
+    border-radius: 30px;
+    height: 300px;
+    width: 500px;
 }
+/* Plans Box */
 
-/* Form Input */
-.form-weight{
-    text-align: center;
-    border: 2px solid #0A192F;
-    border-radius: 8px;
-    max-width: 120px;
-}
-.btn-weight{
-    margin-left: 20px;
-    background-color: #0A192F;
-    color: #F2F2F2;
-}
-.btn-weight:hover{
-    background-color: #0A192F;
-    color: #00A86B;
-}
+/* Settings Box */
+
 
 /* Profile */
 
 .profile {
     display: flex;
     flex-direction: row;
+    flex: 1;
 }
-
 .profile-tabs{
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: #0A192F;
-  width: 22%;
+  width: 350px;
   text-align: center;
+  border-left: 1px solid #f2f2f2;
 }
 .profile-tabs li{
   list-style-type: none;
 }
-
-
 
 /* Profile Right Side */
 .profile-image{
@@ -95,8 +103,8 @@
 .profile-image img{
     border: 1px solid #F2F2F2;
     color: #F2F2F2;
-    height: 20vh;
-    width: 20vh;
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
 }
 
@@ -115,5 +123,67 @@ ul.dropdown-menu{
     }
     100% {
         height: 99px;
+    }
+}
+
+@media (max-width: 1200px){
+    .profile{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .profile-tabs{
+        flex-direction: row;
+        width: auto;
+        align-items: center;
+        border: none;
+    }
+    .profile-image{
+        flex-direction: column-reverse;
+        margin-bottom: 48px;
+    }
+    .profile-image img{
+        width: 145px;
+        height: 145px;
+    }
+    .personal-results{
+        gap: 50px;
+        margin-bottom: 50px;
+    }
+    .vh-100{
+        height: initial !important;
+    }
+    .nav-link{
+        border-radius: 8px;
+    }
+    .nav-link.active:hover{
+        background-color: #f2f2f2 !important;
+        color: initial !important;
+        box-shadow: #00A86B 0px 0px 10px 2px;
+    }
+}
+@media (max-width: 1000px){
+    .profile, .profile-box, .content, .personal-stats, .personal-results{
+        width: 100%;
+    }
+    #profile-stats{
+        margin-top: 50px;
+        flex-direction: column;
+        gap: 50px;
+    }
+    .profile-image{
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+    .stats-col{
+        max-width: 100%;
+    }
+    .personal-bmi, .personal-macros{
+        width: 450px;
+        max-width: 100%;
+    }
+}
+@media (max-width: 480px){
+    .profile-tabs{
+        flex-direction: column;
     }
 }
