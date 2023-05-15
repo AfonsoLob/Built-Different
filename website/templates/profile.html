@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Profile{% endblock %}
+{% block title %}Profile - Built Different{% endblock %}
 {% block head %}
     <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
 {% endblock %}
@@ -13,7 +13,49 @@
             <div class="content is-selected" id="profile-stats">
                 <div class="personal-stats">
                     <div class="stats-col">
-
+                        <div class="statistic">
+                            <p>Idade</p>
+                            <div class="stats-value">
+                                <input class="stats-input" value="#">
+                                <i class="bi bi-pencil"></i>
+                            </div>
+                        </div>
+                        <div class="statistic">
+                            <p>Altura (Cm)</p>
+                            <div class="stats-value">
+                                <input class="stats-input" value="#">
+                                <i class="bi bi-pencil"></i>
+                            </div>
+                        </div>
+                        <div class="statistic">
+                            <p>Peso (Kg)</p>
+                            <div class="stats-value">
+                                <input class="stats-input" value="#">
+                                <i class="bi bi-pencil"></i>
+                            </div>
+                        </div>
+                        <div class="statistic">
+                            <p>Género</p>
+                            <div class="stats-options">
+                                <div class="option gender opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Masculino
+                                </div>
+                                <div class="option gender opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Feminino
+                                </div>
+                            </div>
+                        </div>
+                        <div class="statistic">
+                            <p>Objetivo</p>
+                            <div class="stats-options">
+                                <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Cut
+                                </div>
+                                <div class="option objective opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Bulk
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="personal-results">

@@ -29,3 +29,23 @@ linksArray.forEach(link => {
         })
     }
 });
+
+
+let el_options = document.getElementsByClassName('option');
+let array_options = Array.from(el_options);
+
+array_options.forEach(option => {
+    option.addEventListener('click', function(){
+        let option_family = option.classList[1]
+        let familiar_options = document.getElementsByClassName(option_family)
+        for(let i=0; i<familiar_options.length; i++){
+            if(familiar_options[i] == option){
+                familiar_options[i].classList.add('is-selected');
+            }
+            else{
+                familiar_options[i].classList.remove('is-selected');
+            }
+        }
+
+    })
+});
