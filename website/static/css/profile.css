@@ -90,6 +90,9 @@
     background-size: 200%;
     transition: 500ms;
 }
+.option.is-selected{
+    cursor: default;
+}
 .option:not(.is-selected):hover{
     cursor: pointer;
     box-shadow: #0a192f 0px 0px 10px 0px;
