@@ -49,3 +49,26 @@ array_options.forEach(option => {
 
     })
 });
+
+const statsFields = document.getElementsByClassName('stats-value');
+const array_statsFields = Array.from(statsFields);
+
+array_statsFields.forEach(statField => {
+    if(statField.children.length == 2){
+        const inputField = statField.children[0];
+        const pencilIcon = statField.children[1];
+        pencilIcon.addEventListener('click', () => {
+            inputField.disabled = false;
+            inputField.select();
+        });
+        inputField.addEventListener('focusout',() => {
+            inputField.disabled = true;
+            const altura = (document.getElementById('altura-input').value)/100;
+            const peso = document.getElementById('peso-input').value;
+            if(altura > 0 && peso > 0){
+                const bmi_input = document.getElementById('bmi-input');
+                bmi_input.value = (peso/(altura*altura)).toFixed(1);
+            }
+        })
+    }
+});
