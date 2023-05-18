@@ -68,6 +68,23 @@ array_statsFields.forEach(statField => {
             if(altura > 0 && peso > 0){
                 const bmi_input = document.getElementById('bmi-input');
                 bmi_input.value = (peso/(altura*altura)).toFixed(1);
+                Array.from(document.getElementsByClassName('bmi-category')).forEach(element => {
+                    element.classList.remove('active');
+                });
+                let bmi_category;
+                if(bmi_input.value < 18.5){
+                    bmi_category = document.getElementById('bmi-underweight');
+                }
+                else if(bmi_input.value < 25){
+                    bmi_category = document.getElementById('bmi-normal');
+                }
+                else if(bmi_input.value < 30){
+                    bmi_category = document.getElementById('bmi-overweight');
+                }
+                else{
+                    bmi_category = document.getElementById('bmi-obese');
+                }
+                bmi_category.classList.add('active');
             }
         })
     }
