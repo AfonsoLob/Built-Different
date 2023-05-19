@@ -14,7 +14,14 @@ def setup_database():
         password TEXT NOT NULL,
         username TEXT NOT NULL
     );"""
-
+    user_stats = """ CREATE TABLE IF NOT EXISTS user_stats (
+        email TEXT NOT NULL,
+        age TEXT NOT NULL,
+        height TEXT NOT NULL,
+        weight TEXT NOT NULL,
+        gender TEXT,
+        objective TEXT
+    );"""
     # trainings_table = """ CREATE TABLE IF NOT EXISTS trainings (
     #     id INTEGER PRIMARY KEY AUTOINCREMENT,
     #     training_name TEXT NOT NULL UNIQUE,
@@ -29,9 +36,10 @@ def setup_database():
 
     with sqlite3.connect(db_path) as con:
         con.execute(user_table)
+        con.execute(user_stats)
 
 def cleanup_database():
-    users_table = "DROP TABLE IF EXISTS users;"
+    users_table = "DROP TABLE IF EXISTS user_stats;"
     with sqlite3.connect(db_path) as con:
         con.execute(users_table)
 
@@ -53,7 +61,7 @@ def get_user_password(email):
         cur = con.cursor()
         cur.execute(f"""
         SELECT password FROM users
-        WHERE email = '{email}'
+        WHERE email = '{email}';
         """)
         user_password = cur.fetchall()[0]        
         return user_password[0]
@@ -63,14 +71,65 @@ def get_username(email):
         cur = con.cursor()
         cur.execute(f"""
         SELECT username FROM users
-        WHERE email = '{email}'
+        WHERE email = '{email}';
         """)
         username = cur.fetchall()[0]
         return username[0]
+    
+def get_id(email):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT id FROM users
+        WHERE email = '{email}';
+        """)
+        id = cur.fetchall()[0]
+        return id[0]
     
 def add_user(email, password, username):
     with sqlite3.connect(db_path) as con:
         con.execute(f"""
         INSERT INTO users (email, password, username)
         VALUES ('{email}','{generate_password_hash(password)}','{username}');
+        """)
+
+def verify_user_stats(user_email):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute("""
+            SELECT email FROM user_stats;
+        """)
+        list_of_emails = cur.fetchall()
+        for email in list_of_emails:
+            email = email[0]
+            if (email == user_email): 
+                return True
+        return False
+    
+def get_stats(email):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+            SELECT age,height,weight,gender,objective FROM user_stats
+            WHERE email = '{email}';
+            """)
+        list_of_stats = cur.fetchall()[0]
+        return {'age': list_of_stats[0], 'height': list_of_stats[1], 'weight': list_of_stats[2], 'gender': list_of_stats[3], 'objective': list_of_stats[4]}
+        
+
+def create_user_stats(email):
+    with sqlite3.connect(db_path) as con:
+        con.execute(f"""
+        INSERT INTO user_stats (email, age, height, weight)
+        VALUES ('{email}', '#', '#' , '#');
+        """)
+
+def update_stats(email, age, height, weight):
+    with sqlite3.connect(db_path) as con:
+        con.execute(f"""
+        UPDATE user_stats
+        SET age = '{age}',
+            height = '{height}',
+            weight = '{weight}'
+        WHERE email = '{email}';
         """)
