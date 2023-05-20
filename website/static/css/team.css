@@ -1,0 +1,184 @@
+.display {
+    color: #0A192F;
+    color: #1E3E6C;
+    color: #00A86B;
+    color: #333333;
+    color: #F2F2F2;
+    color: #B22222;
+    color: #FFA500;
+}
+
+p {
+    text-align: justify;
+}
+
+/* Title and Subtitle */
+
+.center-card {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    border: none;
+}
+
+.center-card h5 {
+    font-style: italic;
+    color: rgb(158, 158, 158);
+}
+
+/* End Title and Subtitle */
+
+.borderImg {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border: 4px solid white;
+}
+
+.list-unstyled li::before {
+    content: "•";
+    margin-right: 5px;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.imageHover {
+    transition: 0.3s;
+}
+
+.image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.image-container:hover .imageHover {
+    filter: brightness(30%);
+}
+
+.image-container:hover .image-text {
+    opacity: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.modal-content {
+    background-color: #0A192F;
+    margin: auto;
+    padding: 20px;
+    width: 60%;
+    max-width: 590px;
+    text-align: center;
+    border-radius: 50px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-img {
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    border: 4px solid white;
+    object-fit: cover;
+}
+
+#openModalBtn {
+    cursor: pointer;
+}
+
+.modal h5 {
+    color: #00A86B;
+}
+
+.modal a{
+    color: white;
+}
+
+.modal i{
+    font-size: 18pt;
+}
+
+.imageSize {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#chatBox {
+    position: fixed;
+    right: 30px;
+    bottom: 0px;
+    width: 370px;
+    height: 500px;
+    background-color: #0A192F;
+    border: 4px solid #ccc;
+    border-bottom: 0px;
+    padding: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.inputChat {
+    position: absolute;
+    bottom: 20px;
+}
+
+.inputChat input {
+    background-color: #0A192F;
+    border: 1px solid #00A86B;
+    color: white;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+.chatStickyBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00A86B;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+}

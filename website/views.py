@@ -55,3 +55,9 @@ def view_plans():
         else:
             return redirect( url_for('auth.login') )
     
+@views.route('/team', methods=['GET'])
+def team():
+    if('user' in session):
+        return render_template('team.html')
+    else:
+        return redirect( url_for('auth.login'))

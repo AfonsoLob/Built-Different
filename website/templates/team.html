@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% block title %}Equipa{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/team.css')}}">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+      integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+      crossorigin="anonymous"
+    ></script>
+{% endblock %}
+{% block body %}
+
+    <div class="center-card">
+        <div class="card card-inherit bg-transparent">
+            <div class="card-body text-truncate">
+                <h1 class="mt-5">Personal Trainers</h1>
+                <h5 class="mt-2">Consulte Nutricionistas</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row mb-5">
+            <div class="col-md-4">
+                <!-- Column 1 content goes here -->
+                <div class="text-center">
+                    <div class="image-container borderImg">
+                        <a id="openModalBtn">
+                            <img src="{{ url_for('static', filename='images/built_different.png')}}" class="card-img-top mb-3 imageHover imageSize">
+                            <div class="image-text">Contactar</div>
+                        </a>
+                    </div>
+                    <h3 class="mb-4">Nuno Oliveira</h3>
+                    <p class="mx-5">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur dui eget faucibus porta. 
+                        Sed lobortis magna velit, eget pharetra justo venenatis non. Aenean imperdiet felis enim, sed euismod
+                         erat bibendum a. In mattis, leo quis volutpat placerat, metus sem interdum ante, nec malesuada nulla
+                          augue nec orci.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Column 2 content goes here -->
+                <div class="text-center">
+                    <div class="image-container borderImg">
+                        <a href="#">
+                            <img src="{{ url_for('static', filename='images/person.png')}}" class="card-img-top mb-3 imageHover imageSize">
+                            <div class="image-text">Contactar</div>
+                        </a>
+                    </div>
+                    <h3 class="mb-4">Ramon Dino</h3>
+                    <p class="mx-5">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur dui eget faucibus porta. 
+                        Sed lobortis magna velit, eget pharetra justo venenatis non. Aenean imperdiet felis enim, sed euismod
+                         erat bibendum a. In mattis, leo quis volutpat placerat, metus sem interdum ante, nec malesuada nulla
+                          augue nec orci.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Column 3 content goes here -->
+                <div class="text-center">
+                    <div class="image-container borderImg">
+                        <a href="#">
+                            <img src="{{ url_for('static', filename='images/built_different.png')}}" class="card-img-top mb-3 imageHover imageSize">
+                            <div class="image-text">Contactar</div>
+                        </a>
+                    </div>
+                    <h3 class="mb-4">Ronnie Coleman</h3>
+                    <p class="mx-5">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur dui eget faucibus porta. 
+                        Sed lobortis magna velit, eget pharetra justo venenatis non. Aenean imperdiet felis enim, sed euismod
+                         erat bibendum a. In mattis, leo quis volutpat placerat, metus sem interdum ante, nec malesuada nulla
+                          augue nec orci.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class=" mx-5 mt-5">
+                    <h2>Quais os benifícios de um Personal Trainer?</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            Programa de treino personalizado: Um personal trainer irá criar um programa de treinamento personalizado de
+                            acordo com seus objetivos, necessidades e habilidades, garantindo que você esteja realizando exercícios
+                            seguros e eficazes para alcançar seus objetivos de forma mais rápida e eficiente.
+                        </li>
+                        <li class="mb-3">
+                            Motivação: Um personal trainer pode ajudá-lo a manter-se motivado e comprometido com seus objetivos de 
+                            treinamento, fornecendo suporte e incentivo durante todo o processo de treinamento. 
+                        </li>
+                        <li class="mb-3">
+                            Orientacao correta: Um personal trainer irá ajudá-lo a aprender a forma correta de realizar cada exercício,
+                             reduzindo o risco de lesões e maximizando os resultados. 
+                        </li>
+                        <li class="mb-3">
+                            Variedade: Um personal trainer irá trazer variedade para os seus treinos, mantendo-os interessantes e 
+                            desafiadores, o que ajuda a evitar o tédio e o desânimo em relação a rotina de exercícios. 
+                        </li>
+                        <li class="mb-3">
+                            Flexibilidade: Um personal trainer pode ajustar o seu programa de treinamento em caso de lesões, condições
+                             médicas ou outros fatores que possam afetar sua capacidade de exercitar. 
+                        </li>
+                        <li class="mb-3">
+                            Monitoramento do progresso: Um personal trainer irá monitorar o seu progresso e ajustar o programa de 
+                            treinamento de acordo com o seu desempenho, ajudando a alcançar os seus objetivos de forma mais eficaz. 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content p-5">
+            <div class="container">
+                <div class="row my-3">
+                    <div class="col-12 col-lg-4">
+                        <img src="{{ url_for('static', filename='images/built_different.png')}}" class="modal-img">
+                    </div>
+                    <div class="col-8" style="text-align: justify;">
+                        <div class="mx-4 my-5">
+                            <h3>Nuno Oliveira</h3>
+                            <h5>Personal Trainer</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end d-flex mb-2">
+                    <div class="col-1">
+                        <a href="https://twitter.com">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.instagram.com">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.facebook.com">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <p>Fraco é aquele que não tenta.</p>
+                </div>
+                <div>
+                    <h4>Avaliação: 4.2 <i class="fas fa-star text-warning"></i></h4>
+                </div>
+                <form method="post" action="/team">
+                    <button class="mt-4" type="submit" name="join" id="chatButton">Iniciar Chat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    {% if messages|length > 0 %}
+    <div id="chatBox">
+        <div class="message-box">
+            <button class="close-btn" id="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Conversas</h2>
+            <hr>
+            <div class="messages" id="messages"></div>
+            <div class="row inputChat">
+                <div class="col-8">
+                    <input type="text" placeholder="Message" name="message" id="message"/>
+                </div>
+                <div class="col-3 mx-1">
+                    <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="{{url_for('static', filename='javascript/chat.js')}}"></script>
+        {% for msg in messages %}
+            <script type="text/javascript">
+            createMessage("{{msg.name}}", "{{msg.message}}");
+            </script>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="chatStickyBtn"><i class="fas fa-comment"></i></div>
+</div> 
+
+<script src="{{url_for('static', filename='javascript/team.js')}}"></script>
+{% endblock %}
