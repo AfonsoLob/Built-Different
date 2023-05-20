@@ -129,7 +129,7 @@ p {
     object-fit: cover;
 }
 
-#chatBox {
+.chatBox {
     position: fixed;
     right: 30px;
     bottom: 0px;
@@ -139,6 +139,7 @@ p {
     border: 4px solid #ccc;
     border-bottom: 0px;
     padding: 15px;
+    z-index: 2;
 }
 
 .close-btn {
@@ -172,13 +173,16 @@ p {
 
 .chatStickyBtn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 30px;
+    right: 30px;
     background-color: #00A86B;
     color: white;
-    border: none;
-    padding: 15px 25px;
+    padding: 14px 22px;
     font-size: 18px;
     cursor: pointer;
     border-radius: 4px;
+}
+
+#allChat {
+    z-index: 1;
 }

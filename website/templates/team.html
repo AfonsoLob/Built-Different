@@ -21,7 +21,7 @@
 
     <div class="container mt-4">
         <div class="row mb-5">
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <!-- Column 1 content goes here -->
                 <div class="text-center">
                     <div class="image-container borderImg">
@@ -39,7 +39,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <!-- Column 2 content goes here -->
                 <div class="text-center">
                     <div class="image-container borderImg">
@@ -57,7 +57,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <!-- Column 3 content goes here -->
                 <div class="text-center">
                     <div class="image-container borderImg">
@@ -157,26 +157,24 @@
     </div>
     
     {% if messages|length > 0 %}
-    <div id="chatBox">
-        <div class="message-box">
-            <button class="close-btn" id="close-btn">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Conversas</h2>
-            <hr>
-            <div class="messages" id="messages"></div>
-            <div class="row inputChat">
-                <div class="col-8">
-                    <input type="text" placeholder="Message" name="message" id="message"/>
-                </div>
-                <div class="col-3 mx-1">
-                    <button type="button" name="send" id="send-btn" onClick="sendMessage()">
-                        Enviar
-                    </button>
-                </div>
+    <div id="chatBox" class="chatBox">
+        <button class="close-btn" id="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2>Mensagens</h2>
+        <hr>
+        <div class="messages" id="messages"></div>
+        <div class="row inputChat">
+            <div class="col-8">
+                <input type="text" placeholder="Message" name="message" id="message"/>
+            </div>
+            <div class="col-3 mx-1">
+                <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+                    Enviar
+                </button>
             </div>
         </div>
-        <script src="{{url_for('static', filename='javascript/chat.js')}}"></script>
+        <script src="{{url_for('static', filename='javascript/messages.js')}}"></script>
         {% for msg in messages %}
             <script type="text/javascript">
             createMessage("{{msg.name}}", "{{msg.message}}");
@@ -185,7 +183,29 @@
     </div>
     {% endif %}
 
-    <div class="chatStickyBtn"><i class="fas fa-comment"></i></div>
+    <form method="post" action="/conversations">
+        <button class="chatStickyBtn" id="chatStickyBtn" type="submit">
+            <i class="fas fa-comment"></i>
+        </button>
+    </form>
+
+    {% if conversas|length > 0 %}
+    <div id="allChat" class="chatBox">
+        <button class="close-btn" id="close-btn-all">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2>Conversas</h2>
+        <hr>
+        <div class="conversas" id="conversas"></div>
+        <script src="{{url_for('static', filename='javascript/conversations.js')}}"></script>
+        {% for conversa in conversas %}
+            <script type="text/javascript">
+            createChat("{{conversa}}");
+            </script>
+        {% endfor %}
+    </div>
+    {% endif %}
+
 </div> 
 
 <script src="{{url_for('static', filename='javascript/team.js')}}"></script>
