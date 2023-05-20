@@ -37,23 +37,55 @@
                         <div class="statistic">
                             <p>Género</p>
                             <div class="stats-options">
+                                {% if gender == '1' %}
+                                <div class="option gender opt1 is-selected" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Masculino
+                                </div>
+                                <div class="option gender opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Feminino
+                                </div>
+                                {% elif gender == '0' %}
+                                <div class="option gender opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Masculino
+                                </div>
+                                <div class="option gender opt2 is-selected" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Feminino
+                                </div>
+                                {% else %}
                                 <div class="option gender opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Masculino
                                 </div>
                                 <div class="option gender opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Feminino
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="statistic">
                             <p>Objetivo</p>
                             <div class="stats-options">
+                                {% if objective == '1' %}
+                                <div class="option objective opt1 is-selected" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Cut
+                                </div>
+                                <div class="option objective opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Bulk
+                                </div>
+                                {% elif objective == '0' %}
+                                <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Cut
+                                </div>
+                                <div class="option objective opt2 is-selected" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Bulk
+                                </div>
+                                {% else %}
                                 <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
                                 <div class="option objective opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

@@ -25,7 +25,7 @@ def login():
                 id = str(get_id(email))
                 session.permanent = True
                 session[id] = {'email': email, 'username': username}
-                session['username'] = username # make a function to get username
+                # session['username'] = username # make a function to get username
                 return redirect(url_for('views.home', id=id))
             else:
                 return render_template('login.html', incorrect_password = True, email=email)

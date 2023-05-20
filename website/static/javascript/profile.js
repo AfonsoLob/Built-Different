@@ -74,8 +74,46 @@ array_options.forEach(option => {
                 familiar_options[i].classList.remove('is-selected');
             }
         }
-
+        if(option_family == "gender"){
+            const gender = option.innerText;
+            const email = $( "#email-input" ).val();
+            $.ajax({
+                type: "POST",
+                url: "/profile",
+                data: {
+                    'op': '1',
+                    'email': email,
+                    'gender': gender,
+                },
+                error: function(request) {
+                    if (request.status === 404) {
+                        alert("Não foi possível alterar o seu género.")
+                    }
+                }  
+            });
+        }
+        else if(option_family == "objective"){
+            const objective = option.innerText;
+            const email = $( "#email-input" ).val();
+            $.ajax({
+                type: "POST",
+                url: "/profile",
+                data: {
+                    'op': '2',
+                    'email': email,
+                    'objective': objective,
+                },
+                error: function(request) {
+                    if (request.status === 404) {
+                        alert("Não foi possível alterar o seu objetivo.")
+                    }
+                }  
+            });
+        }
+        
+        
     })
+    
 });
 
 const statsFields = document.getElementsByClassName('stats-value');
@@ -106,6 +144,7 @@ let stat_event = () => {
         type: "POST",
         url: "/profile",
         data: {
+            'op': '0',
             "email": email,
             "idade": idade,
             "altura": altura,
