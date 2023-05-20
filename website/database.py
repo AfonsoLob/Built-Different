@@ -133,3 +133,29 @@ def update_stats(email, age, height, weight):
             weight = '{weight}'
         WHERE email = '{email}';
         """)
+
+def update_gender(email, gender):
+    print(gender)
+    if(gender == "Masculino"): gender = 1
+    elif(gender == "Feminino"): gender = 0
+    else: return
+
+    print(gender)
+    with sqlite3.connect(db_path) as con:
+        con.execute(f"""
+        UPDATE user_stats
+        SET gender = '{gender}'
+        WHERE email = '{email}';
+        """)
+
+def update_objective(email, objective):
+    if(objective == "Bulk"): objective = 0
+    elif(objective == "Cut"): objective = 1
+    else: return
+
+    with sqlite3.connect(db_path) as con:
+        con.execute(f"""
+        UPDATE user_stats
+        SET objective = '{objective}'
+        WHERE email = '{email}';
+        """)
