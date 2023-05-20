@@ -22,11 +22,9 @@ def login():
             # Verify if password is correct
             if check_password_hash(get_user_password(email), password):
                 username = get_username(email)
-                id = str(get_id(email))
                 session.permanent = True
-                session[id] = {'email': email, 'username': username}
-                # session['username'] = username # make a function to get username
-                return redirect(url_for('views.home', id=id))
+                session['user'] = {'email': email, 'username': username}
+                return redirect(url_for('views.home'))
             else:
                 return render_template('login.html', incorrect_password = True, email=email)
             

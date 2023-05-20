@@ -7,11 +7,7 @@ views = Blueprint('views', __name__)
 # Routes for blueprint views
 @views.route('/', methods=['GET','POST'])
 def home():
-    try:
-        id = request.args['id']
-    except:
-        return redirect( url_for('auth.login'))
-    if(id in session):
+    if('user' in session):
         print(session)
         return render_template('index.html')
     else:
@@ -38,10 +34,9 @@ def user_profile():
         print(stats)
         return "done"
     else:
-        id = request.args['id']
-        if(id in session):
-            username = session[id]['username']
-            email = session[id]['email']
+        if('user' in session):
+            username = session['user']['username']
+            email = session['user']['email']
             if (verify_user_stats(email) == False): create_user_stats(email)
             stats = get_stats(email)
             print(stats)
@@ -55,7 +50,7 @@ def view_plans():
         print(request.form)
         return "done"
     else:
-        if('username' in session):
+        if('user' in session):
             return render_template('plans.html')
         else:
             return redirect( url_for('auth.login') )
