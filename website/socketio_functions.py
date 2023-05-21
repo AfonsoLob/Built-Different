@@ -32,6 +32,12 @@ def chat():
 
         session["room"] = room
         return render_template("team.html", messages=message_conversion(room))
+    
+@socketio_functions.route("/conversations", methods=["POST"])
+def conversations():
+    if request.method == "POST":
+        username = session.get("user")["username"]
+        return render_template("team.html", conversas=[username])
 
 def message(data):
     room = session.get("room")

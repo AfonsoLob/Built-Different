@@ -1,27 +1,50 @@
-var openModalBtn = document.getElementById('openModalBtn');
-var modal = document.getElementById('modal');
-var modalContent = document.querySelector('.modal-content');
+document.addEventListener('DOMContentLoaded', () => {
+  const openModalBtn = document.getElementById('openModalBtn');
+  const modal = document.getElementById('modal');
+  const chatButton = document.getElementById('chatButton');
+  const chatBox = document.getElementById('chatBox');
+  const closeBtn = document.getElementById('close-btn');
+  const allChatButton = document.getElementById('chatStickyBtn');
+  const allChat = document.getElementById('allChat');
+  const allCloseBtn = document.getElementById('close-btn-all');
 
-openModalBtn.addEventListener('click', function() {
-  modal.style.display = 'block';
-  chatBox.style.display = 'none';
-});
+  openModalBtn.addEventListener('click', function() {
+    modal.style.display = 'block';
+  });
 
-modal.addEventListener('click', function(event) {
-  if (event.target === modal || event.target === modalContent) {
-    modal.style.display = 'none';
+  modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  if (chatButton) {
+    chatButton.addEventListener('click', () => {
+      if (chatBox) {
+        chatBox.style.display = 'block';
+      }
+      modal.style.display = 'none';
+    });
   }
-});
 
-const chatButton = document.getElementById('chatButton');
-const chatBox = document.getElementById('chatBox');
-const closeBtn = document.getElementById('close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      if (chatBox) {
+        chatBox.style.display = 'none';
+      }
+    });
+  }
 
-chatButton.addEventListener('click', () => {
-  chatBox.style.display = 'block';
-  modal.style.display = 'none';
-});
+  allChatButton.addEventListener('click', () => {
+    allChat.style.display = 'block';
+  });
 
-closeBtn.addEventListener('click', () => {
-  chatBox.style.display = 'none';
+  if (allCloseBtn) {
+    allCloseBtn.addEventListener('click', () => {
+      if (allChat) {
+        allChat.style.display = 'none';
+      }
+    });
+  }
+
 });
