@@ -64,30 +64,104 @@
                         <div class="statistic">
                             <p>Objetivo</p>
                             <div class="stats-options">
-                                {% if objective == '1' %}
+                                {% if objective == '2' %}
                                 <div class="option objective opt1 is-selected" style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt2" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                    Maintain
+                                </div>
+                                <div class="option objective opt3" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                    Bulk
+                                </div>
+                                {% elif objective == '1' %}
+                                <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                    Cut
+                                </div>
+                                <div class="option objective opt2 is-selected" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                    Maintain
+                                </div>
+                                <div class="option objective opt3" style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% elif objective == '0' %}
                                 <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2 is-selected" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt2" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                    Maintain
+                                </div>
+                                <div class="option objective opt3 is-selected" style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% else %}
                                 <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt2" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                    Maintain
+                                </div>
+                                <div class="option objective opt3" style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% endif %}
                             </div>
                         </div>
+                        {% if activity == '1' %}
+                        <select class="form-select" aria-label="Nível de atividade" id="activity-level">
+                            <option>Nível de Atividade</option>
+                            <option value="1" selected>Sedentário</option>
+                            <option value="2">Atividade Leve</option>
+                            <option value="3">Atividade Moderada</option>
+                            <option value="4">Muito Ativo</option>
+                            <option value="5">Extremamente ativo</option>
+                        </select>
+                        {% elif activity == '2' %}
+                        <select class="form-select" aria-label="Nível de atividade" id="activity-level">
+                            <option>Nível de Atividade</option>
+                            <option value="1">Sedentário</option>
+                            <option value="2" selected>Atividade Leve</option>
+                            <option value="3">Atividade Moderada</option>
+                            <option value="4">Muito Ativo</option>
+                            <option value="5">Extremamente ativo</option>
+                        </select>
+                        {% elif activity == '3' %}
+                        <select class="form-select" aria-label="Nível de atividade" id="activity-level">
+                            <option>Nível de Atividade</option>
+                            <option value="1">Sedentário</option>
+                            <option value="2">Atividade Leve</option>
+                            <option value="3" selected>Atividade Moderada</option>
+                            <option value="4">Muito Ativo</option>
+                            <option value="5">Extremamente ativo</option>
+                        </select>
+                        {% elif activity == '4' %}
+                        <select class="form-select" aria-label="Nível de atividade" id="activity-level">
+                            <option>Nível de Atividade</option>
+                            <option value="1">Sedentário</option>
+                            <option value="2">Atividade Leve</option>
+                            <option value="3">Atividade Moderada</option>
+                            <option value="4" selected>Muito Ativo</option>
+                            <option value="5">Extremamente ativo</option>
+                        </select>
+                        {% elif activity == '5' %}
+                        <select class="form-select" aria-label="Nível de atividade" id="activity-level">
+                            <option>Nível de Atividade</option>
+                            <option value="1">Sedentário</option>
+                            <option value="2">Atividade Leve</option>
+                            <option value="3">Atividade Moderada</option>
+                            <option value="4">Muito Ativo</option>
+                            <option value="5" selected>Extremamente ativo</option>
+                        </select>
+                        {% else %}
+                        <select class="form-select" aria-label="Nível de atividade" id="activity-level">
+                            <option selected>Nível de Atividade</option>
+                            <option value="1">Sedentário</option>
+                            <option value="2">Atividade Leve</option>
+                            <option value="3">Atividade Moderada</option>
+                            <option value="4">Muito Ativo</option>
+                            <option value="5">Extremamente ativo</option>
+                        </select>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="personal-results">
@@ -116,8 +190,19 @@
                     <div class="personal-macros">
                         <div class="statistic">
                             <p>Macros:</p>
-                            <div class="stats-value">
-                                <input class="stats-input" disabled value="#" id="macros-input">
+                            <div class="stats-value" style="height: auto;">
+                                <div class="macro-category" style="grid-column: 3;">
+                                    <p>Proteínas:</p>
+                                    <input class="stats-input" disabled value="#" id="macrosP-input">
+                                </div>
+                                <div class="macro-category" style="grid-column: 6;">
+                                    <p>Hidratos:</p>
+                                    <input class="stats-input" disabled value="#" id="macrosH-input">
+                                </div>
+                                <div class="macro-category" style="grid-column: 9;">
+                                    <p>Gorduras:</p>
+                                    <input class="stats-input" disabled value="#" id="macrosG-input">
+                                </div>
                             </div>
                         </div>
                     </div>

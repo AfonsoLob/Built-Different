@@ -161,3 +161,28 @@ let stat_event = () => {
 stats.forEach(element => {
     element.addEventListener('focusout', stat_event);
 });
+
+
+let activity_level = document.getElementById('activity-level');
+let activity_options = Array.from(document.getElementById('activity-level').children)
+activity_level.addEventListener('change', () => {
+    const activity_value = $( "#activity-level" ).val();
+    const email = $( "#email-input" ).val();
+    console.log(activity_value)
+
+    $.ajax({
+        type: "POST",
+        url: "/profile",
+        data: {
+            'email': email,
+            'op': '3',
+            'activity': activity_value,
+        },
+        error: function(request) {
+            if (request.status === 404) {
+                alert("Não foi possível alterar a sua atividade.")
+            }
+        }  
+    });
+})
+console.log(activity_options)

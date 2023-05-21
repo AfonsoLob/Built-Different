@@ -134,11 +134,19 @@
     background: linear-gradient(to left, #f2f2f2 50%, #0a192f 50%) right;
     background-size: 200%;
 }
+.option.opt3{
+    background: linear-gradient(to left, #f2f2f2 50%, #0a192f 50%) right;
+    background-size: 200%;
+}
 .is-selected.opt1{
     color: #f2f2f2;
     background-position: right !important;
 }
 .is-selected.opt2{
+    color: #f2f2f2;
+    background-position: left !important;
+}
+.is-selected.opt3{
     color: #f2f2f2;
     background-position: left !important;
 }

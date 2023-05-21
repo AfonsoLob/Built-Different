@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from .auth import session
-from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective
+from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective, update_activity
 
 views = Blueprint('views', __name__)
 
@@ -23,12 +23,15 @@ def user_profile():
             height = request.form['altura']
             weight = request.form['peso']
             update_stats(email, age, height, weight)
-        if(request.form['op'] == '1'):
+        elif(request.form['op'] == '1'):
             gender = request.form['gender']
             update_gender(email, gender)
-        else:
+        elif(request.form['op'] == '2'):
             objective = request.form['objective']
             update_objective(email, objective)
+        elif(request.form['op'] == '3'):
+            activity = request.form['activity']
+            update_activity(email, activity)
         
         stats = get_stats(email)
         print(stats)
@@ -40,7 +43,7 @@ def user_profile():
             if (verify_user_stats(email) == False): create_user_stats(email)
             stats = get_stats(email)
             print(stats)
-            return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'], gender=stats['gender'], objective=stats['objective'] )
+            return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'], gender=stats['gender'], objective=stats['objective'], activity=stats['activity'] )
         else:
             return redirect( url_for('auth.login') )
 

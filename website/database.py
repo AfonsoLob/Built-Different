@@ -20,7 +20,8 @@ def setup_database():
         height TEXT NOT NULL,
         weight TEXT NOT NULL,
         gender TEXT,
-        objective TEXT
+        objective TEXT,
+        activity TEXT
     );"""
     # trainings_table = """ CREATE TABLE IF NOT EXISTS trainings (
     #     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -110,11 +111,11 @@ def get_stats(email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
         cur.execute(f"""
-            SELECT age,height,weight,gender,objective FROM user_stats
+            SELECT age,height,weight,gender,objective,activity FROM user_stats
             WHERE email = '{email}';
             """)
         list_of_stats = cur.fetchall()[0]
-        return {'age': list_of_stats[0], 'height': list_of_stats[1], 'weight': list_of_stats[2], 'gender': list_of_stats[3], 'objective': list_of_stats[4]}
+        return {'age': list_of_stats[0], 'height': list_of_stats[1], 'weight': list_of_stats[2], 'gender': list_of_stats[3], 'objective': list_of_stats[4], 'activity': list_of_stats[5]}
         
 
 def create_user_stats(email):
@@ -135,12 +136,10 @@ def update_stats(email, age, height, weight):
         """)
 
 def update_gender(email, gender):
-    print(gender)
     if(gender == "Masculino"): gender = 1
     elif(gender == "Feminino"): gender = 0
     else: return
 
-    print(gender)
     with sqlite3.connect(db_path) as con:
         con.execute(f"""
         UPDATE user_stats
@@ -150,12 +149,21 @@ def update_gender(email, gender):
 
 def update_objective(email, objective):
     if(objective == "Bulk"): objective = 0
-    elif(objective == "Cut"): objective = 1
+    elif(objective == "Maintain"): objective = 1
+    elif(objective == "Cut"): objective = 2
     else: return
 
     with sqlite3.connect(db_path) as con:
         con.execute(f"""
         UPDATE user_stats
         SET objective = '{objective}'
+        WHERE email = '{email}';
+        """)
+
+def update_activity(email, activity):
+    with sqlite3.connect(db_path) as con:
+        con.execute(f"""
+        UPDATE user_stats
+        SET activity = '{activity}'
         WHERE email = '{email}';
         """)
