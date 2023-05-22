@@ -68,3 +68,11 @@ def sign_up():
         
     else:
         return render_template('sign_up.html')
+    
+@auth.route('/logout')
+def logout():
+    if('user' in session):
+        session.pop('user')
+        return redirect(url_for('auth.login'))
+    else:
+        return redirect(url_for('auth.login'))
