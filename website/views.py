@@ -33,7 +33,7 @@ def user_profile():
             activity = request.form['activity']
             update_activity(email, activity)
         
-        # stats = get_stats(email)
+        stats = get_stats(email)
         # print(stats)
         return "done"
     else:
@@ -41,7 +41,7 @@ def user_profile():
             username = session['user']['username']
             email = session['user']['email']
             if (verify_user_stats(email) == False): create_user_stats(email)
-            # stats = get_stats(email)
+            stats = get_stats(email)
             # print(stats)
             return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'], gender=stats['gender'], objective=stats['objective'], activity=stats['activity'] )
         else:
