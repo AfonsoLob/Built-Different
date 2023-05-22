@@ -27,7 +27,53 @@ let bmi_event = () => {
             }
     }
 
-window.addEventListener('load', bmi_event)
+let macro_event = () => {
+    const idade = document.getElementById('idade-input').value;
+    const altura = (document.getElementById('altura-input').value);
+    const peso = document.getElementById('peso-input').value;
+    let genero = document.getElementsByClassName('gender is-selected')[0]; // There should be only 1 element with this class (Masculino or Feminino)
+    let objetivo = document.getElementsByClassName('objective is-selected')[0];; // There should be only 1 element with this class (Cut, Maintain or Bulk)
+    const activity = document.getElementById('activity-level').value;
+    if(idade > 0 && altura > 0 && peso > 0 && activity > 0 && genero && objetivo){
+        // For men: 10 x weight (kg) + 6.25 x height (cm) – 5 x age (y) + 5 (kcal / day)
+        // For women: 10 x weight (kg) + 6.25 x height (cm) – 5 x age (y) -161 (kcal / day)
+        // Multiplication: Sedentario (1) = 1.2 ; Atividade Leve (2) = 1.375 ; Atividade Moderada (3) = 1.550 ; Muito Ativo (4) = 1.725 ; Extremamente Ativo (5) = 1.9
+        // Weight loss: Reduce by 10-20% ; Weight gain: Add 500 calories ; Weight maintenance: Unchanged
+        genero = genero.innerText;
+        objetivo = objetivo.innerText;
+        let bmr;
+        if(genero == 'Masculino'){
+            bmr = 10 * peso + 6.25 * altura  - 5 * idade + 5;
+        }
+        else if(genero == 'Feminino'){
+            bmr = 10 * peso + 6.25 * altura  - 5 * idade - 161;
+        }
+        bmr = bmr * activity;
+        if(objetivo == 'Cut'){
+            // Reduce by 10%-20%"
+            bmr *= 0.9;
+        }   
+        else if(objetivo == 'Bulk'){
+            // Add 500 Calories
+            bmr += 500;
+        }
+        // If objetivo == 'Maintain' the result remains unchanged
+
+        bmr = bmr.toFixed(0);
+        const proteinas = ((bmr * 0.3)/4).toFixed(0); // 1g Proteina = 4 Calorias
+        const hidratos = ((bmr * 0.4)/4).toFixed(0); // 1g Hidratos = 4 Calorias
+        const gorduras = ((bmr * 0.3)/9).toFixed(0); // 1g Gordura = 9 Calorias
+
+        document.getElementById('macrosP-input').value = proteinas + "g"; // Proteinas
+        document.getElementById('macrosH-input').value = hidratos + "g"; // Hidratos
+        document.getElementById('macrosG-input').value = gorduras + "g"; // Gorduras
+    }
+}
+
+window.addEventListener('load', () => {
+    bmi_event();
+    macro_event();
+})
 
 linksArray.forEach(link => {
     if(link.id != 'settings'){ // link is not settings
@@ -75,6 +121,7 @@ array_options.forEach(option => {
             }
         }
         if(option_family == "gender"){
+            macro_event();
             const gender = option.innerText;
             const email = $( "#email-input" ).val();
             $.ajax({
@@ -93,6 +140,7 @@ array_options.forEach(option => {
             });
         }
         else if(option_family == "objective"){
+            macro_event();
             const objective = option.innerText;
             const email = $( "#email-input" ).val();
             $.ajax({
@@ -128,8 +176,7 @@ array_statsFields.forEach(statField => {
             inputField.disabled = false;
             inputField.select();
         });
-        inputField.addEventListener('focusout', bmi_event);
-        inputField.addEventListener('focusout', () => {inputField.disabled = true});
+        inputField.addEventListener('focusout', () => {bmi_event(); macro_event(); inputField.disabled = true});
     }
 });
 
@@ -166,9 +213,9 @@ stats.forEach(element => {
 let activity_level = document.getElementById('activity-level');
 let activity_options = Array.from(document.getElementById('activity-level').children)
 activity_level.addEventListener('change', () => {
+    macro_event();
     const activity_value = $( "#activity-level" ).val();
     const email = $( "#email-input" ).val();
-    console.log(activity_value)
 
     $.ajax({
         type: "POST",
@@ -185,4 +232,3 @@ activity_level.addEventListener('change', () => {
         }  
     });
 })
-console.log(activity_options)
