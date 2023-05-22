@@ -126,6 +126,10 @@ def create_user_stats(email):
         """)
 
 def update_stats(email, age, height, weight):
+    if(age.isdigit() == False): age = '#'
+    if(height.isdigit() == False): height = '#'
+    if(weight.isdigit() == False): weight = '#'
+
     with sqlite3.connect(db_path) as con:
         con.execute(f"""
         UPDATE user_stats
