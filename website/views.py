@@ -16,7 +16,7 @@ def home():
 @views.route('/profile', methods=['GET', 'POST'])
 def user_profile():
     if request.method == 'POST':
-        print(request.form)
+        # print(request.form)
         email = request.form['email']
         if(request.form['op'] == '0'):
             age = request.form['idade']
@@ -33,16 +33,16 @@ def user_profile():
             activity = request.form['activity']
             update_activity(email, activity)
         
-        stats = get_stats(email)
-        print(stats)
+        # stats = get_stats(email)
+        # print(stats)
         return "done"
     else:
         if('user' in session):
             username = session['user']['username']
             email = session['user']['email']
             if (verify_user_stats(email) == False): create_user_stats(email)
-            stats = get_stats(email)
-            print(stats)
+            # stats = get_stats(email)
+            # print(stats)
             return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'], gender=stats['gender'], objective=stats['objective'], activity=stats['activity'] )
         else:
             return redirect( url_for('auth.login') )
@@ -50,7 +50,7 @@ def user_profile():
 @views.route('/plans', methods=['GET', 'POST'])
 def view_plans():
     if request.method == 'POST':
-        print(request.form)
+        # print(request.form)
         return "done"
     else:
         if('user' in session):

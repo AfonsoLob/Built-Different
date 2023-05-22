@@ -41,7 +41,7 @@ let macro_event = () => {
         // Weight loss: Reduce by 10-20% ; Weight gain: Add 500 calories ; Weight maintenance: Unchanged
         genero = genero.innerText;
         objetivo = objetivo.innerText;
-        let bmr;
+        let bmr, proteinas, hidratos, gorduras;
         if(genero == 'Masculino'){
             bmr = 10 * peso + 6.25 * altura  - 5 * idade + 5;
         }
@@ -51,19 +51,21 @@ let macro_event = () => {
         bmr = bmr * activity;
         if(objetivo == 'Cut'){
             // Reduce by 10%-20%"
-            bmr *= 0.9;
+            bmr *= 0.85; // - 15 %
+            proteinas = ((bmr * 0.4)/4).toFixed(0); // 1g Proteina = 4 Calorias
+            hidratos = ((bmr * 0.4)/4).toFixed(0); // 1g Hidratos = 4 Calorias
+            gorduras = ((bmr * 0.2)/9).toFixed(0); // 1g Gordura = 9 Calorias
         }   
-        else if(objetivo == 'Bulk'){
-            // Add 500 Calories
-            bmr += 500;
+        else{
+            if(objetivo == 'Bulk') bmr += 500; // Add 500 Calories
+            proteinas = ((bmr * 0.3)/4).toFixed(0); // 1g Proteina = 4 Calorias
+            hidratos = ((bmr * 0.4)/4).toFixed(0); // 1g Hidratos = 4 Calorias
+            gorduras = ((bmr * 0.3)/9).toFixed(0); // 1g Gordura = 9 Calorias
         }
         // If objetivo == 'Maintain' the result remains unchanged
 
         bmr = bmr.toFixed(0);
-        const proteinas = ((bmr * 0.3)/4).toFixed(0); // 1g Proteina = 4 Calorias
-        const hidratos = ((bmr * 0.4)/4).toFixed(0); // 1g Hidratos = 4 Calorias
-        const gorduras = ((bmr * 0.3)/9).toFixed(0); // 1g Gordura = 9 Calorias
-
+        console.log(bmr)
         document.getElementById('macrosP-input').value = proteinas + "g"; // Proteinas
         document.getElementById('macrosH-input').value = hidratos + "g"; // Hidratos
         document.getElementById('macrosG-input').value = gorduras + "g"; // Gorduras
