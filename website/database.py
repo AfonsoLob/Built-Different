@@ -40,9 +40,11 @@ def setup_database():
         con.execute(user_stats)
 
 def cleanup_database():
-    users_table = "DROP TABLE IF EXISTS user_stats;"
+    users_table = "DROP TABLE IF EXISTS users;"
+    users_stats = "DROP TABLE IF EXISTS user_stats;"
     with sqlite3.connect(db_path) as con:
         con.execute(users_table)
+        con.execute(users_stats)
 
 def verify_user(user_email):
     with sqlite3.connect(db_path) as con:
