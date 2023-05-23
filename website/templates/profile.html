@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Profile - Built Different{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+<!-- MDB -->
 {% endblock %}
 {% block beforenav %}
 <div class="d-flex flex-column vh-100" style="min-height: 990px;">
-{% endblock %}
-{% block body %}
+    {% endblock %}
+    {% block body %}
     <div class="profile">
         <div class="profile-box">
             <!-- Statistics -->
@@ -38,24 +39,30 @@
                             <p>Género</p>
                             <div class="stats-options">
                                 {% if gender == '1' %}
-                                <div class="option gender opt1 is-selected" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option gender opt1 is-selected"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Masculino
                                 </div>
-                                <div class="option gender opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option gender opt2"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Feminino
                                 </div>
                                 {% elif gender == '0' %}
-                                <div class="option gender opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option gender opt1"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Masculino
                                 </div>
-                                <div class="option gender opt2 is-selected" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option gender opt2 is-selected"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Feminino
                                 </div>
                                 {% else %}
-                                <div class="option gender opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option gender opt1"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Masculino
                                 </div>
-                                <div class="option gender opt2" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option gender opt2"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Feminino
                                 </div>
                                 {% endif %}
@@ -65,43 +72,55 @@
                             <p>Objetivo</p>
                             <div class="stats-options">
                                 {% if objective == '2' %}
-                                <div class="option objective opt1 is-selected" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt1 is-selected"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt2"
+                                    style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
                                     Maintain
                                 </div>
-                                <div class="option objective opt3" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt3"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% elif objective == '1' %}
-                                <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt1"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2 is-selected" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt2 is-selected"
+                                    style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
                                     Maintain
                                 </div>
-                                <div class="option objective opt3" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt3"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% elif objective == '0' %}
-                                <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt1"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt2"
+                                    style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
                                     Maintain
                                 </div>
-                                <div class="option objective opt3 is-selected" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt3 is-selected"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% else %}
-                                <div class="option objective opt1" style="border-left: none; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt1"
+                                    style="border-left: none; border-right: solid #0a192f 1px !important;">
                                     Cut
                                 </div>
-                                <div class="option objective opt2" style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
+                                <div class="option objective opt2"
+                                    style="border-left: solid #0a192f 1px !important; border-right: solid #0a192f 1px !important;">
                                     Maintain
                                 </div>
-                                <div class="option objective opt3" style="border-right: none; border-left: solid #0a192f 1px !important;">
+                                <div class="option objective opt3"
+                                    style="border-right: none; border-left: solid #0a192f 1px !important;">
                                     Bulk
                                 </div>
                                 {% endif %}
@@ -207,7 +226,7 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
             <!-- Plans -->
             <div class="content" id="profile-plans">
                 <h1>Saved Plans</h1>
@@ -218,10 +237,39 @@
             </div>
             <!-- Settings -->
             <div class="content" id="profile-password">
-                <div>Change Password</div>
-                <div>Current Password</div>
-                <div>New Password</div>
-                <div>Repeat Password</div>
+                <form action="/profile" method="POST">
+                    <h2 class="fw-bold mb-2 text-uppercase">Change Password</h2>
+                    <p class="alpha-60 mb-5">Please enter your old password and new password!</p>
+                    <div class="form-outline form-white mb-4 position-relative">
+                        <input type="password" id="old-password" name="old-password" class="form-control form-control-lg" placeholder=" ">
+                        <label class="form-label position-absolute top-0" for="old-password">Old Password</label>
+                        <span id="old-password-error"></span>
+                    </div>
+                    <div class="form-outline form-white mb-4 position-relative">
+                        <input type="password" id="new-password" name="new-password" class="form-control form-control-lg" placeholder=" ">
+                        <label class="form-label position-absolute top-0" for="new-password">New Password</label>
+                        <span id="new-password-error"></span>
+                    </div>
+                    <div class="form-outline form-white mb-4 position-relative">
+                        <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" placeholder=" ">
+                        <label class="form-label position-absolute top-0" for="confirm-password">Confirm Password</label>
+                        <span id="confirm-password-error"></span>
+                    </div>
+                    <ul>
+                        <li class="alpha-60">Minimum 8 characters</li>
+                    </ul>
+                    <div class="text-center"><button class="change-password-btn" type="button" id="change-password">Change Password</button></div>
+                </form>
+
+                <!-- <div class="change-password-box">
+                    <h1>Registo da Conta</h1>
+                    <span>Change Password</span>
+                    <div class="cp-form" id="cp" name="cp">
+                        <input class="cp-form-div" type="password" placeholder="Old Password"></input>
+                        <input class="cp-form-div" type="password" placeholder="New Password"></input>
+                        <input class="cp-form-div" type="password" placeholder="Confirm Password"></input>
+                    </div>
+                </div> -->
             </div>
             <div class="content" id="profile-account">
                 <h1>Account Settings</h1>
@@ -237,22 +285,25 @@
                 <div class="profile-username">{{username}}'s profile</div>
             </div>
             <li class="nav-item">
-            <a class="nav-link active" data-target="profile-stats" aria-current="page" href="#">Stats</a>
+                <a class="nav-link active" data-target="profile-stats" aria-current="page" href="#">Stats</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" data-target="profile-plans" href="#">Saved Plans</a>
+                <a class="nav-link" data-target="profile-plans" href="#">Saved Plans</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="settings" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Settings</a>
+                <a class="nav-link dropdown-toggle" id="settings" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false">Settings</a>
                 <ul class="dropdown-menu">
-                <li><a class="dropdown-item" data-target="profile-password" href="#">Password</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" data-target="profile-account" href="#">Account</a></li>
+                    <li><a class="dropdown-item" data-target="profile-password" href="#">Password</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" data-target="profile-account" href="#">Account</a></li>
                 </ul>
             </li>
         </div>
     </div>
 </div> <!-- Ending the 100vh div -->
 
-    <script src="{{url_for('static', filename='javascript/profile.js')}}"></script>
+<script src="{{url_for('static', filename='javascript/profile.js')}}"></script>
 {% endblock %}

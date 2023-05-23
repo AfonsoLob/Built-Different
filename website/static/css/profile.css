@@ -23,7 +23,9 @@
 .content:not(.is-selected){
     display: none !important;
 }
-
+.alpha-60{
+    opacity: 0.6;
+}
 /* Stats Box */
 #profile-stats{
     display: flex;
@@ -189,7 +191,18 @@
 /* Plans Box */
 
 /* Settings Box */
-
+#profile-password{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+}
+.change-password-btn{
+    font-size: 1.25rem;
+    border-radius: 0.3rem;
+}
 
 /* Profile */
 
@@ -250,14 +263,17 @@ ul.dropdown-menu{
         flex-direction: column-reverse;
         align-items: center;
     }
+    .profile-box{ flex: 1; }
+    .footer{ margin-top: 48px !important; }
     .profile-tabs{
         flex-direction: row;
         width: auto;
         align-items: center;
         border: none;
+        padding-bottom: 3rem;
     }
     .profile-image{
-        flex-direction: column-reverse;
+        flex-direction: column;
         margin-bottom: 48px;
     }
     .profile-image img{
@@ -285,7 +301,6 @@ ul.dropdown-menu{
         width: 100%;
     }
     #profile-stats{
-        margin-top: 50px;
         flex-direction: column;
         gap: 50px;
     }

@@ -27,3 +27,25 @@
 .bi-chevron-down{
     color: #f2f2f2 !important;
 }
+/* Forms */
+.form-control{
+    background-color: transparent !important;
+    color: #f2f2f2 !important;
+}
+.form-control:focus{
+    box-shadow: none !important;
+    border-color: #f2f2f2 !important;
+}
+.form-outline .form-control.form-control-lg.active~.form-label,.form-outline .form-control.form-control-lg:focus~.form-label {
+    transform: translateY(-2.0rem) scale(.8);
+}
+.form-outline .form-control.form-control-lg.active~.form-label,.form-outline .form-control.form-control-lg:not(:placeholder-shown)~.form-label {
+    transform: translateY(-2.0rem) scale(.8)
+}
+.form-label{
+    padding-top: 0.7rem !important;
+    padding-left: 0.75rem !important;
+    transform-origin: 0.0 !important;
+    transition: all .2s ease-out !important;
+    pointer-events: none !important;
+}
