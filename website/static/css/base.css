@@ -81,7 +81,7 @@ body{
   }
 
   button{
-    background-color: #0A192F;
+    background-color: transparent;
     border: 1px solid #00A86B;
     border-radius: 8px;
     padding: 5px 15px 5px 15px;

@@ -191,6 +191,14 @@
 /* Plans Box */
 
 /* Settings Box */
+.settings{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #2b2e359c;
+    padding: 3rem;
+    width: 100%;
+}
 #profile-password{
     display: flex;
     align-items: center;
@@ -203,6 +211,7 @@
     font-size: 1.25rem;
     border-radius: 0.3rem;
 }
+
 
 /* Profile */
 
@@ -274,7 +283,6 @@ ul.dropdown-menu{
     }
     .profile-image{
         flex-direction: column;
-        margin-bottom: 48px;
     }
     .profile-image img{
         width: 145px;
@@ -314,6 +322,10 @@ ul.dropdown-menu{
     .personal-bmi, .personal-macros{
         width: 450px;
         max-width: 100%;
+    }
+    .settings{
+        flex-direction: column;
+        gap: 50px;
     }
 }
 @media (max-width: 480px){

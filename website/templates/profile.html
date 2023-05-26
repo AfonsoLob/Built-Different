@@ -237,39 +237,35 @@
             </div>
             <!-- Settings -->
             <div class="content" id="profile-password">
-                <form action="/profile" method="POST">
-                    <h2 class="fw-bold mb-2 text-uppercase">Change Password</h2>
-                    <p class="alpha-60 mb-5">Please enter your old password and new password!</p>
-                    <div class="form-outline form-white mb-4 position-relative">
-                        <input type="password" id="old-password" name="old-password" class="form-control form-control-lg" placeholder=" ">
-                        <label class="form-label position-absolute top-0" for="old-password">Old Password</label>
-                        <span id="old-password-error"></span>
+                <div class="settings">
+                    <div class="settings-username">
+                        @ Username 
                     </div>
-                    <div class="form-outline form-white mb-4 position-relative">
-                        <input type="password" id="new-password" name="new-password" class="form-control form-control-lg" placeholder=" ">
-                        <label class="form-label position-absolute top-0" for="new-password">New Password</label>
-                        <span id="new-password-error"></span>
-                    </div>
-                    <div class="form-outline form-white mb-4 position-relative">
-                        <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" placeholder=" ">
-                        <label class="form-label position-absolute top-0" for="confirm-password">Confirm Password</label>
-                        <span id="confirm-password-error"></span>
-                    </div>
-                    <ul>
-                        <li class="alpha-60">Minimum 8 characters</li>
-                    </ul>
-                    <div class="text-center"><button class="change-password-btn" type="button" id="change-password">Change Password</button></div>
-                </form>
-
-                <!-- <div class="change-password-box">
-                    <h1>Registo da Conta</h1>
-                    <span>Change Password</span>
-                    <div class="cp-form" id="cp" name="cp">
-                        <input class="cp-form-div" type="password" placeholder="Old Password"></input>
-                        <input class="cp-form-div" type="password" placeholder="New Password"></input>
-                        <input class="cp-form-div" type="password" placeholder="Confirm Password"></input>
-                    </div>
-                </div> -->
+                    <hr>
+                    <form action="/profile" method="POST">
+                        <h2 class="fw-bold mb-2 text-uppercase">Change Password</h2>
+                        <p class="alpha-60 mb-5">Please enter your old password and new password!</p>
+                        <div class="form-outline form-white mb-4 position-relative">
+                            <input type="password" id="old-password" name="old-password" class="form-control form-control-lg" placeholder=" ">
+                            <label class="form-label position-absolute top-0" for="old-password">Old Password</label>
+                            <span id="old-password-error"></span>
+                        </div>
+                        <div class="form-outline form-white mb-4 position-relative">
+                            <input type="password" id="new-password" name="new-password" class="form-control form-control-lg" placeholder=" ">
+                            <label class="form-label position-absolute top-0" for="new-password">New Password</label>
+                            <span id="new-password-error"></span>
+                        </div>
+                        <div class="form-outline form-white mb-4 position-relative">
+                            <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" placeholder=" ">
+                            <label class="form-label position-absolute top-0" for="confirm-password">Confirm Password</label>
+                            <span id="confirm-password-error"></span>
+                        </div>
+                        <ul>
+                            <li class="alpha-60">Minimum 8 characters</li>
+                        </ul>
+                        <div class="text-center"><button class="change-password-btn" type="button" id="change-password">Change Password</button></div>
+                    </form>
+                </div>
             </div>
             <div class="content" id="profile-account">
                 <h1>Account Settings</h1>
