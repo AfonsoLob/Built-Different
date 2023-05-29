@@ -278,7 +278,13 @@
         <div class="profile-tabs">
             <div class="profile-image">
                 <img alt="profile-image" src="{{ url_for('static', filename='images/person.png') }}">
-                <div class="profile-username">{{username}}'s profile</div>
+                {% if type == '0' %}
+                    <div class="profile-username">{{username}}<sup> PT</sup></div>
+                {% elif type == '1' %}
+                    <div class="profile-username">{{username}}<sup> NT</sup></div>
+                {% else %}
+                   <div class="profile-username">{{username}}</div>
+                {% endif %}
             </div>
             <li class="nav-item">
                 <a class="nav-link active" data-target="profile-stats" aria-current="page" href="#">Stats</a>

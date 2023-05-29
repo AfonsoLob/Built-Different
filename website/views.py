@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from .auth import session
-from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective, update_activity
+from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective, update_activity, get_type
 
 views = Blueprint('views', __name__)
 
@@ -8,7 +8,6 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET','POST'])
 def home():
     if('user' in session):
-        print(session)
         return render_template('index.html')
     else:
         return redirect( url_for('auth.login') )
@@ -42,8 +41,8 @@ def user_profile():
             email = session['user']['email']
             if (verify_user_stats(email) == False): create_user_stats(email)
             stats = get_stats(email)
-            # print(stats)
-            return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'], gender=stats['gender'], objective=stats['objective'], activity=stats['activity'] )
+            return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'],
+                                    gender=stats['gender'], objective=stats['objective'], activity=stats['activity'], type=get_type(email))
         else:
             return redirect( url_for('auth.login') )
 

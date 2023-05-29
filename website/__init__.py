@@ -13,6 +13,7 @@ def create_app():
     # Register blueprints
     # cleanup_database()
     setup_database() # Create tables such as user table
+
     setup_databaseChat()
     setup_databaseMessages()
     app.register_blueprint(views, url_prefix='/')

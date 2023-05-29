@@ -12,7 +12,8 @@ def setup_database():
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
-        username TEXT NOT NULL
+        username TEXT NOT NULL,
+        type TEXT
     );"""
     user_stats = """ CREATE TABLE IF NOT EXISTS user_stats (
         email TEXT NOT NULL,
@@ -23,6 +24,15 @@ def setup_database():
         objective TEXT,
         activity TEXT
     );"""
+    add_worker1 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
+        VALUES ('personal1@ua.pt','{generate_password_hash('personalTrainer')}','Nuno Oliveira', '0');
+        """
+    add_worker2 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
+        VALUES ('personal2@ua.pt','{generate_password_hash('personalTrainer')}','Ramon Dino', '0');
+        """
+    add_worker3 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
+        VALUES ('personal3@ua.pt','{generate_password_hash('personalTrainer')}','Ronnie Coleman', '0');
+        """
     # trainings_table = """ CREATE TABLE IF NOT EXISTS trainings (
     #     id INTEGER PRIMARY KEY AUTOINCREMENT,
     #     training_name TEXT NOT NULL UNIQUE,
@@ -38,6 +48,10 @@ def setup_database():
     with sqlite3.connect(db_path) as con:
         con.execute(user_table)
         con.execute(user_stats)
+        con.execute(add_worker1)
+        con.execute(add_worker2)
+        con.execute(add_worker3)
+
 
 def cleanup_database():
     users_table = "DROP TABLE IF EXISTS users;"
@@ -119,6 +133,15 @@ def get_stats(email):
         list_of_stats = cur.fetchall()[0]
         return {'age': list_of_stats[0], 'height': list_of_stats[1], 'weight': list_of_stats[2], 'gender': list_of_stats[3], 'objective': list_of_stats[4], 'activity': list_of_stats[5]}
         
+def get_type(email):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+            SELECT type FROM users
+            WHERE email = '{email}';
+            """)
+        type = cur.fetchall()[0][0]
+        return type
 
 def create_user_stats(email):
     with sqlite3.connect(db_path) as con:
