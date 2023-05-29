@@ -21,137 +21,58 @@
 Main and Containers
 */
 
-.body-container {
-  padding-top: 2rem;
+.center-card {
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
-.content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+.card {
+  border: none;
 }
 
-.content {
-  display: none;
-  text-align: center;
+.center-card h5 {
+  font-style: italic;
+  color: rgb(158, 158, 158);
 }
 
-.content.is-selected {
-  display: block;
-}
-.content.is-selected ul{
-  animation: selected-pop 1s forwards;
-}
-
-ul {
-  display: block;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  color: #2D3B55;
-  text-align: center;
-}
-
-/*
-Training Plan
-*/
-
-.is-selected#training-plans, .is-selected#personal-trainers{
+/* Container Planos */
+.planos-container{
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  gap: 50px;
 }
-.plan-container, .personalTrainer-container{
-  display: grid;
-  padding: 0;
-  margin-top: 50px;
-  background-image: linear-gradient(transparent,#FFA500 5%, #FFA500 95%, transparent);
-  text-align: left;
-  color: #0A192F;
-  border-radius: 5px;
-
-
-  width: 100%;
-  height: 200px;
-}
-.plan-container h2{
-  width: fit-content;
-}
-.plan-container p{
-  justify-self: center;
-  align-self: center;
-  width: 500px;
-  height: 100%;
-}
-
-/*
-Buttons
-*/
-.button-group {
+.plano-treino{
   display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 930px;
+  height: 170px;
+  border: 1px solid #f2f2f2;
+  border-radius: 20px;
+  padding: 20px 30px;
+}
+.plano-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.button {
-  margin-right: 1rem;
-  font-size: 1.2rem;
-  border-radius: 10px;
-}
-
-.button.is-selected {
-  color: #f2f2f2;
-  background-color: #00A86B;
-  border-color: #0A192F;
-}
-.go-back, .go-back:hover {
-    font-size: 2rem;
-    width: min-content;
-    border-radius: 20px;
-    padding: 0px 3px 0px 3px;
-    border: 5px solid transparent;
-    position: relative;
-    top: 30px;
-    left: 30px;
-    cursor: pointer;
-    color: white;
-}
-.go-back:hover{
-    background-color: white;
-    color: black;
-}
-
-
-@media (max-width: 700px){
-  .body-container p{
-    max-width: 400px;
+@media (max-width: 575px) {
+  .plano-treino{
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    max-width: 100%;
+    height: 250px;
+  }
+  .plano-description{
+    justify-content: center;
+  }
+  .plano-info{
+    display: flex;
+    flex-direction: column;
   }
 }
-
-/*
-@keyframes animations
-*/
-
-@keyframes selected-pop {
-  0%{
-    height: 0%;
-    width: 0%;
-  }
-  100%{
-    height: 100%;
-    width: 100%;
-  }
-}
-
