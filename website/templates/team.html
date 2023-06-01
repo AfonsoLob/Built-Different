@@ -149,21 +149,22 @@
                 <div>
                     <h4>Avaliação: 4.2 <i class="fas fa-star text-warning"></i></h4>
                 </div>
-                <form method="post" action="/team">
-                    <button class="mt-4" type="submit" name="join" id="chatButton">Iniciar Chat</button>
+                <form method="post" action="/team" class="chatForm">
+                    <button type="submit" class="mt-4 chatButton" value="personal1@ua.pt"> Iniciar Chat</button>
                 </form>
             </div>
         </div>
     </div>
     
-    {% if messages|length > 0 %}
     <div id="chatBox" class="chatBox">
         <button class="close-btn" id="close-btn">
             <i class="fas fa-times"></i>
         </button>
         <h2>Mensagens</h2>
         <hr>
-        <div class="messages" id="messages"></div>
+        <div class="message-container">
+            <div class="messages" id="messages"></div>
+        </div>
         <div class="row inputChat">
             <div class="col-8">
                 <input type="text" placeholder="Message" name="message" id="message"/>
@@ -181,15 +182,13 @@
             </script>
         {% endfor %}
     </div>
-    {% endif %}
 
-    <form method="post" action="/conversations">
+    <form method="post" action="/conversations" id="conversationsForm">
         <button class="chatStickyBtn" id="chatStickyBtn" type="submit">
             <i class="fas fa-comment"></i>
         </button>
     </form>
 
-    {% if conversas|length > 0 %}
     <div id="allChat" class="chatBox">
         <button class="close-btn" id="close-btn-all">
             <i class="fas fa-times"></i>
@@ -197,14 +196,7 @@
         <h2>Conversas</h2>
         <hr>
         <div class="conversas" id="conversas"></div>
-        <script src="{{url_for('static', filename='javascript/conversations.js')}}"></script>
-        {% for conversa in conversas %}
-            <script type="text/javascript">
-            createChat("{{conversa}}");
-            </script>
-        {% endfor %}
     </div>
-    {% endif %}
 
 </div> 
 

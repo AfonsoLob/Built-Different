@@ -75,3 +75,13 @@ def get_duplicate_key(user1, user2):
         return result[0]  # Return the duplicated key
     else:
         return None  # No duplicated key found
+    
+def get_users(conversation_id):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT email FROM conversations
+        WHERE conversationID = '{conversation_id}'
+        """)
+        result = cur.fetchall()
+        return result

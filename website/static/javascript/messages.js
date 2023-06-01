@@ -1,6 +1,6 @@
-var socketio = io();
-          
-const messages = document.getElementById("messages");
+const socketio = io();
+
+const messages = $("#messages");
 const createMessage = (name, msg) => {
     const content = `
     <div class="text">
@@ -9,7 +9,7 @@ const createMessage = (name, msg) => {
         </span>
     </div>
     `;
-    messages.innerHTML += content;
+    messages.append(content);
 };
 
 socketio.on("message", (data) => {
@@ -17,14 +17,14 @@ socketio.on("message", (data) => {
 });
 
 const sendMessage = () => {
-    const message = document.getElementById("message");
-    if (message.value == "") return;
-    socketio.emit("message", { data: message.value });
-    message.value = "";
+    const message = $("#message");
+    if (message.val() === "") return;
+    socketio.emit("message", { data: message.val() });
+    message.val("");
 };
 
-document.getElementById('message').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
+$("#message").on("keydown", function(event) {
+    if (event.key === "Enter") {
         event.preventDefault();
         sendMessage();
     }

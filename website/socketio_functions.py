@@ -1,8 +1,9 @@
 import random
 from string import ascii_uppercase
-from flask import request, session, render_template, redirect, url_for, Blueprint
+from flask import request, session, render_template, redirect, url_for, Blueprint, jsonify
 from flask_socketio import join_room, leave_room, send
-from .databaseChat import get_chat_id, add_conversation, conversation_exists, get_duplicate_key
+from .database import get_username
+from .databaseChat import get_chat_id, add_conversation, conversation_exists, get_duplicate_key, get_users
 from .databaseMessages import get_messages, add_message
 
 socketio_functions = Blueprint('socket', __name__)
@@ -20,10 +21,9 @@ def chat():
     if request.method == "POST":
         email = session.get("user")["email"]
         username = session.get("user")["username"]
-        join = request.form.get('join', False)
-        receiver = "algo@gmail.com"                 #TODO: Switch this, giving instant username
+        receiver = request.form['receiver_value']
         
-        if join != False and not get_duplicate_key(email, receiver):
+        if not get_duplicate_key(email, receiver):
             room = generate_random_code()
             add_conversation(room, email)
             add_conversation(room, receiver)
@@ -31,13 +31,13 @@ def chat():
         room = get_duplicate_key(email, receiver)
 
         session["room"] = room
-        return render_template("team.html", messages=message_conversion(room))
+        return jsonify({'messages': message_conversion(room)})
     
 @socketio_functions.route("/conversations", methods=["POST"])
 def conversations():
     if request.method == "POST":
-        username = session.get("user")["username"]
-        return render_template("team.html", conversas=[username])
+        conversations = get_all_conversations()
+        return jsonify({'conversations': conversations, 'names': emails_names_conversion(conversations)})
 
 def message(data):
     room = session.get("room")
@@ -76,7 +76,7 @@ def disconnect():
 
 def message_conversion(room):
     dataMessages = get_messages(room)
-    messages = []                       # list of dictionaries with message and sender
+    messages = []                 
 
     for i in dataMessages:
         content = {}
@@ -97,3 +97,21 @@ def is_any_user_in_room(room):
     from app import socketio                                # Lazy import to avoid circular imports
     clients = socketio.server.manager.rooms.get(room)
     return bool(clients)
+
+def get_all_conversations():
+    email = session.get("user")["email"]
+    conversations_id = get_chat_id(email)
+    conversations = []
+    for conversation_id in conversations_id:
+        users_involved = get_users(conversation_id[0])
+        for user in users_involved:
+            if user[0] != email:
+                conversations.append(user[0])
+    return conversations
+
+def emails_names_conversion(conversations):
+    names = []
+    for email in conversations:
+        names.append(get_username(email))
+    return names
+    
