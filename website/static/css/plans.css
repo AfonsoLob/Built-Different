@@ -59,14 +59,46 @@ Main and Containers
   justify-content: space-between;
   height: 100%;
 }
-
+.plano-info{
+  display: flex;
+  gap: 30px;
+}
+/* Personal Trainer */
+.add-plano-container{
+  width: 930px;
+}
+.add-plano{
+  display: flex;
+  gap: 10px;
+  font-size: 1.2rem;
+  width: fit-content;
+  align-items: center;
+  cursor: pointer;
+}
+.add-plano-circle-outer{
+  color: #00A86B;
+}
+.add-plano:hover span{
+  color: #00A86B;
+}
+.modal-content{
+  color: black;
+}
+.set-rep{
+  color: #0a192f !important;
+}
+.set-rep:focus{
+  box-shadow: #0a192f 0px 0px 1px 0px !important;
+}
 @media (max-width: 575px) {
   .plano-treino{
     flex-direction: column;
     justify-content: space-between;
+    height: 250px;
+  }
+  .add-plano-container,.plano-treino{
     width: 300px;
     max-width: 100%;
-    height: 250px;
   }
   .plano-description{
     justify-content: center;

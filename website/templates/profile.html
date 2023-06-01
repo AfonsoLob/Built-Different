@@ -279,9 +279,9 @@
             <div class="profile-image">
                 <img alt="profile-image" src="{{ url_for('static', filename='images/person.png') }}">
                 {% if type == '0' %}
-                    <div class="profile-username">{{username}}<sup> PT</sup></div>
+                    <div class="profile-username">{{username}}<sup> PT</sup><i class="verified bi bi-patch-check-fill"></i></div>
                 {% elif type == '1' %}
-                    <div class="profile-username">{{username}}<sup> NT</sup></div>
+                    <div class="profile-username">{{username}}<sup> NT</sup><i class="verified bi bi-patch-check-fill"></i></div>
                 {% else %}
                    <div class="profile-username">{{username}}</div>
                 {% endif %}

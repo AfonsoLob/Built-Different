@@ -53,7 +53,8 @@ def view_plans():
         return "done"
     else:
         if('user' in session):
-            return render_template('plans.html')
+            email = session['user']['email']
+            return render_template('plans.html', type=get_type(email))
         else:
             return redirect( url_for('auth.login') )
     

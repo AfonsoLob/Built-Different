@@ -33,6 +33,13 @@ def setup_database():
     add_worker3 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
         VALUES ('personal3@ua.pt','{generate_password_hash('personalTrainer')}','Ronnie Coleman', '0');
         """
+    plans_table = """ CREATE TABLE IF NOT EXISTS plans (
+        id INTEGER PRIMARY KEY AUTOINCREMENT
+        category TEXT NOT NULL,
+        owner TEXT NOT NULL,
+        type TEXT NOT NULL,
+        difficulty TEXT NOT NULL
+    );"""
     # trainings_table = """ CREATE TABLE IF NOT EXISTS trainings (
     #     id INTEGER PRIMARY KEY AUTOINCREMENT,
     #     training_name TEXT NOT NULL UNIQUE,

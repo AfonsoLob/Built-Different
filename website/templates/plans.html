@@ -14,6 +14,149 @@
   </div>
 </div>
 <div class="planos-container">
+  {% if type == '0' %}
+  <div class="add-plano-container container">
+    <div class="add-plano" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <svg class="add-plano-circle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+        class="bi bi-plus-circle" viewBox="0 0 16 16">
+        <path class="add-plano-circle-outer"
+          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+        <path class="add-plano-circle-inner"
+          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+      </svg>
+      <span>Adicionar Plano</span>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" id="add-plano-modal">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Adicionar Plano</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputSelectTreino"><i class="fas fa-dumbbell"></i></label>
+              <select class="form-select" id="inputSelectTreino">
+                <option hidden selected>Treino de...</option>
+                <option value="1">Treino de Pernas</option>
+                <option value="2">Treino de Peito</option>
+                <option value="3">Treino de Costas</option>
+                <option value="4">Treino de Bicep</option>
+                <option value="5">Treino de Tricep</option>
+                <option value="6">Treino de Ombros</option>
+              </select>
+          </div>
+          <div class="input-group mb-3" id="inputGroupSets">
+            <label class="input-group-text" for="inputSelectSets"><i class="bi bi-repeat"></i></label>
+              <select class="form-select" id="inputSelectSets">
+                <option hidden selected>Nº de Sets...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+          </div>
+          <div class="input-group mb-3" id="inputGroupSetsReps">
+            
+          </div>
+          <div class="input-group mb-3 group-exercise">
+            <label class="input-group-text" for="inputSelectEx1"><i class="bi bi-activity"></i></label>
+            <select class="form-select" id="inputSelectEx1">
+              <option selected>Exercício 1...</option>
+              <option value="1">Flexões</option>
+              <option value="2">Agachamentos</option>
+              <option value="3">Abdominais</option>
+            </select>
+            <label class="input-group-text" for="inputSelectDescansoEx1"><i class="bi bi-stopwatch"></i></label>
+            <select class="form-select" id="inputSelectDescansoEx1">
+              <option selected>Descanso...</option>
+              <option value="1">1:00</option>
+              <option value="2">2:00</option>
+              <option value="3">3:00</option>
+            </select>
+          </div>
+          <!-- Input Group 2 -->
+          <div class="input-group mb-3 group-exercise">
+            <label class="input-group-text" for="inputSelectEx2"><i class="bi bi-activity"></i></label>
+            <select class="form-select" id="inputSelectEx2">
+              <option hidden selected>Exercício 2...</option>
+              <option value="1">Flexões</option>
+              <option value="2">Agachamentos</option>
+              <option value="3">Abdominais</option>
+            </select>
+            <label class="input-group-text" for="inputSelectDescansoEx2"><i class="bi bi-stopwatch"></i></label>
+            <select class="form-select" id="inputSelectDescansoEx2">
+              <option hidden selected>Descanso...</option>
+              <option value="1">1:00</option>
+              <option value="2">2:00</option>
+              <option value="3">3:00</option>
+            </select>
+          </div>
+          <!-- Input Group 3 -->
+          <div class="input-group mb-3 group-exercise">
+            <label class="input-group-text" for="inputSelectEx3"><i class="bi bi-activity"></i></label>
+            <select class="form-select" id="inputSelectEx3">
+              <option hidden selected>Exercício 3...</option>
+              <option value="1">Flexões</option>
+              <option value="2">Agachamentos</option>
+              <option value="3">Abdominais</option>
+            </select>
+            <label class="input-group-text" for="inputSelectDescansoEx3"><i class="bi bi-stopwatch"></i></label>
+            <select class="form-select" id="inputSelectDescansoEx3">
+              <option hidden selected>Descanso...</option>
+              <option value="1">1:00</option>
+              <option value="2">2:00</option>
+              <option value="3">3:00</option>
+            </select>
+          </div>
+          <!-- Input Group 4 -->
+          <div class="input-group mb-3 group-exercise">
+            <label class="input-group-text" for="inputSelectEx4"><i class="bi bi-activity"></i></label>
+            <select class="form-select" id="inputSelectEx4">
+              <option hidden selected>Exercício 4...</option>
+              <option value="1">Flexões</option>
+              <option value="2">Agachamentos</option>
+              <option value="3">Abdominais</option>
+            </select>
+            <label class="input-group-text" for="inputSelectDescansoEx4"><i class="bi bi-stopwatch"></i></label>
+            <select class="form-select" id="inputSelectDescansoEx4">
+              <option hidden selected>Descanso...</option>
+              <option value="1">1:00</option>
+              <option value="2">2:00</option>
+              <option value="3">3:00</option>
+            </select>
+          </div>
+          <!-- Description -->
+          <h5>Descrição</h5>
+          <!-- Input Group 5 -->
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputSelectTipo">Tipo</label>
+            <select class="form-select" id="inputSelectTipo">
+              <option value="1">Força</option>
+              <option value="2">Resistência</option>
+              <option value="3">Hipertrofia</option>
+              <option value="4" selected>Manutenção</option>
+            </select>
+            <label class="input-group-text" for="inputSelectDificuldade">Dificuldade</label>
+            <select class="form-select" id="inputSelectDificuldade">
+              <option value="1">Iniciante</option>
+              <option value="2" selected>Normal</option>
+              <option value="3">Avançado</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary" id="post-plan">Postar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
   <!-- Plano 1 -->
   <div class="plano-treino container">
     <div class="plano-description">

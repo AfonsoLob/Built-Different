@@ -1,0 +1,80 @@
+let inputSets = document.getElementById('inputSelectSets');
+inputSets.addEventListener('click', inputSetsEvent);
+
+let button_post = document.getElementById('post-plan');
+button_post.addEventListener('click', postPlan);
+
+
+
+// Functions
+
+function inputSetsEvent() {
+    let value = inputSets.value;
+    let inputGroup = document.getElementById('inputGroupSetsReps');
+    inputGroup.innerHTML = ``
+
+    for (let i = 0; i < value; i++) {
+        inputGroup.innerHTML += `
+        <span class="input-group-text" id="repSet${i+1}">S${i+1}</span>
+        <input type="text" class="form-control set-rep" placeholder="Rep Qty" title="Repetition Quantity" aria-label="Exercise Repetitions" aria-describedby="repSet${i+1}">
+        `
+    }
+}
+
+function postPlan() {
+    let valid_treino, valid_number_of_sets, valid_exercises;
+    let sets_reps = Array.prototype;
+    sets_reps = []
+
+    let treino = document.getElementById('inputSelectTreino');
+    let number_of_sets = document.getElementById('inputSelectSets');
+    let tipo = document.getElementById('inputSelectTipo').textContent.replace(/[\r]+|[\s]{2,}/g, ' ').trim().split(' ');
+    let dificuldade = document.getElementById('inputSelectDificuldade').textContent.replace(/[\r]+|[\s]{2,}/g, ' ').trim().split(' ');
+    const tipo_value = document.getElementById('inputSelectTipo').value;
+    const dificuldade_value = document.getElementById('inputSelectDificuldade').value;
+    tipo = tipo[parseInt(tipo_value)-1];
+    dificuldade = dificuldade[parseInt(dificuldade_value)-1];
+
+    // Validate Training Category
+    if(Number.isInteger(parseInt(treino.value))) {
+        const treino_value = treino.value;
+        treino = treino.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim().split('  ');
+        treino = treino[parseInt(treino_value)];
+        valid_treino = true;
+    }
+    // Validate Number of Sets (and number of reps per set)
+    if(Number.isInteger(parseInt(number_of_sets.value))) {
+        valid_number_of_sets = true;
+        let sets = document.getElementById('inputGroupSetsReps').getElementsByClassName('set-rep');
+        for (let i = 0; i < number_of_sets.value; i++) {
+            if(Number.isInteger(parseInt(sets[i].value))){
+                sets_reps.push(sets[i].value);
+            }
+            else{ 
+                valid_number_of_sets = false;
+            }
+        }
+        number_of_sets = number_of_sets.value;
+    } 
+    // Validate Exercises
+    const array_exercises = Array.from(document.getElementsByClassName('group-exercise'));
+    array_exercises.forEach(exercise_group => {
+        let exercise = exercise_group.getElementsByTagName('select')[0].textContent.replace(/[\r]+|[\s]{2,}/g, ' ').trim().split(' ').slice(2); 
+        const exercise_value = exercise_group.getElementsByTagName('select')[0].value; 
+        let descanso = exercise_group.getElementsByTagName('select')[1].textContent.replace(/[\r]+|[\s]{2,}/g, ' ').trim().split(' ').slice(1);
+        const descanso_value = exercise_group.getElementsByTagName('select')[1].value;
+
+        if(Number.isInteger(parseInt(exercise_value)) && Number.isInteger(parseInt(descanso_value)) ){
+            exercise = exercise[exercise_value-1];
+            descanso = descanso[descanso_value-1];
+            valid_exercises = true;
+        }
+    });
+    if(valid_treino && valid_number_of_sets && valid_exercises){
+        console.log("POST");
+        console.log(sets_reps)
+    }
+    else{
+        console.log("NO POST")
+    }
+}

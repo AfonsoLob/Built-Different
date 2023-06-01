@@ -1,12 +1,16 @@
 from website import create_app
-from flask import render_template, url_for, request, redirect
+from flask import render_template, url_for, request, redirect, session
+from flask_session import Session
 from flask_socketio import SocketIO
 from datetime import timedelta
 from website.socketio_functions import message, connect, disconnect
 
 app = create_app() # create_app() in __init__.py
 app.config['SECRET_KEY'] = b'*51_.2S7H2F\n\xec]/'
+app.config['SESSION_TYPE'] = 'filesystem'
 app.config['PERMANENT_SESSION_LIFETIME'] =  timedelta(minutes=30)
+
+Session(app)
 
 socketio = SocketIO(app)
 

@@ -8,6 +8,13 @@
     color: #B22222;
     color: #FFA500;
   }
+/* Personal Trainers & Nutricionistas */
+.verified{
+    color: deepskyblue;
+    font-size: 1.4rem;
+    position: absolute;
+    transform: translateY(-0.4rem) translateX(10px);
+}
 /* Footer Top Margin 0 (So we're able to connect the lines) */
 .footer {
     margin-top: 0px !important; 
