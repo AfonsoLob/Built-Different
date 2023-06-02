@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from .auth import session
 from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective, update_activity, get_type
+from .database import add_plan, get_plans
+import json
 
 views = Blueprint('views', __name__)
 
@@ -15,7 +17,7 @@ def home():
 @views.route('/profile', methods=['GET', 'POST'])
 def user_profile():
     if request.method == 'POST':
-        # print(request.form)
+        print(request.form)
         email = request.form['email']
         if(request.form['op'] == '0'):
             age = request.form['idade']
@@ -49,12 +51,27 @@ def user_profile():
 @views.route('/plans', methods=['GET', 'POST'])
 def view_plans():
     if request.method == 'POST':
-        # print(request.form)
+        username = session['user']['username']
+        treino = request.form['treino']
+        tipo   = request.form['tipo']
+        dificuldade = request.form['dificuldade']
+        num_of_sets = request.form['number_of_sets']
+        set_reps = request.form['sets_reps']
+        exercises = request.form['exercises']
+        descansos = request.form['descansos']
+
+        add_plan(treino, username, tipo, dificuldade, num_of_sets, 
+                 set_reps, exercises, descansos) # json.dumps() não é usado pois a lista já é recebida em formato String
+    
         return "done"
     else:
         if('user' in session):
             email = session['user']['email']
-            return render_template('plans.html', type=get_type(email))
+            plans = get_plans()
+            for row in plans:
+                print(f"Category: {row[1]}\nOwner: {row[2]}\nSetReps: {json.loads(row[6])}")
+
+            return render_template('plans.html', type=get_type(email), plans=plans)
         else:
             return redirect( url_for('auth.login') )
     

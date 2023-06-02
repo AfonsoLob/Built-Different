@@ -23,8 +23,9 @@ function inputSetsEvent() {
 
 function postPlan() {
     let valid_treino, valid_number_of_sets, valid_exercises;
-    let sets_reps = Array.prototype;
-    sets_reps = []
+    let exercises_list = []
+    let descansos_list = []
+    let sets_reps = []
 
     let treino = document.getElementById('inputSelectTreino');
     let number_of_sets = document.getElementById('inputSelectSets');
@@ -67,12 +68,31 @@ function postPlan() {
         if(Number.isInteger(parseInt(exercise_value)) && Number.isInteger(parseInt(descanso_value)) ){
             exercise = exercise[exercise_value-1];
             descanso = descanso[descanso_value-1];
+            exercises_list.push(exercise);
+            descansos_list.push(descanso)
             valid_exercises = true;
         }
     });
     if(valid_treino && valid_number_of_sets && valid_exercises){
         console.log("POST");
-        console.log(sets_reps)
+        $.ajax({
+            type: "POST",
+            url: "/plans",
+            data: {
+                "treino": treino,
+                "tipo": tipo,
+                "dificuldade": dificuldade,
+                "number_of_sets": number_of_sets,
+                "sets_reps": JSON.stringify(sets_reps),
+                "exercises": JSON.stringify(exercises_list),
+                "descansos": JSON.stringify(descansos_list),
+            },
+            error: function(request) {
+                if (request.status === 404) {
+                    alert("Não foi possível postar o plano.")
+                }
+            } 
+        });
     }
     else{
         console.log("NO POST")

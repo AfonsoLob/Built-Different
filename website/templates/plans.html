@@ -157,8 +157,26 @@
     </div>
   </div>
   {% endif %}
-  <!-- Plano 1 -->
+  <!-- Iteração dos Planos na Database -->
+  {% for plan in plans %}
   <div class="plano-treino container">
+    <div class="plano-description">
+      <div class="plano-title">
+        <h3 class="m-0">{{ plan[1] }}</h3>
+        <div>Autor: {{ plan[2] }}</div>
+      </div>
+      <div class="plano-info">
+        <span>Tipo: {{ plan[3] }}</span>
+        <span>Dificuldade: {{ plan[4] }}</span>
+      </div>
+    </div>
+    <div class="plano-show">
+      <button>Ver Plano</button>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- Plano 1 -->
+  <!-- <div class="plano-treino container">
     <div class="plano-description">
       <div class="plano-title">
         <h3 class="m-0">Treino de Peito</h3>
@@ -172,23 +190,7 @@
     <div class="plano-show">
       <button>Ver Plano</button>
     </div>
-  </div>
-  <!-- Plano 2 -->
-  <div class="plano-treino container">
-    <div class="plano-description">
-      <div class="plano-title">
-        <h3 class="m-0">Treino de Pernas</h3>
-        <div>Autor: Ronnie Coleman</div>
-      </div>
-      <div class="plano-info">
-        <span>Tipo: Hipertrofia</span>
-        <span>Dificuldade: Avançado</span>
-      </div>
-    </div>
-    <div class="plano-show">
-      <button>Ver Plano</button>
-    </div>
-  </div>
+  </div> -->
 </div>
 <!-- Custom JS -->
 <script src="{{ url_for('static', filename='javascript/plans.js')}}"></script>

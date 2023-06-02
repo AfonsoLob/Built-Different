@@ -34,11 +34,15 @@ def setup_database():
         VALUES ('personal3@ua.pt','{generate_password_hash('personalTrainer')}','Ronnie Coleman', '0');
         """
     plans_table = """ CREATE TABLE IF NOT EXISTS plans (
-        id INTEGER PRIMARY KEY AUTOINCREMENT
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         category TEXT NOT NULL,
         owner TEXT NOT NULL,
         type TEXT NOT NULL,
-        difficulty TEXT NOT NULL
+        difficulty TEXT NOT NULL,
+        number_of_sets TEXT NOT NULL,
+        sets_reps TEXT NOT NULL,
+        exercises TEXT NOT NULL,
+        descansos TEXT NOT NULL
     );"""
     # trainings_table = """ CREATE TABLE IF NOT EXISTS trainings (
     #     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -55,6 +59,7 @@ def setup_database():
     with sqlite3.connect(db_path) as con:
         con.execute(user_table)
         con.execute(user_stats)
+        con.execute(plans_table)
         con.execute(add_worker1)
         con.execute(add_worker2)
         con.execute(add_worker3)
@@ -63,9 +68,11 @@ def setup_database():
 def cleanup_database():
     users_table = "DROP TABLE IF EXISTS users;"
     users_stats = "DROP TABLE IF EXISTS user_stats;"
+    plans_table = "DROP TABLE IF EXISTS plans;"
     with sqlite3.connect(db_path) as con:
-        con.execute(users_table)
-        con.execute(users_stats)
+        # con.execute(users_table)
+        # con.execute(users_stats)
+        con.execute(plans_table)
 
 def verify_user(user_email):
     with sqlite3.connect(db_path) as con:
@@ -203,3 +210,21 @@ def update_activity(email, activity):
         SET activity = '{activity}'
         WHERE email = '{email}';
         """)
+
+def get_plans():
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT * FROM plans;            
+        """)
+        data = cur.fetchall()
+
+        return data
+
+def add_plan(category, owner, type, difficulty, number_of_sets, set_reps, exercises, descansos):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        INSERT INTO plans (category, owner, type, difficulty, number_of_sets, sets_reps, exercises, descansos)
+        VALUES ('{category}','{owner}','{type}','{difficulty}','{number_of_sets}','{set_reps}','{exercises}','{descansos}')
+        ;""")
