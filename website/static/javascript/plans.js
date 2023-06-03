@@ -85,9 +85,9 @@ function postPlan() {
     // Validate Exercises
     const array_exercises = Array.from(document.getElementsByClassName('group-exercise'));
     array_exercises.forEach(exercise_group => {
-        let exercise = exercise_group.getElementsByTagName('select')[0].textContent.replace(/[\r]+|[\s]{2,}/g, ' ').trim().split(' ').slice(2); 
+        let exercise = exercise_group.getElementsByTagName('select')[0].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim().split('  ').slice(1); 
         const exercise_value = exercise_group.getElementsByTagName('select')[0].value; 
-        let descanso = exercise_group.getElementsByTagName('select')[1].textContent.replace(/[\r]+|[\s]{2,}/g, ' ').trim().split(' ').slice(1);
+        let descanso = exercise_group.getElementsByTagName('select')[1].textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim().split('  ').slice(1);
         const descanso_value = exercise_group.getElementsByTagName('select')[1].value;
 
         if(Number.isInteger(parseInt(exercise_value)) && Number.isInteger(parseInt(descanso_value)) ){
@@ -100,6 +100,8 @@ function postPlan() {
     });
     if(valid_treino && valid_number_of_sets && valid_exercises){
         console.log("POST");
+        console.log(exercises_list)
+        console.log(descansos_list)
         $.ajax({
             type: "POST",
             url: "/plans",
