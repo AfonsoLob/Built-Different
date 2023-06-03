@@ -1,0 +1,301 @@
+{% extends "base.html" %}
+{% block title %}Equipa{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/team.css')}}">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+      integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+      crossorigin="anonymous"
+    ></script>
+{% endblock %}
+{% block body %}
+
+    <div class="center-card">
+        <div class="card card-inherit bg-transparent">
+            <div class="card-body text-truncate">
+                <h1 class="mt-5">Nutricionistas</h1>
+                <h5 class="mt-2">Consulte Personal Trainers</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row mb-5">
+            {% if session_user != "nutricionista1@ua.pt" %}
+            <div class="col-lg-4">
+                <!-- Column 1 content goes here -->
+                <div class="text-center">
+                    <div class="image-container borderImg">
+                        <a id="openModalBtn">
+                            <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageHover imageSize">
+                            <div class="image-text">Contactar</div>
+                        </a>
+                    </div>
+                    <h3 class="mb-4">Nutricionista 1</h3>
+                    <p class="mx-5">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur dui eget faucibus porta. 
+                        Sed lobortis magna velit, eget pharetra justo venenatis non. Aenean imperdiet felis enim, sed euismod
+                         erat bibendum a. In mattis, leo quis volutpat placerat, metus sem interdum ante, nec malesuada nulla
+                          augue nec orci.
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% if session_user != "nutricionista2@ua.pt" %}
+            <div class="col-lg-4">
+                <!-- Column 2 content goes here -->
+                <div class="text-center">
+                    <div class="image-container borderImg">
+                        <a id="openModalBtn2">
+                            <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageHover imageSize">
+                            <div class="image-text">Contactar</div>
+                        </a>
+                    </div>
+                    <h3 class="mb-4">Nutricionista 2</h3>
+                    <p class="mx-5">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur dui eget faucibus porta. 
+                        Sed lobortis magna velit, eget pharetra justo venenatis non. Aenean imperdiet felis enim, sed euismod
+                         erat bibendum a. In mattis, leo quis volutpat placerat, metus sem interdum ante, nec malesuada nulla
+                          augue nec orci.
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+            {% if session_user != "nutricionista3@ua.pt" %}
+            <div class="col-lg-4">
+                <!-- Column 3 content goes here -->
+                <div class="text-center">
+                    <div class="image-container borderImg">
+                        <a id="openModalBtn3">
+                            <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageHover imageSize">
+                            <div class="image-text">Contactar</div>
+                        </a>
+                    </div>
+                    <h3 class="mb-4">Nutricionista 3</h3>
+                    <p class="mx-5">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consectetur dui eget faucibus porta. 
+                        Sed lobortis magna velit, eget pharetra justo venenatis non. Aenean imperdiet felis enim, sed euismod
+                         erat bibendum a. In mattis, leo quis volutpat placerat, metus sem interdum ante, nec malesuada nulla
+                          augue nec orci.
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class=" mx-5 mt-5">
+                    <h2>Quais os benifícios de um Nutricionista?</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            Orientação personalizada: Um nutricionista irá analisar as suas necessidades nutricionais individuais 
+                            e criar um piano alimentar personalizado de acordo corn os seus objetivos, estilo de vida e preferencias 
+                            alimentares. 
+                        </li>
+                        <li class="mb-3">
+                            Melhoria da saúde: Urn nutricionista pode ajudá-lo a melhorar a sua saúde geral através de escolhas 
+                            alimentares adequadas, reduzindo o risco de doenças crónicas como diabetes, doenças cardíacas e cancro. 
+                        </li>
+                        <li class="mb-3">
+                            Aumento de energia: Uma dieta equilibrada pode aumentar os seus niveis de energia, ajudando a sentir-se
+                             mais alerta e produtivo ao longo do dia. 
+                        </li>
+                        <li class="mb-3">
+                            Controlo de peso: Um nutricionista pode ajudá-lo a alcançar e manter um peso saudável através de um 
+                            plano alimentar adequado e equilibrado. 
+                        </li>
+                        <li class="mb-3">
+                            Melhoria do desempenho desportivo: Um nutricionista pode ajudar atletas a melhorar o seu desempenho
+                             através de um plano alimentar adequado e personalizado. 
+                        </li>
+                        <li class="mb-3">
+                            Educação nutricional: Urn nutricionista pode ajudá-lo a entender melhor os nutrientes necessários
+                             para uma dieta saudável e equilibrada, e fornecer orientações sobre como escolher alimentos nutritivos. 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content p-5">
+            <div class="container">
+                <div class="row my-3">
+                    <div class="col-12 col-lg-4">
+                        <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="modal-img">
+                    </div>
+                    <div class="col-8" style="text-align: justify;">
+                        <div class="mx-4 my-5">
+                            <h3>Nutricionista 1</h3>
+                            <h5>Personal Trainer</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end d-flex mb-2">
+                    <div class="col-1">
+                        <a href="https://twitter.com">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.instagram.com">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.facebook.com">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <p>Fraco é aquele que não tenta.</p>
+                </div>
+                <div>
+                    <h4>Avaliação: 4.2 <i class="fas fa-star text-warning"></i></h4>
+                </div>
+                <form method="post" action="/team" class="chatForm" onsubmit="initializeSocketIO()">
+                    <button type="submit" class="mt-4 chatButton" value="nutricionista1@ua.pt"> Iniciar Chat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content p-5">
+            <div class="container">
+                <div class="row my-3">
+                    <div class="col-12 col-lg-4">
+                        <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="modal-img">
+                    </div>
+                    <div class="col-8" style="text-align: justify;">
+                        <div class="mx-4 my-5">
+                            <h3>Nutricionista 2</h3>
+                            <h5>Personal Trainer</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end d-flex mb-2">
+                    <div class="col-1">
+                        <a href="https://twitter.com">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.instagram.com">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.facebook.com">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <p>Não deve haver medo em errar, mas sim em permanecer no mesmo lugar.</p>
+                </div>
+                <div>
+                    <h4>Avaliação: 5.0 <i class="fas fa-star text-warning"></i></h4>
+                </div>
+                <form method="post" action="/team" class="chatForm" onsubmit="initializeSocketIO()">
+                    <button type="submit" class="mt-4 chatButton" value="nutricionista2@ua.pt"> Iniciar Chat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content p-5">
+            <div class="container">
+                <div class="row my-3">
+                    <div class="col-12 col-lg-4">
+                        <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="modal-img">
+                    </div>
+                    <div class="col-8" style="text-align: justify;">
+                        <div class="mx-4 my-5">
+                            <h3>Nutricionista 3</h3>
+                            <h5>Personal Trainer</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end d-flex mb-2">
+                    <div class="col-1">
+                        <a href="https://twitter.com">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.instagram.com">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="https://www.facebook.com">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <p>Light weight... Yeah Buddy! When you hit failure your workout has just begun.</p>
+                </div>
+                <div>
+                    <h4>Avaliação: 4.8 <i class="fas fa-star text-warning"></i></h4>
+                </div>
+                <form method="post" action="/team" class="chatForm" onsubmit="initializeSocketIO()">
+                    <button type="submit" class="mt-4 chatButton" value="nutricionista3@ua.pt"> Iniciar Chat</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="chatBox" class="chatBox">
+        <button class="close-btn" id="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2>Mensagens</h2>
+        <hr>
+        <div class="message-container">
+            <div class="messages" id="messages"></div>
+        </div>
+        <div class="row inputChat">
+            <div class="col-8">
+                <input type="text" placeholder="Message" name="message" id="message"/>
+            </div>
+            <div class="col-3 mx-1">
+                <button type="button" name="send" id="send-btn" onClick="sendMessage()">
+                    Enviar
+                </button>
+            </div>
+        </div>
+        <script src="{{url_for('static', filename='javascript/messages.js')}}"></script>
+        {% for msg in messages %}
+            <script type="text/javascript">
+                socketio.on("connect", () => {
+                    createMessage("{{msg.name}}", "{{msg.message}}");
+                })
+            </script>
+        {% endfor %}
+    </div>
+
+    <form method="post" action="/conversations" id="conversationsForm">
+        <button class="chatStickyBtn" id="chatStickyBtn" type="submit">
+            <i class="fas fa-comment"></i>
+        </button>
+    </form>
+
+    <div id="allChat" class="chatBox">
+        <button class="close-btn" id="close-btn-all">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2 class="text-center">Conversas</h2>
+        <hr>
+        <div class="conversas" id="conversas"></div>
+    </div>
+
+</div> 
+
+<script src="{{url_for('static', filename='javascript/team.js')}}"></script>
+{% endblock %}

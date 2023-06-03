@@ -107,21 +107,13 @@ p {
     object-fit: cover;
 }
 
-#openModalBtn {
-    cursor: pointer;
-}
-
-.modal h5 {
-    color: #00A86B;
-}
-
-.modal a{
-    color: white;
-}
-
-.modal i{
-    font-size: 18pt;
-}
+/* Modal - Switch this*/
+#openModalBtn {cursor: pointer;}
+#openModalBtn2 {cursor: pointer;}
+#openModalBtn3 {cursor: pointer;}
+.modal h5 {color: #00A86B;}
+.modal a{color: white;}
+.modal i{font-size: 18pt;}
 
 .imageSize {
     width: 200px;
@@ -129,6 +121,7 @@ p {
     object-fit: cover;
 }
 
+/* ChatBox css */
 .chatBox {
     display: none;
     position: fixed;
@@ -138,37 +131,32 @@ p {
     height: 500px;
     background-color: #0A192F;
     border: 4px solid #ccc;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
     border-bottom: 0px;
     padding: 15px;
     z-index: 2;
+    padding-top: 30px;
 }
 
 .message-container {
-    max-height: calc(340px); /* Adjust the value (150px) to fit your layout */
-    overflow: auto;
+    max-height: 340px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    padding-right: 5px;
 }
-
-.message-container::-webkit-scrollbar {
-    width: 10px;
-}
-
+.message-container::-webkit-scrollbar {width: 10px;}
 .message-container::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 5px;
 }
-
-.message-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-.message-container::-webkit-scrollbar-thumb:active {
-    background-color: #333;
-}
+.message-container::-webkit-scrollbar-thumb:hover {background-color: #555;}
+.message-container::-webkit-scrollbar-thumb:active {background-color: #444;}
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     background: none;
     border: none;
     color: #fff;
@@ -206,6 +194,43 @@ p {
     border-radius: 4px;
 }
 
-#allChat {
-    z-index: 1;
+.message_box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 20px;
+    margin-bottom: 8px;
+    margin-left: auto;
+    background-color: #20487f;;
+    border-radius: 13px;
+    border-end-end-radius: 0px;
+    max-width: 250px;
+    width: fit-content;
 }
+
+.message_box_other {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin-left: 10px;
+    padding-right: 20px;
+    margin-bottom: 8px;
+    background-color: #193459;
+    border-radius: 13px;
+    border-end-start-radius: 0px;
+    max-width: 250px;
+    width: fit-content;
+}
+
+#conversas{
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+}
+#conversas::-webkit-scrollbar {width: 10px;}
+#conversas::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+#conversas::-webkit-scrollbar-thumb:hover {background-color: #555;}
+#conversas::-webkit-scrollbar-thumb:active {background-color: #444;}

@@ -75,9 +75,16 @@ def view_plans():
         else:
             return redirect( url_for('auth.login') )
     
-@views.route('/team', methods=['GET'])
-def team():
+@views.route('/personal_trainers', methods=['GET'])
+def personal_trainers():
     if('user' in session):
-        return render_template('team.html')
+        return render_template('personal_trainers.html', session_user = session['user']['email'])
+    else:
+        return redirect( url_for('auth.login'))
+    
+@views.route('/nutritionists', methods=['GET'])
+def nutrionists():
+    if('user' in session):
+        return render_template('nutritionists.html', session_user = session['user']['email'])
     else:
         return redirect( url_for('auth.login'))

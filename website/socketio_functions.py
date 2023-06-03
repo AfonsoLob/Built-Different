@@ -19,19 +19,18 @@ def generate_random_code():
 @socketio_functions.route("/team", methods=["POST"])
 def chat():
     if request.method == "POST":
+
         email = session.get("user")["email"]
-        username = session.get("user")["username"]
         receiver = request.form['receiver_value']
-        
         if not get_duplicate_key(email, receiver):
             room = generate_random_code()
             add_conversation(room, email)
             add_conversation(room, receiver)
-            add_message(room, username, "Created this chat")
+            add_message(room, email, "Criou o Chat")
+            
         room = get_duplicate_key(email, receiver)
-
-        session["room"] = room
-        return jsonify({'messages': message_conversion(room)})
+        session['room'] = room
+        return jsonify({'messages': message_conversion(room), 'session_user': email})
     
 @socketio_functions.route("/conversations", methods=["POST"])
 def conversations():
@@ -39,40 +38,34 @@ def conversations():
         conversations = get_all_conversations()
         return jsonify({'conversations': conversations, 'names': emails_names_conversion(conversations)})
 
-def message(data):
-    room = session.get("room")
-    if not conversation_exists(room):
-        return 
-    
-    content = {
-        "name": session.get("user")["username"],
-        "message": data["data"]
-    }
-
-    sender = session.get("user")["username"]
-
-    add_message(room, sender, data["data"])
-    send(content, to=room)
-
 def connect(auth):
-    room = session.get("room")
+    room = session.get('room')
     email = session.get("user")["email"]
     if not room or not email:
         return
     if not conversation_exists(room):
         leave_room(room)
         return
-    
     join_room(room)
-    if not (room in chat_id_conversion(email)):
-        add_conversation(room, email)
+
+def message(data):
+    room = session.get('room')
+    if not conversation_exists(room):
+        return
+    content = {
+        "name": session.get("user")["email"],
+        "message": data["data"]
+    }
+    sender = session.get("user")["email"]
+    add_message(room, sender, data["data"])
+    send(content, to=room)
 
 def disconnect():
-    room = session.get("room")
+    room = session.get('room')
     leave_room(room)
+    
     if not is_any_user_in_room(room):
-        del(room)                       # performance reasons
-
+        del(room)                                           # performance reasons
 
 def message_conversion(room):
     dataMessages = get_messages(room)
@@ -80,14 +73,14 @@ def message_conversion(room):
 
     for i in dataMessages:
         content = {}
-        content["name"] = i[0]                  # username
-        content["message"] = i[1]               # message
+        content["name"] = i[0]
+        content["message"] = i[1]
         messages.append(content)
     return messages
 
 def chat_id_conversion(email):
     dataChats = get_chat_id(email)
-    chats = []                          # list of dictionaries with message and sender
+    chats = []
 
     for i in dataChats:
         chats.append(i[0])
@@ -115,3 +108,7 @@ def emails_names_conversion(conversations):
         names.append(get_username(email))
     return names
     
+@socketio_functions.route("/get-email", methods=["GET"])
+def get_email():
+    email = session['user']['email']
+    return jsonify(email=email)
