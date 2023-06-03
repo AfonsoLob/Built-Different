@@ -1,11 +1,13 @@
 let inputTreino = document.getElementById('inputSelectTreino');
-inputTreino.addEventListener('click', inputTreinoEvent);
+if(inputTreino){
+    inputTreino.addEventListener('click', inputTreinoEvent);
 
-let inputSets = document.getElementById('inputSelectSets');
-inputSets.addEventListener('click', inputSetsEvent);
+    let inputSets = document.getElementById('inputSelectSets');
+    inputSets.addEventListener('click', inputSetsEvent);
 
-let button_post = document.getElementById('post-plan');
-button_post.addEventListener('click', postPlan);
+    let button_post = document.getElementById('post-plan');
+    button_post.addEventListener('click', postPlan);
+}
 
 
 
