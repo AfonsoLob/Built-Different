@@ -1,11 +1,12 @@
 let inputTreino = document.getElementById('inputSelectTreino');
+let inputSets, button_post;
 if(inputTreino){
     inputTreino.addEventListener('click', inputTreinoEvent);
 
-    let inputSets = document.getElementById('inputSelectSets');
+    inputSets = document.getElementById('inputSelectSets');
     inputSets.addEventListener('click', inputSetsEvent);
 
-    let button_post = document.getElementById('post-plan');
+    button_post = document.getElementById('post-plan');
     button_post.addEventListener('click', postPlan);
 }
 
