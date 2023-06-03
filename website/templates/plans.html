@@ -16,7 +16,7 @@
 <div class="planos-container">
   {% if type == '0' %}
   <div class="add-plano-container container">
-    <div class="add-plano" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <div class="add-plano" type="button" data-bs-toggle="modal" data-bs-target="#Backdrop">
       <svg class="add-plano-circle" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
         class="bi bi-plus-circle" viewBox="0 0 16 16">
         <path class="add-plano-circle-outer"
@@ -28,52 +28,100 @@
     </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="Backdrop" tabindex="-1" aria-labelledby="BackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" id="add-plano-modal">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Adicionar Plano</h5>
+          <h5 class="modal-title" id="BackdropLabel">Adicionar Plano</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="input-group mb-3">
             <label class="input-group-text" for="inputSelectTreino"><i class="fas fa-dumbbell"></i></label>
-              <select class="form-select" id="inputSelectTreino">
-                <option hidden selected>Treino de...</option>
-                <option value="1">Treino de Pernas</option>
-                <option value="2">Treino de Peito</option>
-                <option value="3">Treino de Costas</option>
-                <option value="4">Treino de Bicep</option>
-                <option value="5">Treino de Tricep</option>
-                <option value="6">Treino de Ombros</option>
-              </select>
+            <select class="form-select" id="inputSelectTreino">
+              <option hidden selected>Treino de...</option>
+              <option value="1">Treino de Pernas</option>
+              <option value="2">Treino de Peito</option>
+              <option value="3">Treino de Costas</option>
+              <option value="4">Treino de Bicep</option>
+              <option value="5">Treino de Tricep</option>
+              <option value="6">Treino de Ombros</option>
+            </select>
           </div>
           <div class="input-group mb-3" id="inputGroupSets">
             <label class="input-group-text" for="inputSelectSets"><i class="bi bi-repeat"></i></label>
-              <select class="form-select" id="inputSelectSets">
-                <option hidden selected>Nº de Sets...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+            <select class="form-select" id="inputSelectSets">
+              <option hidden selected>Nº de Sets...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
           </div>
           <div class="input-group mb-3" id="inputGroupSetsReps">
-            
+
           </div>
           <div class="input-group mb-3 group-exercise">
             <label class="input-group-text" for="inputSelectEx1"><i class="bi bi-activity"></i></label>
-            <select class="form-select" id="inputSelectEx1">
-              <option selected>Exercício 1...</option>
-              <option value="1">Flexões</option>
-              <option value="2">Agachamentos</option>
-              <option value="3">Abdominais</option>
+            <select class="form-select select-exercicio" id="inputSelectEx1">
+              <option hidden selected>Exercício 1...</option>
+              <option value="1" class="ex-pernas">Agachamento</option>
+              <option value="2" class="ex-pernas">Lunges (avanços)</option>
+              <option value="3" class="ex-pernas">Extensões de pernas</option>
+              <option value="4" class="ex-pernas">Elevações de panturrilha</option>
+              <option value="5" class="ex-pernas">Prensa de pernas</option>
+              <option value="6" class="ex-pernas">Afundos</option>
+              <option value="7" class="ex-pernas">Stiff</option>
+              <option value="8" class="ex-pernas">Glúteos em 4 apoios</option>
+
+              <option value="9" class="ex-peito">Supino reto</option>
+              <option value="10" class="ex-peito">Supino inclinado</option>
+              <option value="11" class="ex-peito">Supino declinado</option>
+              <option value="12" class="ex-peito">Flexões de peito</option>
+              <option value="13" class="ex-peito">Crucifixo</option>
+              <option value="14" class="ex-peito">Peck deck</option>
+              <option value="15" class="ex-peito">Apoio de peito em paralelas</option>
+              <option value="16" class="ex-peito">Flyes</option>
+
+              <option value="17" class="ex-biceps">Bíceps direta</option>
+              <option value="18" class="ex-biceps">Bíceps alternada</option>
+              <option value="19" class="ex-biceps">Bíceps concentrada</option>
+              <option value="20" class="ex-biceps">Bíceps martelo</option>
+              <option value="21" class="ex-biceps">Bíceps Scott</option>
+              <option value="22" class="ex-biceps">Bíceps 21</option>
+              <option value="23" class="ex-biceps">Bíceps inversa</option>
+              <option value="24" class="ex-biceps">Bíceps spider</option>
+
+              <option value="25" class="ex-triceps">Tríceps testa</option>
+              <option value="26" class="ex-triceps">Tríceps francês</option>
+              <option value="27" class="ex-triceps">Pulley tríceps</option>
+              <option value="28" class="ex-triceps">Dips</option>
+              <option value="29" class="ex-triceps">Extensões de tríceps</option>
+              <option value="30" class="ex-triceps">Supino fechado</option>
+              <option value="31" class="ex-triceps">Fundos entre bancos</option>
+
+              <option value="32" class="ex-ombros">Desenvolvimento militar</option>
+              <option value="33" class="ex-ombros">Elevações laterais</option>
+              <option value="34" class="ex-ombros">Remada alta</option>
+              <option value="35" class="ex-ombros">Elevações frontais</option>
+              <option value="36" class="ex-ombros">Elevações de ombros</option>
+              <option value="37" class="ex-ombros">Desenvolvimento com halteres sentado</option>
+              <option value="38" class="ex-ombros">Desenvolvimento Arnold</option>
+              <option value="39" class="ex-ombros">Encolhimentos de ombros</option>
+
+              <option value="40" class="ex-costas">Barra fixa</option>
+              <option value="41" class="ex-costas">Puxada de frente</option>
+              <option value="42" class="ex-costas">Remada com barra</option>
+              <option value="43" class="ex-costas">Remada unilateral</option>
+              <option value="44" class="ex-costas">Pulldown</option>
+              <option value="45" class="ex-costas">Remada curvada</option>
+              <option value="46" class="ex-costas">Hiperextensões</option>
+              <option value="47" class="ex-costas">Puxada alta</option>
             </select>
             <label class="input-group-text" for="inputSelectDescansoEx1"><i class="bi bi-stopwatch"></i></label>
             <select class="form-select" id="inputSelectDescansoEx1">
-              <option selected>Descanso...</option>
+              <option hidden selected>Descanso...</option>
               <option value="1">1:00</option>
               <option value="2">2:00</option>
               <option value="3">3:00</option>
@@ -82,11 +130,60 @@
           <!-- Input Group 2 -->
           <div class="input-group mb-3 group-exercise">
             <label class="input-group-text" for="inputSelectEx2"><i class="bi bi-activity"></i></label>
-            <select class="form-select" id="inputSelectEx2">
+            <select class="form-select select-exercicio" id="inputSelectEx2">
               <option hidden selected>Exercício 2...</option>
-              <option value="1">Flexões</option>
-              <option value="2">Agachamentos</option>
-              <option value="3">Abdominais</option>
+              <option value="1" class="ex-pernas">Agachamento</option>
+              <option value="2" class="ex-pernas">Lunges (avanços)</option>
+              <option value="3" class="ex-pernas">Extensões de pernas</option>
+              <option value="4" class="ex-pernas">Elevações de panturrilha</option>
+              <option value="5" class="ex-pernas">Prensa de pernas</option>
+              <option value="6" class="ex-pernas">Afundos</option>
+              <option value="7" class="ex-pernas">Stiff</option>
+              <option value="8" class="ex-pernas">Glúteos em 4 apoios</option>
+
+              <option value="9" class="ex-peito">Supino reto</option>
+              <option value="10" class="ex-peito">Supino inclinado</option>
+              <option value="11" class="ex-peito">Supino declinado</option>
+              <option value="12" class="ex-peito">Flexões de peito</option>
+              <option value="13" class="ex-peito">Crucifixo</option>
+              <option value="14" class="ex-peito">Peck deck</option>
+              <option value="15" class="ex-peito">Apoio de peito em paralelas</option>
+              <option value="16" class="ex-peito">Flyes</option>
+
+              <option value="17" class="ex-biceps">Bíceps direta</option>
+              <option value="18" class="ex-biceps">Bíceps alternada</option>
+              <option value="19" class="ex-biceps">Bíceps concentrada</option>
+              <option value="20" class="ex-biceps">Bíceps martelo</option>
+              <option value="21" class="ex-biceps">Bíceps Scott</option>
+              <option value="22" class="ex-biceps">Bíceps 21</option>
+              <option value="23" class="ex-biceps">Bíceps inversa</option>
+              <option value="24" class="ex-biceps">Bíceps spider</option>
+
+              <option value="25" class="ex-triceps">Tríceps testa</option>
+              <option value="26" class="ex-triceps">Tríceps francês</option>
+              <option value="27" class="ex-triceps">Pulley tríceps</option>
+              <option value="28" class="ex-triceps">Dips</option>
+              <option value="29" class="ex-triceps">Extensões de tríceps</option>
+              <option value="30" class="ex-triceps">Supino fechado</option>
+              <option value="31" class="ex-triceps">Fundos entre bancos</option>
+
+              <option value="32" class="ex-ombros">Desenvolvimento militar</option>
+              <option value="33" class="ex-ombros">Elevações laterais</option>
+              <option value="34" class="ex-ombros">Remada alta</option>
+              <option value="35" class="ex-ombros">Elevações frontais</option>
+              <option value="36" class="ex-ombros">Elevações de ombros</option>
+              <option value="37" class="ex-ombros">Desenvolvimento com halteres sentado</option>
+              <option value="38" class="ex-ombros">Desenvolvimento Arnold</option>
+              <option value="39" class="ex-ombros">Encolhimentos de ombros</option>
+
+              <option value="40" class="ex-costas">Barra fixa</option>
+              <option value="41" class="ex-costas">Puxada de frente</option>
+              <option value="42" class="ex-costas">Remada com barra</option>
+              <option value="43" class="ex-costas">Remada unilateral</option>
+              <option value="44" class="ex-costas">Pulldown</option>
+              <option value="45" class="ex-costas">Remada curvada</option>
+              <option value="46" class="ex-costas">Hiperextensões</option>
+              <option value="47" class="ex-costas">Puxada alta</option>
             </select>
             <label class="input-group-text" for="inputSelectDescansoEx2"><i class="bi bi-stopwatch"></i></label>
             <select class="form-select" id="inputSelectDescansoEx2">
@@ -99,11 +196,60 @@
           <!-- Input Group 3 -->
           <div class="input-group mb-3 group-exercise">
             <label class="input-group-text" for="inputSelectEx3"><i class="bi bi-activity"></i></label>
-            <select class="form-select" id="inputSelectEx3">
+            <select class="form-select select-exercicio" id="inputSelectEx3">
               <option hidden selected>Exercício 3...</option>
-              <option value="1">Flexões</option>
-              <option value="2">Agachamentos</option>
-              <option value="3">Abdominais</option>
+              <option value="1" class="ex-pernas">Agachamento</option>
+              <option value="2" class="ex-pernas">Lunges (avanços)</option>
+              <option value="3" class="ex-pernas">Extensões de pernas</option>
+              <option value="4" class="ex-pernas">Elevações de panturrilha</option>
+              <option value="5" class="ex-pernas">Prensa de pernas</option>
+              <option value="6" class="ex-pernas">Afundos</option>
+              <option value="7" class="ex-pernas">Stiff</option>
+              <option value="8" class="ex-pernas">Glúteos em 4 apoios</option>
+
+              <option value="9" class="ex-peito">Supino reto</option>
+              <option value="10" class="ex-peito">Supino inclinado</option>
+              <option value="11" class="ex-peito">Supino declinado</option>
+              <option value="12" class="ex-peito">Flexões de peito</option>
+              <option value="13" class="ex-peito">Crucifixo</option>
+              <option value="14" class="ex-peito">Peck deck</option>
+              <option value="15" class="ex-peito">Apoio de peito em paralelas</option>
+              <option value="16" class="ex-peito">Flyes</option>
+
+              <option value="17" class="ex-biceps">Bíceps direta</option>
+              <option value="18" class="ex-biceps">Bíceps alternada</option>
+              <option value="19" class="ex-biceps">Bíceps concentrada</option>
+              <option value="20" class="ex-biceps">Bíceps martelo</option>
+              <option value="21" class="ex-biceps">Bíceps Scott</option>
+              <option value="22" class="ex-biceps">Bíceps 21</option>
+              <option value="23" class="ex-biceps">Bíceps inversa</option>
+              <option value="24" class="ex-biceps">Bíceps spider</option>
+
+              <option value="25" class="ex-triceps">Tríceps testa</option>
+              <option value="26" class="ex-triceps">Tríceps francês</option>
+              <option value="27" class="ex-triceps">Pulley tríceps</option>
+              <option value="28" class="ex-triceps">Dips</option>
+              <option value="29" class="ex-triceps">Extensões de tríceps</option>
+              <option value="30" class="ex-triceps">Supino fechado</option>
+              <option value="31" class="ex-triceps">Fundos entre bancos</option>
+
+              <option value="32" class="ex-ombros">Desenvolvimento militar</option>
+              <option value="33" class="ex-ombros">Elevações laterais</option>
+              <option value="34" class="ex-ombros">Remada alta</option>
+              <option value="35" class="ex-ombros">Elevações frontais</option>
+              <option value="36" class="ex-ombros">Elevações de ombros</option>
+              <option value="37" class="ex-ombros">Desenvolvimento com halteres sentado</option>
+              <option value="38" class="ex-ombros">Desenvolvimento Arnold</option>
+              <option value="39" class="ex-ombros">Encolhimentos de ombros</option>
+
+              <option value="40" class="ex-costas">Barra fixa</option>
+              <option value="41" class="ex-costas">Puxada de frente</option>
+              <option value="42" class="ex-costas">Remada com barra</option>
+              <option value="43" class="ex-costas">Remada unilateral</option>
+              <option value="44" class="ex-costas">Pulldown</option>
+              <option value="45" class="ex-costas">Remada curvada</option>
+              <option value="46" class="ex-costas">Hiperextensões</option>
+              <option value="47" class="ex-costas">Puxada alta</option>
             </select>
             <label class="input-group-text" for="inputSelectDescansoEx3"><i class="bi bi-stopwatch"></i></label>
             <select class="form-select" id="inputSelectDescansoEx3">
@@ -116,11 +262,60 @@
           <!-- Input Group 4 -->
           <div class="input-group mb-3 group-exercise">
             <label class="input-group-text" for="inputSelectEx4"><i class="bi bi-activity"></i></label>
-            <select class="form-select" id="inputSelectEx4">
+            <select class="form-select select-exercicio" id="inputSelectEx4">
               <option hidden selected>Exercício 4...</option>
-              <option value="1">Flexões</option>
-              <option value="2">Agachamentos</option>
-              <option value="3">Abdominais</option>
+              <option value="1" class="ex-pernas">Agachamento</option>
+              <option value="2" class="ex-pernas">Lunges (avanços)</option>
+              <option value="3" class="ex-pernas">Extensões de pernas</option>
+              <option value="4" class="ex-pernas">Elevações de panturrilha</option>
+              <option value="5" class="ex-pernas">Prensa de pernas</option>
+              <option value="6" class="ex-pernas">Afundos</option>
+              <option value="7" class="ex-pernas">Stiff</option>
+              <option value="8" class="ex-pernas">Glúteos em 4 apoios</option>
+
+              <option value="9" class="ex-peito">Supino reto</option>
+              <option value="10" class="ex-peito">Supino inclinado</option>
+              <option value="11" class="ex-peito">Supino declinado</option>
+              <option value="12" class="ex-peito">Flexões de peito</option>
+              <option value="13" class="ex-peito">Crucifixo</option>
+              <option value="14" class="ex-peito">Peck deck</option>
+              <option value="15" class="ex-peito">Apoio de peito em paralelas</option>
+              <option value="16" class="ex-peito">Flyes</option>
+
+              <option value="17" class="ex-biceps">Bíceps direta</option>
+              <option value="18" class="ex-biceps">Bíceps alternada</option>
+              <option value="19" class="ex-biceps">Bíceps concentrada</option>
+              <option value="20" class="ex-biceps">Bíceps martelo</option>
+              <option value="21" class="ex-biceps">Bíceps Scott</option>
+              <option value="22" class="ex-biceps">Bíceps 21</option>
+              <option value="23" class="ex-biceps">Bíceps inversa</option>
+              <option value="24" class="ex-biceps">Bíceps spider</option>
+
+              <option value="25" class="ex-triceps">Tríceps testa</option>
+              <option value="26" class="ex-triceps">Tríceps francês</option>
+              <option value="27" class="ex-triceps">Pulley tríceps</option>
+              <option value="28" class="ex-triceps">Dips</option>
+              <option value="29" class="ex-triceps">Extensões de tríceps</option>
+              <option value="30" class="ex-triceps">Supino fechado</option>
+              <option value="31" class="ex-triceps">Fundos entre bancos</option>
+
+              <option value="32" class="ex-ombros">Desenvolvimento militar</option>
+              <option value="33" class="ex-ombros">Elevações laterais</option>
+              <option value="34" class="ex-ombros">Remada alta</option>
+              <option value="35" class="ex-ombros">Elevações frontais</option>
+              <option value="36" class="ex-ombros">Elevações de ombros</option>
+              <option value="37" class="ex-ombros">Desenvolvimento com halteres sentado</option>
+              <option value="38" class="ex-ombros">Desenvolvimento Arnold</option>
+              <option value="39" class="ex-ombros">Encolhimentos de ombros</option>
+
+              <option value="40" class="ex-costas">Barra fixa</option>
+              <option value="41" class="ex-costas">Puxada de frente</option>
+              <option value="42" class="ex-costas">Remada com barra</option>
+              <option value="43" class="ex-costas">Remada unilateral</option>
+              <option value="44" class="ex-costas">Pulldown</option>
+              <option value="45" class="ex-costas">Remada curvada</option>
+              <option value="46" class="ex-costas">Hiperextensões</option>
+              <option value="47" class="ex-costas">Puxada alta</option>
             </select>
             <label class="input-group-text" for="inputSelectDescansoEx4"><i class="bi bi-stopwatch"></i></label>
             <select class="form-select" id="inputSelectDescansoEx4">
@@ -158,7 +353,7 @@
   </div>
   {% endif %}
   <!-- Iteração dos Planos na Database -->
-  {% for plan in plans %}
+  {% for plan in plans|reverse %}
   <div class="plano-treino container">
     <div class="plano-description">
       <div class="plano-title">
@@ -171,7 +366,32 @@
       </div>
     </div>
     <div class="plano-show">
-      <button>Ver Plano</button>
+      <!-- Button trigger modal -->
+      <button type="button" data-bs-toggle="modal" data-bs-target="#Modal{{plan[0]}}">
+        Ver Plano
+      </button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="Modal{{plan[0]}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Exercícios</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="sets-information">
+            {% for num in range(1, plan[6]|length + 1) %}
+            <div class="is-6">Set {{num}} - {{plan[6][num-1]}} repetições</div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          <!-- <button type="button" class="btn btn-primary" id="guardar-plano">Guardar Plano</button> -->
+        </div>
+      </div>
     </div>
   </div>
   {% endfor %}

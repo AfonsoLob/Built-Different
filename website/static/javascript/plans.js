@@ -1,3 +1,6 @@
+let inputTreino = document.getElementById('inputSelectTreino');
+inputTreino.addEventListener('click', inputTreinoEvent);
+
 let inputSets = document.getElementById('inputSelectSets');
 inputSets.addEventListener('click', inputSetsEvent);
 
@@ -7,7 +10,29 @@ button_post.addEventListener('click', postPlan);
 
 
 // Functions
+function inputTreinoEvent() {
+    let treino = document.getElementById('inputSelectTreino');
 
+    // Validate Training Category
+    if(Number.isInteger(parseInt(treino.value))) {
+        const treino_value = treino.value;
+        treino = treino.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim().split('  ');
+        treino = treino[parseInt(treino_value)].slice(10).toLowerCase();
+        
+        // All Exercises Selectores
+        let exercises_options = Array.from(document.getElementsByClassName('select-exercicio'));
+        
+        exercises_options.forEach(exercise_selector => {
+            let options = Array.from(exercise_selector.children);
+            options.forEach(children => {
+                if(children.classList.contains(`ex-${treino}`) == false)
+                    children.hidden = true;
+                else
+                    children.hidden = false;
+            });
+        });
+    }
+}
 function inputSetsEvent() {
     let value = inputSets.value;
     let inputGroup = document.getElementById('inputGroupSetsReps');

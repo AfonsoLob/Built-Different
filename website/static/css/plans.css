@@ -90,6 +90,13 @@ Main and Containers
 .set-rep:focus{
   box-shadow: #0a192f 0px 0px 1px 0px !important;
 }
+.sets-information{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.is-6{
+  grid-column: auto/span 6;
+}
 @media (max-width: 575px) {
   .plano-treino{
     flex-direction: column;

@@ -68,9 +68,15 @@ def view_plans():
         if('user' in session):
             email = session['user']['email']
             plans = get_plans()
-            for row in plans:
-                print(f"Category: {row[1]}\nOwner: {row[2]}\nSetReps: {json.loads(row[6])}")
-
+            plans = list(plans)
+            for i in range(len(plans)):
+                plans[i] = list(plans[i])
+                plans[i][6] = json.loads(plans[i][6]) # Turn ListString to List
+                plans[i][7] = json.loads(plans[i][7])
+                plans[i][8] = json.loads(plans[i][8])
+                plans[i] = tuple(plans[i])
+                
+            plans = tuple(plans)
             return render_template('plans.html', type=get_type(email), plans=plans)
         else:
             return redirect( url_for('auth.login') )
