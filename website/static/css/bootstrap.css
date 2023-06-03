@@ -52,7 +52,12 @@
 
 .dropdown-menu{
     height: fit-content !important;
-    border: 1px solid white !important;
     overflow-wrap: break-word !important;
-    background-color: #0A192F !important;
+}
+.dropdown-item{
+    color: #212529 !important;
+}
+.dropdown-item:active{
+    color: initial !important;
+    background-color: #00A86B !important;
 }
