@@ -3,14 +3,7 @@ let sessionUserEmail;
 let content;
 let isSocketInitialized = false;
 
-function initializeSocketIO() {
-  if (isSocketInitialized) {
-    socketio.disconnect();
-  }
-
-  socketio = io();
-
-  fetch('/get-email')
+fetch('/get-email')
     .then(response => response.json())
     .then(data => {
       sessionUserEmail = data.email;
@@ -18,6 +11,13 @@ function initializeSocketIO() {
     .catch(error => {
       console.error('Error fetching email:', error);
     });
+
+function initializeSocketIO() {
+  if (isSocketInitialized) {
+    socketio.disconnect();
+  }
+
+  socketio = io();
 
   const messages = $("#messages");
   const createMessage = (name, msg) => {

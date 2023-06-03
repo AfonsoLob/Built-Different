@@ -33,6 +33,15 @@ def setup_database():
     add_worker3 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
         VALUES ('personal3@ua.pt','{generate_password_hash('personalTrainer')}','Ronnie Coleman', '0');
         """
+    add_worker4 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
+        VALUES ('nutricionista1@ua.pt','{generate_password_hash('nutricionista')}','Nutricionista 1', '1');
+        """
+    add_worker5 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
+        VALUES ('nutricionista2@ua.pt','{generate_password_hash('nutricionista')}','Nutricionista 2', '1');
+        """
+    add_worker6 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
+        VALUES ('nutricionista3@ua.pt','{generate_password_hash('nutricionista')}','Nutricionista 3', '1');
+        """
     plans_table = """ CREATE TABLE IF NOT EXISTS plans (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         category TEXT NOT NULL,
@@ -63,6 +72,9 @@ def setup_database():
         con.execute(add_worker1)
         con.execute(add_worker2)
         con.execute(add_worker3)
+        con.execute(add_worker4)
+        con.execute(add_worker5)
+        con.execute(add_worker6)
 
 
 def cleanup_database():

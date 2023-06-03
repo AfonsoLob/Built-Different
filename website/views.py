@@ -84,13 +84,15 @@ def view_plans():
 @views.route('/personal_trainers', methods=['GET'])
 def personal_trainers():
     if('user' in session):
-        return render_template('personal_trainers.html', session_user = session['user']['email'])
+        email = session['user']['email']
+        return render_template('personal_trainers.html', session_user = email, userType = get_type(email))
     else:
         return redirect( url_for('auth.login'))
     
 @views.route('/nutritionists', methods=['GET'])
 def nutrionists():
     if('user' in session):
-        return render_template('nutritionists.html', session_user = session['user']['email'])
+        email = session['user']['email']
+        return render_template('nutritionists.html', session_user = email, userType = get_type(email))
     else:
         return redirect( url_for('auth.login'))

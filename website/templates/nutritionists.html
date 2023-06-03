@@ -21,15 +21,18 @@
 
     <div class="container mt-4">
         <div class="row mb-5">
-            {% if session_user != "nutricionista1@ua.pt" %}
             <div class="col-lg-4">
                 <!-- Column 1 content goes here -->
                 <div class="text-center">
                     <div class="image-container borderImg">
+                        {% if userType != "0" and userType != "1" %}
                         <a id="openModalBtn">
                             <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageHover imageSize">
                             <div class="image-text">Contactar</div>
                         </a>
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageSize">
+                        {% endif %}
                     </div>
                     <h3 class="mb-4">Nutricionista 1</h3>
                     <p class="mx-5">
@@ -40,16 +43,18 @@
                     </p>
                 </div>
             </div>
-            {% endif %}
-            {% if session_user != "nutricionista2@ua.pt" %}
             <div class="col-lg-4">
                 <!-- Column 2 content goes here -->
                 <div class="text-center">
                     <div class="image-container borderImg">
+                        {% if userType != "0" and userType != "1" %}
                         <a id="openModalBtn2">
                             <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageHover imageSize">
                             <div class="image-text">Contactar</div>
                         </a>
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageSize">
+                        {% endif %}
                     </div>
                     <h3 class="mb-4">Nutricionista 2</h3>
                     <p class="mx-5">
@@ -60,16 +65,18 @@
                     </p>
                 </div>
             </div>
-            {% endif %}
-            {% if session_user != "nutricionista3@ua.pt" %}
             <div class="col-lg-4">
                 <!-- Column 3 content goes here -->
                 <div class="text-center">
                     <div class="image-container borderImg">
+                        {% if userType != "0" and userType != "1" %}
                         <a id="openModalBtn3">
                             <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageHover imageSize">
                             <div class="image-text">Contactar</div>
                         </a>
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/default_profile.png')}}" class="card-img-top mb-3 imageSize">
+                        {% endif %}
                     </div>
                     <h3 class="mb-4">Nutricionista 3</h3>
                     <p class="mx-5">
@@ -80,7 +87,6 @@
                     </p>
                 </div>
             </div>
-            {% endif %}
         </div>
         <div class="row">
             <div class="col">
@@ -255,13 +261,13 @@
         <button class="close-btn" id="close-btn">
             <i class="fas fa-times"></i>
         </button>
-        <h2>Mensagens</h2>
+        <h2 class="text-center">Mensagens</h2>
         <hr>
         <div class="message-container">
             <div class="messages" id="messages"></div>
         </div>
         <div class="row inputChat">
-            <div class="col-8">
+            <div class="col-8 message_col">
                 <input type="text" placeholder="Message" name="message" id="message"/>
             </div>
             <div class="col-3 mx-1">

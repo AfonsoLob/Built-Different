@@ -2,7 +2,7 @@ import random
 from string import ascii_uppercase
 from flask import request, session, render_template, redirect, url_for, Blueprint, jsonify
 from flask_socketio import join_room, leave_room, send
-from .database import get_username
+from .database import get_username, get_type
 from .databaseChat import get_chat_id, add_conversation, conversation_exists, get_duplicate_key, get_users
 from .databaseMessages import get_messages, add_message
 
