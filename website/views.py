@@ -96,3 +96,10 @@ def nutrionists():
         return render_template('nutritionists.html', session_user = email, userType = get_type(email))
     else:
         return redirect( url_for('auth.login'))
+    
+@views.route('/classes', methods=['GET'])
+def classes():
+    if('user' in session):
+        return render_template('classes.html')
+    else:
+        return redirect( url_for('auth.login'))

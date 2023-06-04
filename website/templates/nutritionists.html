@@ -13,8 +13,14 @@
     <div class="center-card">
         <div class="card card-inherit bg-transparent">
             <div class="card-body text-truncate">
-                <h1 class="mt-5">Nutricionistas</h1>
-                <h5 class="mt-2">Consulte Personal Trainers</h5>
+                <h1 class="mt-5">
+                    Nutricionistas
+                </h1>
+                <h5 class="mt-2">
+                    <a href="/nutritionists" style="text-decoration: none; color: inherit;">
+                        Consulte Personal Trainers
+                    </a>
+                </h5>   
             </div>
         </div>
     </div>
@@ -124,6 +130,7 @@
         </div>
     </div>
 
+    {% if userType != "0" and userType != "1" %}
     <div id="modal" class="modal">
         <div class="modal-content p-5">
             <div class="container">
@@ -255,7 +262,7 @@
             </div>
         </div>
     </div>
-
+    {% endif %}
     
     <div id="chatBox" class="chatBox">
         <button class="close-btn" id="close-btn">

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Aulas Online - Built Different{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/classes.css')}}">
+{% endblock %}
+{% block body %}
+<!-- Custom Content -->
+
+    <div class="center-card">
+        <div class="card card-inherit bg-transparent">
+            <div class="card-body text-truncate">
+                <h1 class="mt-5">
+                    Aulas Online
+                </h1>
+                <h5 class="mt-2">
+                    <a href="/plans" style="text-decoration: none; color: inherit;">
+                        Consulte Planos de Treino
+                    </a>
+                </h5>        
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <hr>
+        <div class="row m-5">
+            <div class="col-lg-7 me-5 mb-5">
+                <div class="video-wrapper">
+                    <iframe width="885" height="498" src="https://www.youtube.com/embed/UheajlsZ72E" 
+                    title="10 Min Fat Burning Workout | No Equipment" frameborder="0" allow="accelerometer; autoplay;
+                     clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4 px-4" style="border:1px solid #ccc; border-radius: 20px;">
+                <h2>
+                    Cardio
+                </h2>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet. Est sunt iure ut velit sequi hic maiores accusantium non corporis odio qui 
+                    rerum odit id quos inventore. Ex sint pariatur ut error assumenda sed amet provident hic voluptas accusamus 
+                    qui nihil dolore id repudiandae galisum. Est illum sunt ut internos consequuntur quo distinctio totam. Est 
+                    voluptatibus itaque ex nulla consequatur id vitae internos sed reprehenderit repellendus aut dicta delectus.
+                </p>
+                <button>Assistir</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row m-5">
+            <div class="col-lg-4 me-5 px-4" style="border:1px solid #ccc; border-radius: 20px;">
+                <h2>
+                    Corpo Inteiro
+                </h2>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet. Est sunt iure ut velit sequi hic maiores accusantium non corporis odio qui 
+                    rerum odit id quos inventore. Ex sint pariatur ut error assumenda sed amet provident hic voluptas accusamus 
+                    qui nihil dolore id repudiandae galisum. Est illum sunt ut internos consequuntur quo distinctio totam. Est 
+                    voluptatibus itaque ex nulla consequatur id vitae internos sed reprehenderit repellendus aut dicta delectus.
+                </p>
+                <button>Assistir</button>
+            </div>
+            <div class="col-lg-7 mb-5">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/FLQqCyhTQdE" title="15 Min Full Body Workout | NO EQUIPMENT |
+                     NO REPEATS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+                      picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mx-5 mt-5">
+            <div class="col-lg-7 me-5 mb-5">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/ehXOS9mMrcU" title="10 min Every Morning Full Body Stretch
+                     l Cool down, Flexibility, Recovery" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                      encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4 px-4" style="border:1px solid #ccc; border-radius: 20px;">
+                <h2>
+                    Alongamentos
+                </h2>
+                <hr>
+                <p>
+                    Lorem ipsum dolor sit amet. Est sunt iure ut velit sequi hic maiores accusantium non corporis odio qui 
+                    rerum odit id quos inventore. Ex sint pariatur ut error assumenda sed amet provident hic voluptas accusamus 
+                    qui nihil dolore id repudiandae galisum. Est illum sunt ut internos consequuntur quo distinctio totam. Est 
+                    voluptatibus itaque ex nulla consequatur id vitae internos sed reprehenderit repellendus aut dicta delectus.
+                </p>
+                <button>Assistir</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='javascript/classes.js')}}"></script>
+{% endblock %}
