@@ -229,7 +229,7 @@
             </div>
             <!-- Plans -->
             <div class="content" id="profile-plans">
-                <h1>Saved Plans</h1>
+                <h1>Planos Guardados</h1>
                 <div class="inner-box">
                     <button class="btn-plan">Abs</button>
                     <button class="btn-plan">Chest</button>
@@ -239,7 +239,10 @@
             <div class="content" id="profile-password">
                 <div class="settings">
                     <div class="settings-username">
-                        @ Username 
+                        <div class="form-outline form-white mb-4 position-relative">
+                            <input type="email" id="your-email" name="your-email" class="form-control form-control-lg" value="{{email}}" disabled placeholder=" ">
+                            <label class="form-label position-absolute top-0" for="your-email">O teu email</label>
+                        </div> 
                     </div>
                     <hr>
                     <form action="/profile" method="POST">
