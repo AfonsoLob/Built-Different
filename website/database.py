@@ -109,6 +109,14 @@ def get_user_password(email):
         user_password = cur.fetchall()[0]        
         return user_password[0]
     
+def update_password(email, new_password):
+    with sqlite3.connect(db_path) as con:
+        con.execute(f"""
+        UPDATE users
+        SET password = '{generate_password_hash(new_password)}'
+        WHERE email = '{email}';
+        """)
+    
 def get_username(email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()

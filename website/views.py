@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from .auth import session
 from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective, update_activity, get_type
-from .database import add_plan, get_plans
+from .database import add_plan, get_plans, get_user_password, update_password
+from werkzeug.security import generate_password_hash, check_password_hash
 import json
 
 views = Blueprint('views', __name__)
@@ -33,9 +34,19 @@ def user_profile():
         elif(request.form['op'] == '3'):
             activity = request.form['activity']
             update_activity(email, activity)
-        
+        elif(request.form['op'] == '4'):
+            old_password = request.form['old-password']
+            new_password = request.form['new-password']
+            if( check_password_hash( get_user_password(email), old_password) == False):
+                data = {'status': 404}
+                return data
+            else:
+                update_password(email, new_password)
+                data = {'status': 200}
+                return data
+            
         stats = get_stats(email)
-        # print(stats)
+        print("success")
         return "done"
     else:
         if('user' in session):
