@@ -130,55 +130,55 @@
                         <select class="form-select" aria-label="Nível de atividade" id="activity-level">
                             <option>Nível de Atividade</option>
                             <option value="1.2" selected>Sedentário</option>
-                            <option value="1.375">Atividade Leve</option>
-                            <option value="1.55">Atividade Moderada</option>
-                            <option value="1.725">Muito Ativo</option>
-                            <option value="1.9">Extremamente ativo</option>
+                            <option value="1.375">Atividade Leve (1x/semana)</option>
+                            <option value="1.55">Atividade Moderada (3x/semana)</option>
+                            <option value="1.725">Muito Ativo (5x/semana)</option>
+                            <option value="1.9">Extremamente Ativo (7x/semana)</option>
                         </select>
                         {% elif activity == '1.375' %}
                         <select class="form-select" aria-label="Nível de atividade" id="activity-level">
                             <option>Nível de Atividade</option>
                             <option value="1.2">Sedentário</option>
-                            <option value="1.375" selected>Atividade Leve</option>
-                            <option value="1.55">Atividade Moderada</option>
-                            <option value="1.725">Muito Ativo</option>
-                            <option value="1.9">Extremamente ativo</option>
+                            <option value="1.375" selected>Atividade Leve (1x/semana)</option>
+                            <option value="1.55">Atividade Moderada (3x/semana)</option>
+                            <option value="1.725">Muito Ativo (5x/semana)</option>
+                            <option value="1.9">Extremamente Ativo (7x/semana)</option>
                         </select>
                         {% elif activity == '1.55' %}
                         <select class="form-select" aria-label="Nível de atividade" id="activity-level">
                             <option>Nível de Atividade</option>
                             <option value="1.2">Sedentário</option>
-                            <option value="1.375">Atividade Leve</option>
-                            <option value="1.55" selected>Atividade Moderada</option>
-                            <option value="1.725">Muito Ativo</option>
-                            <option value="1.9">Extremamente ativo</option>
+                            <option value="1.375">Atividade Leve (1x/semana)</option>
+                            <option value="1.55" selected>Atividade Moderada (3x/semana)</option>
+                            <option value="1.725">Muito Ativo (5x/semana)</option>
+                            <option value="1.9">Extremamente Ativo (7x/semana)</option>
                         </select>
                         {% elif activity == '1.725' %}
                         <select class="form-select" aria-label="Nível de atividade" id="activity-level">
                             <option>Nível de Atividade</option>
                             <option value="1.2">Sedentário</option>
-                            <option value="1.375">Atividade Leve</option>
-                            <option value="1.55">Atividade Moderada</option>
-                            <option value="1.725" selected>Muito Ativo</option>
-                            <option value="1.9">Extremamente ativo</option>
+                            <option value="1.375">Atividade Leve (1x/semana)</option>
+                            <option value="1.55">Atividade Moderada (3x/semana)</option>
+                            <option value="1.725" selected>Muito Ativo (5x/semana)</option>
+                            <option value="1.9">Extremamente Ativo (7x/semana)</option>
                         </select>
                         {% elif activity == '1.9' %}
                         <select class="form-select" aria-label="Nível de atividade" id="activity-level">
                             <option>Nível de Atividade</option>
                             <option value="1.2">Sedentário</option>
-                            <option value="1.375">Atividade Leve</option>
-                            <option value="1.55">Atividade Moderada</option>
-                            <option value="1.725">Muito Ativo</option>
-                            <option value="1.9" selected>Extremamente ativo</option>
+                            <option value="1.375">Atividade Leve (1x/semana)</option>
+                            <option value="1.55">Atividade Moderada (3x/semana)</option>
+                            <option value="1.725">Muito Ativo (5x/semana)</option>
+                            <option value="1.9" selected>Extremamente Ativo (7x/semana)</option>
                         </select>
                         {% else %}
                         <select class="form-select" aria-label="Nível de atividade" id="activity-level">
                             <option selected>Nível de Atividade</option>
                             <option value="1.2">Sedentário</option>
-                            <option value="1.375">Atividade Leve</option>
-                            <option value="1.55">Atividade Moderada</option>
-                            <option value="1.725">Muito Ativo</option>
-                            <option value="1.9">Extremamente ativo</option>
+                            <option value="1.375">Atividade Leve (1x/semana)</option>
+                            <option value="1.55">Atividade Moderada (3x/semana)</option>
+                            <option value="1.725">Muito Ativo (5x/semana)</option>
+                            <option value="1.9">Extremamente Ativo (7x/semana)</option>
                         </select>
                         {% endif %}
                     </div>
@@ -186,7 +186,7 @@
                 <div class="personal-results">
                     <div class="personal-bmi">
                         <div class="statistic">
-                            <p>BMI:</p>
+                            <p>BMI</p>
                             <div class="stats-value">
                                 <input class="stats-input" disabled value="#" id="bmi-input">
                             </div>
@@ -208,7 +208,7 @@
                     </div>
                     <div class="personal-macros">
                         <div class="statistic">
-                            <p>Macros:</p>
+                            <p>Macros</p>
                             <div class="stats-value" style="height: auto;">
                                 <div class="macro-category" style="grid-column: 3;">
                                     <p>Proteínas:</p>
@@ -243,27 +243,27 @@
                     </div>
                     <hr>
                     <form action="/profile" method="POST">
-                        <h2 class="fw-bold mb-2 text-uppercase">Change Password</h2>
-                        <p class="alpha-60 mb-5">Please enter your old password and new password!</p>
+                        <h2 class="fw-bold mb-2 text-uppercase">Mudar Password</h2>
+                        <p class="alpha-60 mb-5">Por favor insira a sua password atual e a sua password nova!</p>
                         <div class="form-outline form-white mb-4 position-relative">
                             <input type="password" id="old-password" name="old-password" class="form-control form-control-lg" placeholder=" ">
-                            <label class="form-label position-absolute top-0" for="old-password">Old Password</label>
+                            <label class="form-label position-absolute top-0" for="old-password">Password Atual</label>
                             <span id="old-password-error"></span>
                         </div>
                         <div class="form-outline form-white mb-4 position-relative">
                             <input type="password" id="new-password" name="new-password" class="form-control form-control-lg" placeholder=" ">
-                            <label class="form-label position-absolute top-0" for="new-password">New Password</label>
+                            <label class="form-label position-absolute top-0" for="new-password">Password Nova</label>
                             <span id="new-password-error"></span>
                         </div>
                         <div class="form-outline form-white mb-4 position-relative">
                             <input type="password" id="confirm-password" name="confirm-password" class="form-control form-control-lg" placeholder=" ">
-                            <label class="form-label position-absolute top-0" for="confirm-password">Confirm Password</label>
+                            <label class="form-label position-absolute top-0" for="confirm-password">Confirmar Password</label>
                             <span id="confirm-password-error"></span>
                         </div>
                         <ul>
-                            <li class="alpha-60">Minimum 8 characters</li>
+                            <li class="alpha-60">Mínimo de 8 caracteres</li>
                         </ul>
-                        <div class="text-center"><button class="change-password-btn" type="button" id="change-password">Change Password</button></div>
+                        <div class="text-center"><button class="change-password-btn" type="button" id="change-password">Mudar Password</button></div>
                     </form>
                 </div>
             </div>
@@ -287,20 +287,20 @@
                 {% endif %}
             </div>
             <li class="nav-item">
-                <a class="nav-link active" data-target="profile-stats" aria-current="page" href="#">Stats</a>
+                <a class="nav-link active" data-target="profile-stats" aria-current="page" href="#">Estatísticas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-target="profile-plans" href="#">Saved Plans</a>
+                <a class="nav-link" data-target="profile-plans" href="#">Planos Guardados</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="settings" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false">Settings</a>
+                    aria-expanded="false">Definições</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" data-target="profile-password" href="#">Password</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" data-target="profile-account" href="#">Account</a></li>
+                    <li><a class="dropdown-item" data-target="profile-account" href="#">Conta Pessoal</a></li>
                 </ul>
             </li>
         </div>

@@ -17,7 +17,31 @@ p{
     flex-direction: column;
     justify-content: space-between;
 }
-
+.pacote-items-div{
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.pacote-button{
+    position: relative;
+    bottom: 15px;
+    left: 112.435px;
+    text-align: middle;
+    background-color: #0a192f;
+    color: #f2f2f2;
+    border: none;
+    padding: 0.7rem 1.7rem;
+}
+.pacote-button:hover{
+    color: #00a86b;
+    background-color: #0a192f;
+}
+.pacote-conteudo{
+    flex: 1;
+}
+.pacote-item{
+    max-width: 225px;
+}
 .services-container{
     margin-top: 200px;
     display: flex;
@@ -30,6 +54,8 @@ p{
     max-width: 24%;
     background-color: #f2f2f2;
     color: #0a192f;
+    display: flex;
+    flex-direction: column;
 }
 .service div{
     font-size: 18px;
