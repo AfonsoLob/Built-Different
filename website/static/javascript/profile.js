@@ -65,7 +65,6 @@ let macro_event = () => {
         // If objetivo == 'Maintain' the result remains unchanged
 
         bmr = bmr.toFixed(0);
-        console.log(bmr)
         document.getElementById('macrosP-input').value = proteinas + "g"; // Proteinas
         document.getElementById('macrosH-input').value = hidratos + "g"; // Hidratos
         document.getElementById('macrosG-input').value = gorduras + "g"; // Gorduras

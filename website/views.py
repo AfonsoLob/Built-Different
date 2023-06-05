@@ -18,7 +18,7 @@ def home():
 @views.route('/profile', methods=['GET', 'POST'])
 def user_profile():
     if request.method == 'POST':
-        print(request.form)
+        # print(request.form)
         email = request.form['email']
         if(request.form['op'] == '0'):
             age = request.form['idade']
@@ -46,7 +46,7 @@ def user_profile():
                 return data
             
         stats = get_stats(email)
-        print("success")
+        # print("success")
         return "done"
     else:
         if('user' in session):

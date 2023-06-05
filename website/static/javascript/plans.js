@@ -102,9 +102,6 @@ function postPlan() {
         }
     });
     if(valid_treino && valid_number_of_sets && valid_exercises){
-        console.log("POST");
-        console.log(exercises_list)
-        console.log(descansos_list)
         $.ajax({
             type: "POST",
             url: "/plans",
