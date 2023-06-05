@@ -240,7 +240,7 @@
                 <div class="settings">
                     <div class="settings-username">
                         <div class="form-outline form-white mb-4 position-relative">
-                            <input type="email" id="your-email" name="your-email" class="form-control form-control-lg" value="{{email}}" disabled placeholder=" ">
+                            <input type="email" id="email-input" name="your-email" class="form-control form-control-lg" value="{{email}}" disabled placeholder=" ">
                             <label class="form-label position-absolute top-0" for="your-email">O teu email</label>
                         </div> 
                     </div>
@@ -270,13 +270,6 @@
                     </form>
                 </div>
             </div>
-            <div class="content" id="profile-account">
-                <h1>Account Settings</h1>
-                <div class="inner-box">
-                    <input id="email-input" value="{{email}}">
-                    <div>Settings 2</div>
-                </div>
-            </div>
         </div>
         <div class="profile-tabs">
             <div class="profile-image">
@@ -299,11 +292,7 @@
                 <a class="nav-link dropdown-toggle" id="settings" data-bs-toggle="dropdown" href="#" role="button"
                     aria-expanded="false">Definições</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" data-target="profile-password" href="#">Password</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" data-target="profile-account" href="#">Conta Pessoal</a></li>
+                    <li><a class="dropdown-item" data-target="profile-password" href="#">Conta Pessoal</a></li>
                 </ul>
             </li>
         </div>
