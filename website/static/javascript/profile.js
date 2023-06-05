@@ -262,10 +262,10 @@ button_mudarPass.addEventListener('click', ()=> {
             success: function (request) {
                 console.log(request);
                 if(request.status === 404) {
-                    alert('Password atual incorreta');
+                    old_password.style.borderColor = 'red';
                 }
                 else if(request.status === 200){
-                    alert('Passsword alterada com sucesso');
+                    alert('Sucesso');
                 }
             }
         });
