@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">
+{% endblock %}
+{% block body %}
+<div class="top-container text-center">
+    <img class="img-fluid" src="{{url_for('static', filename='images/analise_sistemas.png')}}">
+</div>
+<div class="main-container container">
+    <div class="sub-container-equipa">
+        <h1 style="text-align: center;">Equipa</h1>
+        <hr>
+        <div class="equipa">
+            <div class="pessoa">
+                <img class="pessoa-image" src="{{url_for('static', filename='images/afonso.jpeg')}}">
+                <hr>
+                <p>
+                    Nome: Afonso Baixo
+                    <br>
+                    Email: afonso.baixo@ua.pt
+                </p>
+            </div>
+            <div class="pessoa">
+                <img class="pessoa-image" src="{{url_for('static', filename='images/ronnie_coleman.png')}}">
+                <hr>
+                <p>
+                    Nome: Ronnie Coleman
+                    <br>
+                    Email: ronnie@builtdiff.com
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr> 
+    <div class="slide-content">
+        <div class="slide-question">
+            <h1 class="question">Nós oferemos aos nossos utilizadores</h1>
+        </div>
+        <div class="slide-info">
+            <p class="info">
+                Uma maneira inovadora de gerir a sua atividade física 
+                através da gestão do BMI e dos Macros. Oferecemos também o acesso 
+                à comunicação com Personal Trainers e Nutricionistas de modo a promover 
+                a facilidade de desenvolvimento e alcance ao seu objetivo.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

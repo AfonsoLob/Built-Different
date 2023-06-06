@@ -1,0 +1,44 @@
+
+/* Equipa */
+.sub-container-equipa{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+.equipa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+.pessoa{
+    display: flex;
+    flex-direction: column;
+}
+.pessoa-image{
+    border-radius: 30%;
+    height: 250px;
+    width: auto;
+}
+
+
+
+.slide-content{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.slide-question{
+    width: 500px;
+    color: #00a86b;
+    text-shadow: 2px 2px hsl(158, 100%, 53%);
+}
+.question{
+    font-size: 3rem;
+}
+.slide-info{
+    width: 500px;
+}
+.info{
+    font-size: 1.5rem;
+}

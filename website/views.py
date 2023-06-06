@@ -114,3 +114,10 @@ def classes():
         return render_template('classes.html')
     else:
         return redirect( url_for('auth.login'))
+    
+@views.route('/about', methods=['GET'])
+def about_us():
+    if('user' in session):
+        return render_template('about.html')
+    else:
+        return redirect( url_for('auth.login') )
