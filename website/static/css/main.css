@@ -100,7 +100,7 @@ p{
 .plans-image{
     flex-shrink: 0;
     align-self: center;
-    max-width: 30%;
+    max-width: 40%;
 }
 .plans-image img{
     border-radius: 10%;
@@ -109,6 +109,7 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-width: 60%;
 } 
 
 
@@ -147,5 +148,8 @@ p{
     }
     .plans-image, .right-dc{
         display: none;
+    }
+    .plans-info{
+        max-width: 100%;
     }
 }
