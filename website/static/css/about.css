@@ -20,7 +20,10 @@
     height: 250px;
     width: auto;
 }
-
+.slide-question h1{
+    color: hsl(158, 100%, 38%);
+    text-shadow: 2px 2px hsl(158, 100%, 33%, 50%);
+}
 
 
 .slide-content{
