@@ -99,8 +99,9 @@ $(document).ready(function() {
               <form method="post" action="/team" class="chatForm" onsubmit="initializeSocketIO()">
                 <button type="submit" class="chatButton" style="width:100%;" value="${conversation}">
                   <span>
-                    <strong style="color: #00A86B;">${name}</strong> - ${type}
+                    <strong style="color: #00A86B;">${name}</strong>
                   </span>
+                  <span>${type}</span>
                 </button>
                 <hr>
               </form>`;
