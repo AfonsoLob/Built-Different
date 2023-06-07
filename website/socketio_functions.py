@@ -36,7 +36,7 @@ def chat():
 def conversations():
     if request.method == "POST":
         conversations = get_all_conversations()
-        return jsonify({'conversations': conversations, 'names': emails_names_conversion(conversations)})
+        return jsonify({'conversations': conversations["users"], 'names': emails_names_conversion(conversations["users"]), 'types': conversations["types"]})
 
 def connect(auth):
     room = session.get('room')
@@ -50,6 +50,8 @@ def connect(auth):
 
 def message(data):
     room = session.get('room')
+    if "<" in data["data"] or ">" in data["data"]:
+        return
     if not conversation_exists(room):
         return
     content = {
@@ -94,12 +96,13 @@ def is_any_user_in_room(room):
 def get_all_conversations():
     email = session.get("user")["email"]
     conversations_id = get_chat_id(email)
-    conversations = []
+    conversations = {"users": [], "types": []}
     for conversation_id in conversations_id:
         users_involved = get_users(conversation_id[0])
         for user in users_involved:
             if user[0] != email:
-                conversations.append(user[0])
+                conversations["users"].append(user[0])
+                conversations["types"].append(get_type(user[0]))
     return conversations
 
 def emails_names_conversion(conversations):

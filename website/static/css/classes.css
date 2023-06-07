@@ -50,3 +50,9 @@ p {
     margin-top: 30px;
     margin-bottom: 20px;
 }
+
+.playButton {
+    bottom: 15px;
+    margin-top: 15px;
+    position: relative;
+}
