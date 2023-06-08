@@ -117,28 +117,27 @@ p{
     text-align: center;
     font-weight: bold;
 }
-.plans-container{
+.main-service-container{
     padding-top: 50px;
     display: flex;
     gap: 100px;
     align-items: flex-start;
     justify-content: center;
 }
-.plans-image{
+.main-service-image{
     flex-shrink: 0;
     align-self: center;
-    max-width: 40%;
+    max-width: 46%;
 }
-.plans-image img{
+.main-service-image img{
     border-radius: 10%;
 }
-.plans-info{
+.main-service-info{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     max-width: 60%;
 } 
-
 
 
 
@@ -173,10 +172,10 @@ p{
     .left-dc{
         width: 100%;
     }
-    .plans-image, .right-dc{
+    .main-service-image, .right-dc{
         display: none;
     }
-    .plans-info{
+    .main-service-info{
         max-width: 100%;
     }
 }

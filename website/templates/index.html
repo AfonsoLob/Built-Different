@@ -164,13 +164,13 @@
     <h6 class="feedback-owner">Vasco Gomes (Estudante) 19 Anos</h6>
   </div>
 </div>
-<div class="container plans-container">
-  <div class="plans-image">
+<div class="container main-service-container">
+  <div class="main-service-image">
     <img class="img-fluid" src="{{url_for('static', filename='images/fitness_coach.jpg')}}" alt="men lifting dumbbells">
   </div>
-  <div class="plans-info">
+  <div class="main-service-info">
     <h1 class="h-division">Planos de Treino</h1>
-    <div class="plans-description">
+    <div class="main-service-description">
       Os Planos de Treino disponibilizados no nosso website foram elaborados exclusivamente pelos nossos personal
       trainers, os quais possuem ampla experiência e formação na área de educação física e saúde.
       Temos o compromisso de oferecer aos nossos clientes conteúdo de qualidade e confiança, por isso, todas as
@@ -178,6 +178,21 @@
       profissionais especializados.
     </div>
     <button style="margin-top: 20px;" onclick="location.href='/plans'">Ver Planos</button>
+  </div>
+</div>
+<div class="container main-service-container">
+  <div class="main-service-info even-info">
+    <h1 class="h-division">Aulas Online</h1>
+    <div class="main-service-description">
+      Os nossos serviços de Aulas Online oferecem uma seleção diversificada de aulas ministradas 
+      pelos nossos instrutores especializados na área de fitness. Todas as aulas disponíveis 
+      no nosso website foram cuidadosamente elaboradas e organizadas por profissionais qualificados, garantindo 
+      assim que cada sessão seja enriquecedora e adaptada às necessidades dos nossos participante
+    </div>
+    <button style="margin-top: 20px;" onclick="location.href='/classes'">Ver Aulas</button>
+  </div>
+  <div class="main-service-image even-image">
+    <img class="img-fluid" src="{{url_for('static', filename='images/home-class.jpg')}}" alt="men lifting dumbbells">
   </div>
 </div>
 <!-- Custom JS -->
