@@ -17,6 +17,13 @@
   color: #FFA500
 }
 
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 /*
 Main and Containers
 */

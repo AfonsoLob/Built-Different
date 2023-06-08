@@ -357,6 +357,14 @@
   </div>
   {% endif %}
   <!-- Iteração dos Planos na Database -->
+  {% if plans|length == 0 %}
+  <div class="no-plans" style="
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    padding: 5rem;
+  ">Não existem planos de treino disponíveis</div>
+  {% endif %}
   {% for plan in plans|reverse %}
   <div class="plano-treino container">
     <div class="plano-description">

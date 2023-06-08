@@ -120,6 +120,9 @@ function postPlan() {
                 "exercises": JSON.stringify(exercises_list),
                 "descansos": JSON.stringify(descansos_list),
             },
+            success: function(response){
+                window.location.reload();
+            },
             error: function(request) {
                 if (request.status === 404) {
                     alert("Não foi possível postar o plano.")
@@ -143,11 +146,14 @@ function savePlan() {
                 'planId': planId,
             },
             success: function (response) {
-                
+                if(response.status === 200)
+                    alert("Plano guardado!")
+                else if(response.status === 400)
+                    alert("Voçẽ já possui este plano.")
             }
         });
     }
     else{
-        alert('Não foi possível guardar este plano')
+        alert('Não foi possível guardar este plano.')
     }
 }

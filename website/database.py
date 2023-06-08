@@ -252,6 +252,7 @@ def add_plan(category, owner, type, difficulty, number_of_sets, set_reps, exerci
         ;""")
 
 def save_plan(email, planId):
+    response = {'status': 200}
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
         cur.execute(f"""
@@ -263,6 +264,8 @@ def save_plan(email, planId):
             plans = json.loads(plans)
             if(planId not in plans):
                 plans.append(planId)
+            else:
+                response = {'status': 400}
         else:
             plans = []
             plans.append(planId)
@@ -272,6 +275,8 @@ def save_plan(email, planId):
         SET plansId = '{json.dumps(plans)}'
         WHERE email = '{email}';
         """)
+        
+        return response
 
 def get_saved_plans(email):
     list_of_plans = []

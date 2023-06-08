@@ -76,8 +76,8 @@ def view_plans():
         elif(request.form['op'] == '1'):
             email = session['user']['email']
             planId = request.form['planId']
-            save_plan(email, planId)
-            
+            response = save_plan(email, planId)
+            return response
     
         return "done"
     else:
