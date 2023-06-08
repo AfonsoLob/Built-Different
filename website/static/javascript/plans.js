@@ -10,6 +10,11 @@ if(inputTreino){
     button_post.addEventListener('click', postPlan);
 }
 
+let array_savePlans = Array.from(document.getElementsByClassName('guardar-plano'));
+array_savePlans.forEach(savePlan_btn => {
+    savePlan_btn.addEventListener('click', savePlan)
+});
+
 
 
 // Functions
@@ -106,6 +111,7 @@ function postPlan() {
             type: "POST",
             url: "/plans",
             data: {
+                "op": '0',
                 "treino": treino,
                 "tipo": tipo,
                 "dificuldade": dificuldade,
@@ -123,5 +129,25 @@ function postPlan() {
     }
     else{
         console.log("NO POST")
+    }
+}
+
+function savePlan() {
+    const planId = this.id;
+    if(Number.isInteger(parseInt(planId))){
+        $.ajax({
+            type: "POST",
+            url: "/plans",
+            data: {
+                'op': 1,
+                'planId': planId,
+            },
+            success: function (response) {
+                
+            }
+        });
+    }
+    else{
+        alert('Não foi possível guardar este plano')
     }
 }

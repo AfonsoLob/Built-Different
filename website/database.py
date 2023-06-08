@@ -1,6 +1,7 @@
 import sqlite3
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
+import json
 
 DB_STRING = "database.db"
 
@@ -13,7 +14,8 @@ def setup_database():
         email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL,
         username TEXT NOT NULL,
-        type TEXT
+        type TEXT,
+        plansId TEXT
     );"""
     user_stats = """ CREATE TABLE IF NOT EXISTS user_stats (
         email TEXT NOT NULL,
@@ -248,3 +250,52 @@ def add_plan(category, owner, type, difficulty, number_of_sets, set_reps, exerci
         INSERT INTO plans (category, owner, type, difficulty, number_of_sets, sets_reps, exercises, descansos)
         VALUES ('{category}','{owner}','{type}','{difficulty}','{number_of_sets}','{set_reps}','{exercises}','{descansos}')
         ;""")
+
+def save_plan(email, planId):
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT plansId FROM users
+        WHERE email = '{email}';            
+        """)
+        plans = cur.fetchall()[0][0]
+        if(plans != None and plans != 'null'):
+            plans = json.loads(plans)
+            if(planId not in plans):
+                plans.append(planId)
+        else:
+            plans = []
+            plans.append(planId)
+
+        cur.execute(f"""
+        UPDATE users
+        SET plansId = '{json.dumps(plans)}'
+        WHERE email = '{email}';
+        """)
+
+def get_saved_plans(email):
+    list_of_plans = []
+    with sqlite3.connect(db_path) as con:
+        cur = con.cursor()
+        cur.execute(f"""
+        SELECT plansId FROM users
+        WHERE email = '{email}';
+        """)
+        plans = cur.fetchall()[0][0]
+        if(plans != None and plans != 'null'):
+            plans = json.loads(plans)
+            for planId in plans:
+                cur.execute(f"""
+                SELECT * FROM plans
+                WHERE id = '{planId}';            
+                """)
+                plan = cur.fetchall()[0]
+                list_of_plans.append(plan)
+
+            for i in range(len(list_of_plans)):
+                list_of_plans[i] = list(list_of_plans[i])
+                list_of_plans[i][6] = json.loads(list_of_plans[i][6]) # Turn ListString to List
+                list_of_plans[i][7] = json.loads(list_of_plans[i][7])
+                list_of_plans[i][8] = json.loads(list_of_plans[i][8])                
+
+    return list_of_plans

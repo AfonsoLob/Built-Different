@@ -1,7 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from .auth import session
-from .database import verify_user_stats, create_user_stats, get_stats, update_stats, update_gender, update_objective, update_activity, get_type
-from .database import add_plan, get_plans, get_user_password, update_password
+from .database import *
 from werkzeug.security import generate_password_hash, check_password_hash
 import json
 
@@ -55,7 +54,7 @@ def user_profile():
             if (verify_user_stats(email) == False): create_user_stats(email)
             stats = get_stats(email)
             return render_template('profile.html', username=username, email=email, age=stats['age'], height=stats['height'], weight=stats['weight'],
-                                    gender=stats['gender'], objective=stats['objective'], activity=stats['activity'], type=get_type(email))
+                                    gender=stats['gender'], objective=stats['objective'], activity=stats['activity'], type=get_type(email), plans=get_saved_plans(email))
         else:
             return redirect( url_for('auth.login') )
 
@@ -63,16 +62,22 @@ def user_profile():
 def view_plans():
     if request.method == 'POST':
         username = session['user']['username']
-        treino = request.form['treino']
-        tipo   = request.form['tipo']
-        dificuldade = request.form['dificuldade']
-        num_of_sets = request.form['number_of_sets']
-        set_reps = request.form['sets_reps']
-        exercises = request.form['exercises']
-        descansos = request.form['descansos']
+        if(request.form['op'] == '0'):
+            treino = request.form['treino']
+            tipo   = request.form['tipo']
+            dificuldade = request.form['dificuldade']
+            num_of_sets = request.form['number_of_sets']
+            set_reps = request.form['sets_reps']
+            exercises = request.form['exercises']
+            descansos = request.form['descansos']
 
-        add_plan(treino, username, tipo, dificuldade, num_of_sets, 
-                 set_reps, exercises, descansos) # json.dumps() não é usado pois a lista já é recebida em formato String
+            add_plan(treino, username, tipo, dificuldade, num_of_sets, 
+                    set_reps, exercises, descansos) # json.dumps() não é usado pois a lista já é recebida em formato String
+        elif(request.form['op'] == '1'):
+            email = session['user']['email']
+            planId = request.form['planId']
+            save_plan(email, planId)
+            
     
         return "done"
     else:
@@ -91,7 +96,8 @@ def view_plans():
             return render_template('plans.html', type=get_type(email), plans=plans)
         else:
             return redirect( url_for('auth.login') )
-    
+
+# Teams 
 @views.route('/personal_trainers', methods=['GET'])
 def personal_trainers():
     if('user' in session):
