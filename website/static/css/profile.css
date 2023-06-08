@@ -198,39 +198,48 @@
 /* Plans Box */
 #profile-plans{
     width: 100%;
-    max-height: 910px;
-    overflow-y: scroll;
+    min-height: 910px;
+    padding-bottom: 3rem;
+    overflow-y: auto;
+}
+#profile-plans h1{
+    text-align: center;
+    padding-top: 3rem;
 }
 .modal-content{
     color: black;
 }
 .planos-container{
     padding-top: 80px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
     align-items: center;
     gap: 50px;
 }
 .plano-treino{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 930px;
-    height: 170px;
-    border: 1px solid #f2f2f2;
-    border-radius: 20px;
-    padding: 20px 30px;
-}
-.plano-description{
+    grid-column: auto / span 4;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-}
-.plano-info{
+    align-items: center;
+    width: 300px;
+    max-width: 100%;
+    height: 250px;
+    padding: 20px;
+    border: 1px solid #f2f2f2;
+    border-radius: 20px;
+  }
+  .plano-description{
     display: flex;
-    gap: 30px;
-}
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+  .plano-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
 .sets-information{
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -351,6 +360,9 @@ ul.dropdown-menu{
         color: initial !important;
         box-shadow: #00A86B 0px 0px 10px 2px;
     }
+    .plano-treino{
+        grid-column: auto/span 6;
+    }
 }
 @media (max-width: 1000px){
     .profile, .profile-box, .content, .personal-stats, .personal-results{
@@ -376,7 +388,10 @@ ul.dropdown-menu{
         gap: 50px;
     }
 }
-@media (max-width: 480px){
+@media (max-width: 696px){
+    .plano-treino{
+        grid-column: auto/ span 12;
+    }
     .profile-tabs{
         flex-direction: column;
     }
