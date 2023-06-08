@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">
 {% endblock %}
 {% block body %}
-<div class="top-container text-center">
+<div class="top-container text-center" style="display: flex; flex-direction: column;">
     <img class="img-fluid" src="{{url_for('static', filename='images/analise_sistemas.png')}}">
+    <span style="text-align: center; margin-top: 1rem;">Website desenvolvido no âmbito do projeto de Análise de Sistemas - Universidade de Aveiro</span>
 </div>
 <div class="main-container container">
     <div class="sub-container-equipa">
