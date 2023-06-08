@@ -389,8 +389,11 @@ ul.dropdown-menu{
     }
 }
 @media (max-width: 696px){
-    .plano-treino{
-        grid-column: auto/ span 12;
+    .planos-container{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
     }
     .profile-tabs{
         flex-direction: column;
