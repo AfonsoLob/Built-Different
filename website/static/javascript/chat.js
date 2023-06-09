@@ -17,6 +17,7 @@ $(document).ready(function() {
     });
 
     backBtn.on('click', function() {
+        $('#conversas').text("");
         chatBox.css('display', 'none');
         allChat.css('display', 'block');
     });
