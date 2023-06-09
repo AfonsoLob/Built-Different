@@ -35,8 +35,8 @@ def get_messages(conversation_id):
     
 def add_message(conversation_id, sender, message):
     with sqlite3.connect(db_path) as con:
-        con.execute(f"""
+        con.execute("""
         INSERT INTO messages (conversationID, sender, message)
-        VALUES ('{conversation_id}','{sender}','{message}');
-        """)
+        VALUES (?, ?, ?);
+        """, (conversation_id, sender, message))
 

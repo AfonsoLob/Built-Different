@@ -26,25 +26,25 @@ def setup_database():
         objective TEXT,
         activity TEXT
     );"""
-    add_worker1 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
-        VALUES ('personal1@ua.pt','{generate_password_hash('personalTrainer')}','Nuno Oliveira', '0');
+    add_worker1 = """INSERT OR IGNORE INTO users (email, password, username, type)
+        VALUES (?, ?, ?, '0');
         """
-    add_worker2 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
-        VALUES ('personal2@ua.pt','{generate_password_hash('personalTrainer')}','Ramon Dino', '0');
+    add_worker2 = """INSERT OR IGNORE INTO users (email, password, username, type)
+        VALUES (?, ?, ?, '0');
         """
-    add_worker3 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
-        VALUES ('personal3@ua.pt','{generate_password_hash('personalTrainer')}','Ronnie Coleman', '0');
+    add_worker3 = """INSERT OR IGNORE INTO users (email, password, username, type)
+        VALUES (?, ?, ?, '0');
         """
-    add_worker4 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
-        VALUES ('nutricionista1@ua.pt','{generate_password_hash('nutricionista')}','Nutricionista 1', '1');
+    add_worker4 = """INSERT OR IGNORE INTO users (email, password, username, type)
+        VALUES (?, ?, ?, '1');
         """
-    add_worker5 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
-        VALUES ('nutricionista2@ua.pt','{generate_password_hash('nutricionista')}','Nutricionista 2', '1');
+    add_worker5 = """INSERT OR IGNORE INTO users (email, password, username, type)
+        VALUES (?, ?, ?, '1');
         """
-    add_worker6 = f""" INSERT OR IGNORE INTO users (email, password, username,type)
-        VALUES ('nutricionista3@ua.pt','{generate_password_hash('nutricionista')}','Nutricionista 3', '1');
+    add_worker6 = """INSERT OR IGNORE INTO users (email, password, username, type)
+        VALUES (?, ?, ?, '1');
         """
-    plans_table = """ CREATE TABLE IF NOT EXISTS plans (
+    plans_table = """CREATE TABLE IF NOT EXISTS plans (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         category TEXT NOT NULL,
         owner TEXT NOT NULL,
@@ -55,6 +55,7 @@ def setup_database():
         exercises TEXT NOT NULL,
         descansos TEXT NOT NULL
     );"""
+
     # trainings_table = """ CREATE TABLE IF NOT EXISTS trainings (
     #     id INTEGER PRIMARY KEY AUTOINCREMENT,
     #     training_name TEXT NOT NULL UNIQUE,
@@ -71,12 +72,13 @@ def setup_database():
         con.execute(user_table)
         con.execute(user_stats)
         con.execute(plans_table)
-        con.execute(add_worker1)
-        con.execute(add_worker2)
-        con.execute(add_worker3)
-        con.execute(add_worker4)
-        con.execute(add_worker5)
-        con.execute(add_worker6)
+
+        con.execute(add_worker1, ('personal1@ua.pt', generate_password_hash('personalTrainer'), 'Nuno Oliveira'))
+        con.execute(add_worker2, ('personal2@ua.pt', generate_password_hash('personalTrainer'), 'Ramon Dino'))
+        con.execute(add_worker3, ('personal3@ua.pt', generate_password_hash('personalTrainer'), 'Ronnie Coleman'))
+        con.execute(add_worker4, ('nutricionista1@ua.pt', generate_password_hash('nutricionista'), 'Nutricionista 1'))
+        con.execute(add_worker5, ('nutricionista2@ua.pt', generate_password_hash('nutricionista'), 'Nutricionista 2'))
+        con.execute(add_worker6, ('nutricionista3@ua.pt', generate_password_hash('nutricionista'), 'Nutricionista 3'))
 
 
 def cleanup_database():
@@ -104,47 +106,47 @@ def verify_user(user_email):
 def get_user_password(email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
-        cur.execute(f"""
+        cur.execute("""
         SELECT password FROM users
-        WHERE email = '{email}';
-        """)
+        WHERE email = ?;
+        """, (email,))
         user_password = cur.fetchall()[0]        
         return user_password[0]
     
 def update_password(email, new_password):
     with sqlite3.connect(db_path) as con:
-        con.execute(f"""
+        con.execute("""
         UPDATE users
-        SET password = '{generate_password_hash(new_password)}'
-        WHERE email = '{email}';
-        """)
+        SET password = ?
+        WHERE email = ?;
+        """, (generate_password_hash(new_password), email))
     
 def get_username(email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
-        cur.execute(f"""
+        cur.execute("""
         SELECT username FROM users
-        WHERE email = '{email}';
-        """)
+        WHERE email = ?;
+        """, (email,))
         username = cur.fetchall()[0]
         return username[0]
     
 def get_id(email):
     with sqlite3.connect(db_path) as con:
         cur = con.cursor()
-        cur.execute(f"""
+        cur.execute("""
         SELECT id FROM users
-        WHERE email = '{email}';
-        """)
+        WHERE email = ?;
+        """, (email,))
         id = cur.fetchall()[0]
         return id[0]
     
 def add_user(email, password, username):
     with sqlite3.connect(db_path) as con:
-        con.execute(f"""
+        con.execute("""
         INSERT INTO users (email, password, username)
-        VALUES ('{email}','{generate_password_hash(password)}','{username}');
-        """)
+        VALUES (?, ?, ?);
+        """, (email, generate_password_hash(password), username))
 
 def verify_user_stats(user_email):
     with sqlite3.connect(db_path) as con:
