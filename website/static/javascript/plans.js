@@ -149,7 +149,7 @@ function savePlan() {
                 if(response.status === 200)
                     alert("Plano guardado!")
                 else if(response.status === 400)
-                    alert("Voçẽ já possui este plano.")
+                    alert("Voçê já possui este plano.")
             }
         });
     }
