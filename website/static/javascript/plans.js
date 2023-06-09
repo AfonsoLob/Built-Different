@@ -1,10 +1,10 @@
 let inputTreino = document.getElementById('inputSelectTreino');
 let inputSets, button_post;
 if(inputTreino){
-    inputTreino.addEventListener('click', inputTreinoEvent);
+    inputTreino.addEventListener('change', inputTreinoEvent);
 
     inputSets = document.getElementById('inputSelectSets');
-    inputSets.addEventListener('click', inputSetsEvent);
+    inputSets.addEventListener('change', inputSetsEvent);
 
     button_post = document.getElementById('post-plan');
     button_post.addEventListener('click', postPlan);
