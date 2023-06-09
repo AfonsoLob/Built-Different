@@ -76,9 +76,9 @@ def setup_database():
         con.execute(add_worker1, ('personal1@ua.pt', generate_password_hash('personalTrainer'), 'Nuno Oliveira'))
         con.execute(add_worker2, ('personal2@ua.pt', generate_password_hash('personalTrainer'), 'Ramon Dino'))
         con.execute(add_worker3, ('personal3@ua.pt', generate_password_hash('personalTrainer'), 'Ronnie Coleman'))
-        con.execute(add_worker4, ('nutricionista1@ua.pt', generate_password_hash('nutricionista'), 'Nutricionista 1'))
-        con.execute(add_worker5, ('nutricionista2@ua.pt', generate_password_hash('nutricionista'), 'Nutricionista 2'))
-        con.execute(add_worker6, ('nutricionista3@ua.pt', generate_password_hash('nutricionista'), 'Nutricionista 3'))
+        con.execute(add_worker4, ('nutricionista1@ua.pt', generate_password_hash('nutricionista'), 'Alice'))
+        con.execute(add_worker5, ('nutricionista2@ua.pt', generate_password_hash('nutricionista'), 'Vera'))
+        con.execute(add_worker6, ('nutricionista3@ua.pt', generate_password_hash('nutricionista'), 'Amélia'))
 
 
 def cleanup_database():
